@@ -1,0 +1,120 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle.grey-bg
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Ваш заказ
+
+            .cart-products
+              .cart-products__head
+                .col-1 №
+                .col-2
+                .col-3 Наименование товара
+                .col-4 Цвет
+                .col-5 Цена, руб.
+                .col-6 Количество, шт.
+                .col-7 Сумма, руб.
+                .col-8 
+                  span.delete-item
+              
+              //= template/product-cart.jade
+              //= template/product-cart.jade
+              //= template/product-cart.jade
+
+              .product.product--cart
+                .col-1 1
+                .col-2 
+                  .product__image        
+                    a(href="#!")
+                      img(src="images/product-image-1.jpg", alt="product-image")
+                  .label.label--cart
+                    .label__item Sale
+                    .label__item New
+
+                .product__cart-body
+                  .product__title 
+                    a(href="#!") Деревянная прикроватная тумба Milan с двумя полками
+                    span.delete-item.js-delete-cart-item
+                  .col-3
+                    .description
+                      
+                      .description__item
+                        .description__title Артикул товара:
+                        .description__value АF4252F1
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Milan
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Flamenco
+
+                  .col-4
+                    a(href="#!" data-toggle="popover").color-link
+                      img(src="images/color-white.jpg", alt="color")
+
+                    .popover-wrapper.color-popover
+                      span.color-popover__title Натуральная змеиная кожа
+                      span.color-popover__code Цвет А684с
+                      img(src="images/color-snake.jpg", alt="snake")
+                  .col-5
+                    .product__price.js-current-price 15 000 руб.
+                    .product__old-price 56 590 руб.
+                  .col-6
+                    .counter-panel
+                      span.plus +
+                      input(type='text', value='1' readonly="readonly")
+                      span.minus -
+                  .col-7
+                    .product__price.js-product-total 15 000 руб.
+
+              .cart-products__footer
+                .col-1
+                .col-2 
+                  a(href="#!") Очистить корзину
+                .col-3.font-size-16 Итого Ваш заказ:
+                .col-4
+                .col-5
+                .col-6.js-total-amount.text-center 12 шт.
+                .col-7
+                  .product__price.js-total-price 642 000 руб.
+
+        .calculation-order
+          .container
+            .page-title Заявка на расчет заказа
+            form.calculation-form
+              .row
+                .col-sm-3
+                  input(type="text" placeholder="Ваше имя *")
+                .col-sm-3
+                  input(type="text" placeholder="Ваш телефон *").js-mask-phone
+                .col-sm-3
+                  input(type="email" placeholder="Ваш email *")
+                .col-sm-3
+                  button(type="submit").btn.btn-white Рассчитать стоимость
+
+            .calculation-caption
+              div.text-1 Для расчета окончательной стоимости всех товаров Вам необходимо отправить заказ на расчет цены. 
+              div.text-2
+                Наш дежурный менеджер рассчитает полеую стоимость товаров и условия покупки. Вся иинформация будет отправлена Вам на почту.
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

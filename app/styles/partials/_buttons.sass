@@ -6,24 +6,42 @@
  ------------------------------------------------------------*/
 
 .btn
-  min-width: 250px
+  min-width: 150px
   position: relative
   display: inline-block
   vertical-align: middle
-  padding: 10px 20px
+  padding: 9px 20px 11px 20px
   margin: 0
-  font: 20px/20px $btn-font-family
+  font: 18px/18px $btn-font-family
   text-align: center
   text-decoration: none
   cursor: pointer
   outline: none
-  border: none
+  border-radius: 0px
+  border: 1px solid #222222
   background-color: $btn-bg-color
   color: $btn-color
-  border-radius: 10px
-  transition: all 0.2s ease
+  transition: color 0.3s ease
+  transform: perspective(1px) translateZ(0)
+  &:before
+    content: ""
+    position: absolute
+    z-index: -1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: $btn-h-bg-color
+    transform: scale(0)
+    transition-property: transform
+    transition-duration: 0.3s
+    transition-timing-function: ease-out
+  &:hover:before
+    transform: scaleY(1)
+  &:active:before
+    background: transparent
+
   &:hover
-    background-color: $btn-h-bg-color
     color: $btn-h-color
     text-decoration: none
   &:active
@@ -33,11 +51,36 @@
   &:focus
     outline: none
     color: $btn-color
+  &:focus:hover
+    color: $btn-h-color
+
+  &:hover .btn-icon-cart
+    +sprite($btn-icon-cart-hover)
 
 .btn-max
   width: 100%
 
+.btn-large
+  padding: 15px 30px
 
+.btn-white
+  background-color: #ffffff
+
+.btn-black
+  background-color: #222222
+  color: #ffffff
+  &:hover
+    color: #222222
+  &:before
+    background-color: #ffffff
+  &:hover:before
+    background-color: #ffffff
+
+.btn-icon-cart
+  display: inline-block
+  vertical-align: top
+  margin-right: 10px
+  +sprite($btn-icon-cart)
 
 /*----------- media style -----------*/
 
@@ -48,4 +91,4 @@
 
   .btn 
     min-width: 100px
-    padding: 5px 10px
+    padding: 7px 15px

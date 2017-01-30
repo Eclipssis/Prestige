@@ -5,18 +5,39 @@
 /*----------- Form sryle *
  ------------------------------------------------------------*/
 
+.placeholder 
+  color: #222222 
+
+*:focus::-moz-placeholder 
+  color: transparent !important 
+
+*[autofocus]::-moz-placeholder:focus 
+  color: #000!important 
+
+*:focus:-moz-placeholder 
+  color: transparent !important 
+
+*[autofocus]:-moz-placeholder:focus 
+  color: #000!important 
+
+*:focus::-webkit-input-placeholder 
+  color: transparent !important 
+
+*[autofocus]::-webkit-input-placeholder 
+  color: #000!important 
+
 input, textarea
-  +placeholder-color(#000)
+  +placeholder-color(#555555)
   +border-radius(0px)
-  padding: 0 20px
+  padding: 0 20px 0 0
   width: 100%
-  height: 50px
+  height: 40px
   position: relative
   outline: none
-  font: 14px $site-font-family
-  color: #000
-  background-color: #fff
-  border: 1px solid #e0e0e0
+  font: 14px/22px $site-font-family
+  color: #555555
+  border: none
+  border-bottom: 1px solid #484848
   -webkit-box-sizing: border-box
   -moz-box-sizing: border-box
   box-sizing: border-box
@@ -26,4 +47,58 @@ textarea
   padding: 15px 20px
   resize: none
 
+input[type="checkbox"]
+  display: none
+  + label
+    cursor: pointer
+  + label span
+    display: inline-block
+    width: 14px
+    height: 14px
+    vertical-align: middle
+    border: 1px solid #555555
+    cursor: pointer
+    position: relative
+    margin-right: 10px
 
+  &:checked + label span:before
+    content: ' '
+    display: block
+    margin: 1px
+    width: 10px
+    height: 10px
+    background-color: #555555
+
+.counter-panel
+  display: inline-block
+  user-select: none
+  input
+    border: none
+    background: none
+    display: inline-block
+    vertical-align: middle
+    width: 43px
+    height: auto
+    text-align: center
+    padding: 0
+    color: #222222
+    font-size: 16px
+    user-select: none
+    height: 25px
+  .minus, .plus
+    cursor: pointer
+    width: 25px
+    height: 25px
+    line-height: 22px
+    text-align: center
+    display: inline-block
+    vertical-align: middle
+    background-color: #f8f8f8
+    color: #222222
+    font-size: 16px
+    transition: all 0.2s ease
+    &:hover
+      color: #ffffff
+      background-color: #222222
+    &:active
+      background-color: #555555

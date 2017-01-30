@@ -1,0 +1,96 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Фотогалерея
+
+            .owl-carousel.gallery-carousel
+              .item
+                .global-item
+                  .global-item__zoom-image
+                    img(src="images/gallery-image-1.jpg", alt="catalog-menu" title="catalog-menu")
+                  .global-item__body
+                    a(href="#!").global-item__text Корпоратив компании в Нессельбеке (Декабрь 2016)
+              .item
+                .global-item
+                  .global-item__zoom-image
+                    img(src="images/gallery-image-2.jpg", alt="catalog-menu" title="catalog-menu")
+                  .global-item__body
+                    a(href="#!").global-item__text Открытие магазина на Московском проспекте (лето 2015)
+              .item
+                .global-item
+                  .global-item__zoom-image
+                    img(src="images/gallery-image-3.jpg", alt="catalog-menu" title="catalog-menu")
+                  .global-item__body
+                    a(href="#!").global-item__text Отмечаем 10-летие магазина в полном сборе (Июнь 2016)
+              .item
+                .global-item
+                  .global-item__zoom-image
+                    img(src="images/gallery-image-4.jpg", alt="catalog-menu" title="catalog-menu")
+                  .global-item__body
+                    a(href="#!").global-item__text Процесс сборки дивана за 3 часа
+              .item
+                .global-item
+                  .global-item__zoom-image
+                    img(src="images/gallery-image-5.jpg", alt="catalog-menu" title="catalog-menu")
+                  .global-item__body
+                    a(href="#!").global-item__text Открытие магазина на Московском проспекте (лето 2015)
+
+        .page-title Открытие магазина на Московском проспекте (лето 2015)
+
+        .gallery.gallery--big
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-5.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-6.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-7.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-8.jpg", alt="gallery-image" title="gallery-image")
+
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
+          
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
+          
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
+          
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
+
+
+        .buttons-block.text-center.margin-bottom-100
+          a(href="#!").btn Показать еще фото
+          a(href="#!").btn.btn-black Перейти в каталог
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

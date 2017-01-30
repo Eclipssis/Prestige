@@ -15,19 +15,21 @@ body
   font-size: $site-text-size
   line-height: $site-line-height
   color: $site-text-color
+  font-weight: 400
   margin: 0
   padding: 0
   width: 100%
 
-h1, .title-h1, h2, .title-h2, h3, .title-h3, h4, .title-h4, h5, .title-h5
+h1, .title-h1, h2, .title-h2, h3, .title-h3, h4, .title-h4, h5, .title-h5, .page-title
   display: block
-  font-family: $site-font-family
+  font-family: 'Bodoni-Bold', Arial, sans-serif
   line-height: 1.1em
   color: $site-title-color
   margin: 0 0 15px
 
 h1, .title-h1
   font-size: $title-h1-size
+  letter-spacing: 0.6px
 h2, .title-h2
   font-size: $title-h2-size
 h3, .title-h3
@@ -56,12 +58,65 @@ img
   vertical-align: middle
   max-width: 100%
 
+.page-title
+  text-align: center
+  font-size: $page-title-size
+  letter-spacing: 0.6px
+
+.page-subtitle 
+  font-size: 18px 
+  font-weight: 500
+  margin-bottom: 30px
+
+span[class^="file-format"]
+  display: inline-block
+  vertical-align: middle
+  padding-left: 28px
+  position: relative
+  &:before
+    position: absolute
+    content: ' '
+    top: 50%
+    margin-top: -9.5px
+    left: 0
+
+.file-format-pdf:before
+  +sprite($typy-file-pdf)
+.file-format-zip:before
+  +sprite($typy-file-zip)
+.file-format-doc:before
+  +sprite($typy-file-doc)
 
 
 
+.add-title-info
+  font-size: 14px
+  color: #9c9c9c
+  font-family: 'DinPro', Arial, sans-serif
+  font-weight: 400
+  float: right
 
+.font-size-16
+  font-size: 16px
 
+div.margin-bottom-140, .margin-bottom-140
+  margin-bottom: 140px
 
+.margin-bottom-100
+  margin-bottom: 100px
+
+div.margin-bottom-0, .margin-bottom-0
+  margin-bottom: 0
+
+.color-grey
+  color: #555555
+
+.color-light-grey
+  color: #9c9c9c
+
+.buttons-block
+  a 
+    margin: 0 4px
 
 
 

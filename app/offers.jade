@@ -1,0 +1,150 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        #index-carousel.carousel.slide.carousel-fade(data-ride='carousel')
+
+          ol.carousel-indicators
+            li.active(data-target='#index-carousel', data-slide-to='0')
+            li(data-target='#index-carousel', data-slide-to='1')
+            li(data-target='#index-carousel', data-slide-to='2')
+            li(data-target='#index-carousel', data-slide-to='3')
+
+          .carousel-inner
+            .item.active
+              img(src='images/offers-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Предложение для гостиниц и гостевых домов
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/offers-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Предложение для гостиниц и гостевых домов
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/offers-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Предложение для гостиниц и гостевых домов
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/offers-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Скидки до 65%
+                  .carousel-title__item 
+                    span.carousel-title__line на всю мебель из ротанга
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Предложения
+            
+            .global-items-list
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/complex-image-1.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Обставим мебелью весь дом за 1 день!
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/complex-image-2.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Предложение для новоселов
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/complex-image-3.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Столы и стулья для любого помещения
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/complex-image-4.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Для гостиниц и гостевых домов
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-2.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Дизайн интерьера в стиде прованс 
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-3.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Индивидуальный дизайн кухни
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-4.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Ванные комнаты под ключ
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-1.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Детские комнаты в стиле минимализм
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-5.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Обставим мебелью весь дом за 1 день!
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-6.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Предложение для новоселов
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-7.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Столы и стулья для любого помещения
+
+              .global-item.global-item--grey
+                .global-item__zoom-image
+                  a(href="#!")
+                    img(src="images/catalog-menu-8.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Мебель для гостиниц и гостевых домов
+          
+            .text-center
+              a(href="#!").btn Показать другие решения  
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

@@ -1,0 +1,151 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        
+        .filters
+          .container
+
+            form.filters-form
+              .select-wrap
+                .select
+                  select
+                    option Тип помещения
+                    option Гостиная
+                    option Столовая / кухня
+                    option Спальня
+                    option Детская / подростковая
+                    option Прихожая
+                    option Кабинет
+                    option Мебель для ванной
+                    option Гардеробная
+
+                .select
+                  select
+                    option Тип мебели
+                    option Опция 1
+                    option Опция 2
+                    option Опция 3
+                .select
+                  select
+                    option Фабрика
+                    option Опция 1
+                    option Опция 2
+                    option Опция 3
+                .select
+                  select
+                    option Коллекция
+                    option Опция 1
+                    option Опция 2
+                    option Опция 3
+                .select
+                  select
+                    option Стиль
+                    option Опция 1
+                    option Опция 2
+                    option Опция 3
+              
+              .filters-panel
+                .checkbox-wrap
+                  span Статус товара:
+
+                  .checkbox-input
+                    input(type="checkbox" class="checkbox" id="checkbox-1")
+                    label(for="checkbox-1") <span></span> Sale
+
+                  .checkbox-input
+                    input(type="checkbox" class="checkbox" id="checkbox-2")
+                    label(for="checkbox-2") <span></span> New
+
+                  .checkbox-input
+                    input(type="checkbox" class="checkbox" id="checkbox-3")
+                    label(for="checkbox-3") <span></span> Top
+
+                a(href="#!") Очистить фильтр
+
+
+        .container
+          .content.clearfix
+
+            .pages-wrap
+              span Товаров на странице:
+              ul.pages-view
+                li.active 24
+                li
+                  a(href="#!") 36
+                li
+                  a(href="#!") 48
+
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Наши предложения
+            
+            .product-list
+              
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+
+            .divider
+
+            ul.pagination
+              li
+                a(href='#') 1
+              li.active
+                a(href='#') 2
+              li
+                a(href='#') 3
+              li
+                a(href='#') 4
+              li
+                a(href='#') 5
+              li
+                a(href='#') 6
+              li
+                a(href='#') 7
+              li
+                a(href='#') 8
+              li
+                a(href='#') ...
+              li
+                a(href='#') 28
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

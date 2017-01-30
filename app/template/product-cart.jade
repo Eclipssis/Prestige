@@ -1,0 +1,53 @@
+.product.product--cart
+  .col-1 1
+  .col-2 
+    .product__image        
+      a(href="#!")
+        img(src="images/product-image-1.jpg", alt="product-image")
+    .label.label--cart
+      .label__item Sale
+      .label__item New
+
+  .product__cart-body
+    .product__title 
+      a(href="#!") Деревянная прикроватная тумба Milan с двумя полками
+      span.delete-item.js-delete-cart-item
+    .col-3
+      .description
+        
+        .description__item
+          .description__title Артикул товара:
+          .description__value АF4252F1
+
+        .description__item
+          .description__title Размеры:
+          .description__value 150 х 66 х 20
+
+        .description__item
+          .description__title Фабрика:
+          .description__value
+            img(src="images/italy-flag.jpg", alt="") 
+            | Milan
+
+        .description__item
+          .description__title Коллекция:
+          .description__value Flamenco
+
+    .col-4
+      a(href="#!" data-toggle="popover").color-link
+        img(src="images/color-white.jpg", alt="color")
+
+      .popover-wrapper.color-popover
+        span.color-popover__title Натуральная змеиная кожа
+        span.color-popover__code Цвет А684с
+        img(src="images/color-snake.jpg", alt="snake")
+    .col-5
+      .product__price.js-current-price 45 000 руб.
+      .product__old-price 56 590 руб.
+    .col-6
+      .counter-panel
+        span.plus +
+        input(type='text', value='1' readonly="readonly")
+        span.minus -
+    .col-7
+      .product__price.js-product-total 45 000 руб.

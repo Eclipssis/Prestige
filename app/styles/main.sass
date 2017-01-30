@@ -8,55 +8,1501 @@
 @import partials/forms
 @import partials/layout
 @import partials/plugins
+@import partials/animation
 
-.rating
-  display: inline-block
-  list-style-type: none
-  margin-bottom: 0 
-  background: url('../images/rating.png') 0 0 repeat
-  position: relative
-  height: $star-height
-  width: $star-width * 5
-  li 
-    float: left
-    height: $star-height
-    span[class*="star"] 
+/*----------- Main Styles
+ ------------------------------------------------------------*/
+
+.facts
+  text-align: center
+  padding: 110px 0 
+  +desktop
+    padding: 70px 0
+  +tablet
+    padding: 50px 0 30px
+
+  &__item
+    max-width: 130px
+    display: inline-block
+    vertical-align: top
+    margin: 0 35px  
+    +desktop-large
+      margin: 0 25px
+    +mobile
+      margin: 0 5px 
+      max-width: 45%
+    // &:hover span[class^="icon"]
+    //   animation: 
+    //     name: shake
+    //     duration: 700ms
+    //     timing-function: ease-in-out
+    //     fill-mode: forwards  
+  
+  span[class^="icon"]
+    background-image: url('../images/sprite.png')
+    display: inline-block
+    margin-bottom: 30px
+    +mobile
+      margin-bottom: 15px
+
+  .icon-1
+    +sprite($fact-icon-1)
+  .icon-2
+    +sprite($fact-icon-2)
+  .icon-3
+    +sprite($fact-icon-3)
+  .icon-4
+    +sprite($fact-icon-4)
+  .icon-5
+    +sprite($fact-icon-5)
+  span.icon-9 // TODO SPRITE
+    width: 31px
+    height: 53px
+    background: url('../images/fact-icon-9.png') 0 0 no-repeat
+  span.icon-10 // TODO SPRITE
+    width: 49px 
+    height: 50px
+    background: url('../images/fact-icon-10.png') 0 0 no-repeat
+  span.icon-11 // TODO SPRITE
+    width: 48px 
+    height: 50px 
+    background: url('../images/fact-icon-11.png') 0 0 no-repeat
+  span.icon-12 // TODO SPRITE
+    width: 54px
+    height: 46px
+    background: url('../images/fact-icon-12.png') 0 0 no-repeat
+    
+.global-items-list
+  margin-top: 85px
+  margin-bottom: 70px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  margin-left: -10px
+  margin-right: -10px    
+  +tablet
+    margin-bottom: 30px
+ 
+
+.global-item
+  flex: 1 4 285px 
+  display: flex
+  flex-direction: column
+  margin: 0 10px 20px
+  max-width: 285px
+  +desktop
+    flex-basis: 300px
+  +tablet
+    flex-basis: 235px
+
+  &--white 
+    background-color: #ffffff
+  &--grey 
+    background-color: #f8f8f8
+
+  &__body
+    padding: 25px 30px 
+    +desktop-large
+      padding: 20px 15px
+
+  &__image
+    display: block
+    max-height: 285px
+    overflow: hidden
+    img
+      transition: all 0.4s ease
+    &:hover img 
+      transition: all 0.4s ease
+      transform: scale(1.15)
+
+  &__zoom-image
+    position: relative
+    &:before, &:after
       position: absolute
-      z-index: 5
-      display: block
-      width: $star-width
-      height: $star-height
-      cursor: pointer
-      &:hover 
-        z-index: 2
-        left: 0
-        background: url('../images/rating.png') left bottom repeat 
-      
-    span.star1  
-      left: 0
-      &:hover 
-        width: $star-width
+      content: ' '
+      opacity: 0
+      transition: all 0.2s ease
+      z-index: 2
 
-    span.star2  
-      left: $star-width
-      &:hover 
-        width: $star-width * 2
+    &:before
+      width: 100%
+      height: 100%
+      background-color: #dbd8d5
+      transform: scale(0.7)
       
-    span.star3  
-      left: $star-width * 2
-      &:hover 
-        width: $star-width * 3
+    &:after
+      top: 50%
+      left: 50%
+      margin-top: -11px
+      margin-left: -17.5px
+      +sprite($gallery-eye) 
       
-    span.star4  
-      left: $star-width * 3
-      &:hover 
-        width: $star-width * 4
+    &:hover:before 
+      opacity: 0.8
+      transform: scale(1)
+      transition: all 0.3s ease
+
+    &:hover:after
+      opacity: 1
+      transition: all 0.7s ease
+
+
+  &__text
+    color: #222222
+    font-size: 16px
+
+.product-list
+  display: flex
+  flex-wrap: wrap
+  margin-top: 50px
+  margin-left: -10px
+  margin-right: -10px
+
+  &__item
+    position: relative
+    flex: 1 4 230px
+    margin: 0 10px
+    margin-bottom: 70px
+    position: relative
+    min-height: 430px
+    max-width: 285px
+    overflow: hidden
+    +tablet
+      margin-bottom: 0
+      flex-basis: 250px
+
+
+    &:hover
+      overflow: visible
+    &:hover .product
+      transition: transform 0.6s ease, box-shadow 0.45s ease
+      box-shadow: 0px 0px 4px #cecdcc, 7px 7px 20px #efefee
+      transform: translate3d(-50%, -4px, 0)
+      z-index: 20
+    &:hover .product__hidden
+      transition: all 0.75s ease
+      transform: translateY(0px)
+      opacity: 1
+
+.product
+  position: absolute
+  left: 50%
+  transform: translate3d(-50%, 0, 0)
+  background-color: #ffffff
+  width: 340px
+  padding: 30px 
+  transition: transform 0.45s ease, box-shadow 0.45s ease
+  +tablet
+    max-width: 300px
+    width: 100%
+    padding: 20px
+
+  &--cart
+    position: static
+    overflow: hidden
+    transform: none
+    width: 100%
+    padding: 15px 0 0 0
+    margin-bottom: 10px
+    .product__price
+      font-size: 18px
+      float: none
+    .product__old-price
+      line-height: 16px
+      width: 100%
+    .product__title
+      padding: 0
+      margin: 10px 20px 0
+      min-height: 48px
+      margin-bottom: 13px
+      border-bottom: 1px solid #e2e2e2
+      span.delete-item 
+        margin-top: 5px
+
+    .description__title
+      width: 170px
+
+  &__cart-body
+    overflow: hidden
+
+  &__image
+    position: relative
+    margin-bottom: 25px
+    a 
+      display: block
+
+  &__title
+    font-size: 16px
+    min-height: 80px
+    a, span 
+      color: #222222
+
+  &__footer
+    font-size: 18px
+    overflow: hidden
+
+  &__old-price
+    float: left
+    width: 50%
+    color: #9c9c9c
+    text-decoration: line-through
+
+  &__price
+    float: left
+    color: #222222
+    font-weight: 700
+
+  &__hidden
+    opacity: 0
+    margin-top: 25px
+    transform: translateY(10px)
+    transition: all 0.2s ease
+
+    img 
+      margin-right: 10px
+
+.cart-items
+  margin-bottom: 20px
+
+.cart-item
+  padding: 25px 0
+  border-bottom: 1px solid #e2e2e2
+  &__image
+    max-width: 54px
+    float: left
+    margin-right: 20px
+
+  &__body
+    margin-left: 74px
+    overflow: hidden
+
+  &__title
+    font-weight: 300
+    line-height: 16px
+    margin-bottom: 8px
+
+  &__old-price
+    float: left
+    width: 50%
+    text-decoration: line-through
+    color: #9c9c9c
+    line-height: 14px
+
+  &__price
+    float: left
+    color: #222222
+    font-weight: 700
+    line-height: 14px
+
+.delete-item
+  float: right
+  +sprite($modal-close)
+  cursor: pointer
+  margin-left: 10px
+  margin-top: 3px
+  transition: all 0.2s ease
+  opacity: 0.5
+  &:hover
+    transition: all 0.2s ease
+    opacity: 1
+
+.description
+  margin-bottom: 20px
+  overflow: hidden
+  &__item
+    color: #9c9c9c
+    font-size: 16px
+    margin-bottom: 5px
+    overflow: hidden
+
+  &__title
+    float: left
+    width: 50%
+
+  &__value
+    float: left
+    width: 50%
+
+  img 
+    margin-right: 8px
+
+.label
+  position: absolute
+  z-index: 2
+  top: 10px 
+  left: 10px
+  overflow: hidden
+  padding: 0
+  &--cart
+    position: static
+    display: block
+    margin-top: 36px
+    .label__item 
+      float: none
+      display: inline-block
+      margin: 0 5px
+
+  &__item
+    padding: 5px 
+    font-size: 14px
+    color: #222222
+    font-weight: 400
+    background-color: #ffffff
+    float: left
+    margin-right: 10px
+
+.article  
+  &__preview
+    padding-bottom: 80px 
+    border-bottom: 1px solid #e2e2e2
+    margin-bottom: 40px
+    display: flex
+    flex-wrap: wrap
+
+  &__full
+    display: none
+    padding: 40px 40px 35px
+    background-color: #f8f8f8
+    background-image: url('../images/leaf-right.png')
+    background-repeat: no-repeat
+    background-position: -90px -15px
+    margin-bottom: 80px
+    .article__image
+      float: left
+      margin-right: 40px
+      max-width: 520px
+      padding-right: 0
+    .article__body
+      padding-right: 0
+      display: block
+    p 
+      margin-bottom: 15px
+
+  &__footer 
+    width: 100%
+    text-align: center
+    padding: 30px 0 0
+    border-top: 1px solid #e2e2e2
+    margin-top: 60px
+
+  &__image
+    flex: 1 2 300px
+    padding-right: 40px
+  &__body 
+    flex: 1 2 300px
+    padding-right: 50px
+    display: flex
+    flex-direction: column
+  &__title  
+    margin-bottom: 25px
+    max-width: 360px
+    font: 700 18px/1.2em 'DinPro', Arial, sans-serif
+    a 
+      color: #222222
       
-    span.star5  
-      left: $star-width * 4
+
+  &__text 
+    color: #555555
+    margin-bottom: 10px
+  &__link 
+    margin-top: auto
+
+  .delete-item
+
+
+
+.gallery
+  max-width: 1600px
+  margin: 0 auto 110px
+  overflow: hidden
+  &--big 
+    margin-top: 75px 
+
+  +desktop
+    margin-bottom: 50px
+
+  &__item
+    width: 25%
+    float: left
+    position: relative
+    +desktop
+      width: 33.333333%
+    +mobile
+      width: 50%
+      
+
+    &:before, &:after
+      position: absolute
+      content: ' '
+      opacity: 0
+      transition: all 0.2s ease
+
+    &:before
+      width: 100%
+      height: 100%
+      background-color: #dbd8d5
+      transform: scale(0.7)
+      
+    &:after
+      top: 50%
+      left: 50%
+      margin-top: -11px
+      margin-left: -17.5px
+      +sprite($gallery-eye) 
+      
+    &:hover:before 
+      opacity: 0.8
+      transform: scale(1)
+      transition: all 0.3s ease
+
+    &:hover:after
+      opacity: 1
+      transition: all 0.7s ease
+      
+
+
+.complex-solution
+  padding: 100px 0
+  background-color: #f8f8f8
+  +desktop
+    padding: 70px 0
+  +mobile
+    padding: 50px 0
+
+.popular-producs
+  padding: 130px 0
+  +desktop
+    padding: 50px 0
+
+.about-block
+  display: flex
+  flex-wrap: wrap
+  margin-left: -15px
+  margin-right: -15px
+  margin-bottom: 120px
+  +desktop
+    flex-direction: column
+    margin-bottom: 20px
+
+  .page-title
+    text-align: left
+    margin-bottom: 25px
+
+  > div 
+    margin: 0 15px
+    flex: 1 2 300px
+    margin-bottom: 20px
+    +desktop
+      flex-basis: auto
+    
+  &__text
+    display: flex
+    flex-direction: column
+    padding-right: 50px
+
+  &__link
+    margin-top: auto
+    display: inline-block
+
+  p 
+    font-size: 16px
+
+.catalog-items
+  max-width: 1600px
+  margin: 0 auto 100px
+  overflow: hidden
+  position: relative
+  
+.catalog-item
+  width: 25%
+  float: left
+  position: relative
+  +desktop
+    width: 33.333333%
+  +mobile
+    width: 50%
+
+  &:hover .catalog-item__label
+    display: none
+    
+  &:hover .catalog-item__layer
+    opacity: 1
+    transform: scale(1)
+    transition: all 0.3s ease
+  
+  &__layer
+    position: absolute
+    content: ' '
+    opacity: 0
+    transition: all 0.2s ease
+    width: 100%
+    height: 100%
+    background-color: #222222
+    transform: scale(0.7)
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: center
+    span 
+      text-transform: uppercase
+      color: #ffffff
+      text-align: center
+      border-bottom: 1px solid #ffffff
+      padding-bottom: 20px 
+      line-height: 14px
+
+  &__label
+    position: absolute
+    right: 0
+    padding: 8px 20px
+    background-color: #222222
+    color: #ffffff
+    text-transform: uppercase
+
+.pages-wrap
+  color: #9c9c9c
+  float: right
+  span 
+    display: inline-block
+    margin-right: 15px 
+
+.pages-view
+  list-style: none
+  float: right
+  overflow: hidden
+  > li
+    float: left
+    > a
+      display: inline-block
+      padding: 1px 5px
+      
+  > li.active
+    color: #555555
+    cursor: default
+    padding: 1px 5px
+    background-color: #f8f8f8
+    &:hover
+      text-decoration: none
+
+.filters
+  padding: 30px
+  background-color: #f8f8f8
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -90px -15px, 910px 85px
+  background-size: 18%
+
+.filters-form
+  .select-wrap
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+  .select
+    margin-right: 18px
+    width: 100%
+    max-width: 225px
+    &:last-child 
+      margin-right: 0
+
+  .filters-panel
+    margin-top: 20px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  a 
+    color: #222222
+
+  .checkbox-input
+    display: inline-block
+    margin-left: 15px
+
+.product-wrap
+  display: flex
+  flex-wrap: wrap
+  margin-top: 50px
+  .product-images
+    flex: 1 8 600px 
+    padding-right: 60px
+
+  .product-description
+    flex: 1 4 200px
+
+.brand
+  overflow: hidden
+  &__image
+    float: left
+  &__body
+    margin-left: 125px
+  &__title
+    color: #222222
+    font-weight: 700
+    font-size: 18px
+    margin-bottom: 5px
+    > img 
+      display: inline-block
+      vertical-align: middle
+      margin-right: 15px
+  &__link
+    color: #9c9c9c
+    display: inline-block
+    margin-right: 15px
+
+.product-price
+  margin-top: 30px
+  padding: 25px 30px
+  background-color: #f8f8f8
+  border-top: 1px solid #e2e2e2
+  border-bottom: 1px solid #e2e2e2
+  overflow: hidden
+  &__old
+    font-size: 18px
+    color: #9c9c9c
+    text-decoration: line-through
+  &__current
+    color: #222222
+    font: 32px/1.2em 'Bodoni-Bold', Arial, sans-serif
+  .btn
+    float: right
+    margin-top: 10px
+
+.product-features
+  padding: 15px 0
+  overflow: hidden
+  border-bottom: 1px solid #e2e2e2
+  margin-bottom: 20px
+  span[class^="icon"]
+    width: 45px
+    height: 45px 
+    float: left
+    position: relative
+    margin-right: 20px
+    &.active, &:hover
+      background-color: #f8f8f8
+    &:before
+      position: absolute
+      content: ' '
+      top: 50%
+      left: 50% 
+
+  .icon-1
+    &:before
+      margin-top: -8.5px 
+      margin-left: -11px
+      +sprite($label-icon-1)
+  .icon-2
+    &:before
+      margin-top: -8.5px
+      margin-left: -8.5px
+      +sprite($label-icon-2)
+  .icon-3
+    &:before
+      margin-left: -10px
+      margin-top: -9px
+      +sprite($label-icon-3)
+  .icon-4
+    &:before
+      margin-top: -8.5px
+      margin-left: -6.5px 
+      +sprite($label-icon-4)
+  .icon-5
+    &:before
+      margin-top: -9.5px
+      margin-left: -9.5px
+      +sprite($label-icon-5)
+  .icon-6
+    &:before
+      margin-top: -8.5px
+      margin-left: -11.5px
+      +sprite($label-icon-6)
+
+.product-properties
+  padding: 20px 0
+  border-top: 1px solid #e2e2e2
+  border-bottom: 1px solid #e2e2e2
+
+.product-property
+  margin-bottom: 13px
+  overflow: hidden
+  &__title
+    color: #9c9c9c
+    display: inline-block
+    min-width: 170px
+    float: left
+  &__value
+    float: left
+    color: #222222
+  
+  .color-link
+    display: inline-block
+    margin-right: 10px
+    opacity: 0.7
+    transition: all 0.2s ease
+    &.selected
+      opacity: 1
+
+.links-filter
+  margin-top: 30px
+  &__item
+    display: inline-block
+    margin-bottom: 15px
+    min-width: 550px
+  &__title 
+    display: inline-block
+    margin-right: 15px 
+    color: #9c9c9c
+  
+  a 
+    color: #222222
+    display: inline-block
+    margin-right: 10px
+
+  &__value
+    display: inline-block
+
+.same-products
+  padding: 100px 0
+
+.product-slider
+  .slides 
+    > li 
+      min-height: 520px
+      line-height: 520px
+      text-align: center
+
+.product-carousel
+  padding: 0 55px
+  .slides 
+    > li
+      margin-right: 5px
+    > li.flex-active-slide
+      &:before
+        position: absolute
+        transition: all 0.2s ease
+        bottom: -60px
+        content: ' '
+        width: 100%
+        height: 2px 
+        background-color: #222222
+
+  .flex-viewport  
+    padding-bottom: 60px
+    border-bottom: 1px solid #e2e2e2
+
+  .flex-direction-nav
+    position: relative
+    width: 100%
+    li
+      a
+        display: block
+        top: -115px
+        background-color: #f8f8f8
+      a.flex-prev         
+        +sprite($carousel-arrow-prev)
+        left: -55px
+        width: 25px
+        height: 25px
+        background-position: -305px -110px
+      a.flex-next         
+        right: -55px
+        +sprite($carousel-arrow-next)
+        width: 25px
+        height: 25px
+        background-position: -304px -86px
+
+.collection-wrap
+  padding: 100px 0 0
+
+.owl-carousel
+  margin-bottom: 30px
+  margin-top: 75px
+  padding-bottom: 60px 
+  border-bottom: 1px solid #e2e2e2
+  .item
+    max-height: 440px
+  .product
+    position: relative
+
+  .owl-nav
+    position: absolute
+    width: 100%
+    top: 50%
+    margin-top: -72px 
+    > div 
+      width: 48px
+      height: 48px
+      background-color: #ffffff
+      border: 1px solid #484848
+      position: absolute
+      transition: all 0.2s ease
+      &:before
+        position: absolute
+        top: 50%
+        left: 50%
+        margin-top: -7px
+        margin-left: -3px
+        content: ' ' 
+        z-index: 2222
       &:hover
-        width: $star-width * 5
-      
-  li.active 
-    background: url('../images/rating.png') left bottom repeat
-    z-index: 1
+        background-color: #222222
+      &:active
+        background-color: #555555
+
+
+    .owl-prev
+      left: 6px
+      &:before
+        position: absolute
+        content: ' '
+        +sprite($carousel-arrow-prev) 
+      &:hover:before
+        +sprite($carousel-arrow-prev-hover)
+
+    .owl-next
+      right: 6px
+      &:before
+        position: absolute
+        content: ' '
+        +sprite($carousel-arrow-next) 
+      &:hover:before
+        +sprite($carousel-arrow-next-hover)
+
+.grey-bg
+  background-color: #f8f8f8
+
+.cart-products
+  overflow: hidden
+  
+  div[class^="col-"]
+    float: left
+    padding: 11px 20px
+
+  .col-1
+    width: 51px
+  .col-2
+    width: 155px
+    text-align: center
+  .col-3
+    width: 448px
+  .col-4
+    width: 90px
+  .col-5
+    width: 141px
+  .col-6
+    width: 145px
+  .col-7
+    min-width: 140px
+  div.col-8
+    padding: 17px 20px 15px 0
+
+  .delete-item
+    margin: 0
+
+  &__head
+    color: #9c9c9c
+    background-color: #ffffff
+    margin-bottom: 10px
+    overflow: hidden
+
+  &__footer 
+    background-color: #ffffff
+    overflow: hidden
+    padding: 14px 0
+    font-size: 18px
+    a 
+      font-size: 14px 
+    
+.calculation-order
+  padding: 85px 0 100px 
+  background-color: #ffffff
+
+.calculation-form
+  margin-bottom: 65px
+
+.calculation-caption
+  display: flex
+  flex-wrap: wrap
+  color: #9c9c9c
+  font-size: 16px
+  .text-1
+    max-width: 400px
+    margin-right: 218px
+  .text-2
+    max-width: 515px
+
+.landing-banner
+  position: relative
+  background: url('../images/landing-banner.jpg') 50% 0 no-repeat
+  background-size: cover
+  min-height: 600px
+
+.problem-block
+  padding: 93px 0 120px
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -515px -15px, 130% 185px
+  background-color: #f8f8f8
+  .landing-list 
+    margin: 74px auto 20px 
+
+.landing-list 
+  list-style: none
+  max-width: 345px
+  li 
+    font-weight: 300
+    font-size: 16px
+    padding-left: 25px
+    position: relative
+    margin-bottom: 17px
+    &:before
+       position: absolute
+       content: ' '
+       width: 4px
+       height: 4px
+       background-color: #222222 
+       left: 0
+       top: 50%
+       margin-top: -1px 
+
+
+.landing-offer
+  padding: 93px 0 0
+
+.offer-banners
+  list-style: none
+  margin-top: 105px
+  display: flex
+  flex-wrap: wrap
+  margin-right: -20px 
+  margin-left: -20px 
+  padding-bottom: 80px
+  border-bottom: 1px solid #e2e2e2
+  > li 
+    margin: 0 20px 
+    flex: 1 2 250px
+
+
+  .banner
+    height: 270px
+    padding: 20px
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+  .btn 
+    color: #222222
+    font-weight: 400
+    padding: 26px 30px
+
+    height: 70px
+    width: 100%
+    max-width: 200px
+    text-align: center
+    background-color: #ffffff
+    border: none
+    &:hover 
+      color: #ffffff
+    &:active
+      color: #222222
+
+  .banner-bg-1
+    background: url('../images/solution-image-1.jpg') 0 0 no-repeat
+  .banner-bg-2
+    background: url('../images/solution-image-2.jpg') 0 0 no-repeat
+  .banner-bg-3
+    background: url('../images/solution-image-3.jpg') 0 0 no-repeat
+  .banner-bg-4
+    background: url('../images/solution-image-4.jpg') 0 0 no-repeat
+
+.package-offer
+  padding: 38px 0 75px
+
+.offer-list
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  margin-top: 74px
+  margin-bottom: 78px
+
+.offer-card
+  max-width: 375px
+  width: 100%
+  background-color: #f8f8f8
+  display: flex
+  flex-direction: column
+
+  &__title 
+    padding: 25px 15px
+    text-align: center
+    font-size: 16px
+    font-weight: 500
+    text-transform: uppercase
+    background: url('../images/landing-title-pattern.jpg') 0 0 repeat-x
+
+  &__body 
+    padding: 47px 40px 20px 
+
+  &__footer
+    border-top: 1px solid #e2e2e2
+    padding: 23px 20px 
+    text-align: center
+    margin-top: auto
+
+  &__price 
+    font-size: 16px 
+    font-weight: 700
+    margin-bottom: 25px
+
+  .landing-list  
+    li
+      font-weight: 300 
+      margin-bottom: 15px 
+      font-size: 14px
+
+.landing-caption
+  width: 545px
+  margin: 10px auto 10px
+  color: #9c9c9c
+
+.profit-terms
+  margin-bottom: 38px
+
+.payment-wrap
+  padding: 107px 0
+  background: url('../images/landing-banner-bg.jpg') 50% 0 no-repeat
+  margin-top: 75px
+
+.payment
+  max-width: 960px
+  margin: 0 auto
+  padding: 47px 30px 38px 30px
+  background-color: #ffffff
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+  &__item
+    text-align: center
+
+
+  &__item:nth-child(1)
+    max-width: 215px
+  &__item:nth-child(2)
+    max-width: 200px
+  &__item:nth-child(3)
+    max-width: 180px
+
+  &__title
+
+    font-weight: 500
+    font-size: 16px
+    min-height: 55px
+    margin-bottom: 5px
+
+  span[class^="icon"]
+    display: block
+    margin: 0 auto 50px
+
+  .icon-1
+    +sprite($payment-icon-1)
+  .icon-2
+    +sprite($payment-icon-2)
+  .icon-3
+    +sprite($payment-icon-3)
+
+.landing-products
+  margin-bottom: 100px
+  .product-list__item
+    margin-bottom: 50px
+
+.landing-about
+  background-color: #f8f8f8
+  padding: 100px 0 0
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -515px -15px, 130% 185px
+  .about-block
+    margin-bottom: 80px
+
+.brands
+  padding: 120px 0 100px 
+  text-align: center
+
+.brand-list
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 50px
+  margin-top: 114px
+
+.brand-item
+  margin: 0 25px 20px 25px 
+
+.questions
+  padding-top: 110px 
+  background-color: #f8f8f8
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -515px -15px, 140% 155px
+
+#accordion
+  max-width: 800px
+  width: 100%
+  margin: 55px auto
+
+.panel-default
+  border: none
+  margin-bottom: 6px
+  > .panel-heading
+    background: none
+    border-radius: 0
+  .panel-title
+    > a
+      color: #222222
+
+.panel-group .panel-heading+.panel-collapse>.panel-body
+  border: 1px solid #e2e2e2
+  box-shadow: 0.8px 1.8px 4px rgba(0, 0, 0, 0.09)
+  color: #222222
+  font-size: 16px 
+  padding: 35px 40px
+  margin-bottom: 25px
+  margin-top: 25px
+  position: relative
+  background-color: #ffffff
+  p 
+    margin-bottom: 0
+  .arrow
+    position: absolute
+    display: block
+    width: 0
+    height: 0
+    border-color: transparent
+    border-style: solid
+    border-width: 11px
+    left: 9%
+    border-top-width: 0
+    border-bottom-color: #999
+    border-bottom-color: rgba(0,0,0,0.25)
+    top: -11px
+    &:before
+      position: absolute
+      content: " "
+      display: block
+      width: 0
+      height: 0
+      border-color: transparent
+      border-style: solid
+      border-width: 10px
+      top: 1px
+      margin-left: -10px
+      border-top-width: 0
+      border-bottom-color: #fff
+
+
+.different-solution
+  padding: 100px 0 0
+
+.producer-catalog 
+  background-color: #f8f8f8
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -515px -15px, 140% 155px
+  padding: 40px 0 60px
+  margin-bottom: 55px
+
+.producers
+  margin-top: 35px
+
+  .brands-list
+    list-style: none
+    li 
+      margin-bottom: 8px
+    a 
+      color: #222222
+      font-weight: 300
+
+    a.color-light-grey
+      color: #9c9c9c
+
+.producers-filter
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  margin-bottom: 50px
+  .submit-btn
+    background: none
+    border: none
+    color: #555555
+    &:hover, &:focus
+      outline: none
+      text-decoration: underline
+
+.producers-list
+  display: flex
+  flex-wrap: wrap
+
+.producer-item
+  flex: 1 2 155px 
+  padding-right: 55px 
+
+
+.brand-details
+  margin-top: 65px 
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 100px
+
+.brand-logo
+  flex: 0 2 280px 
+  text-align: center
+  padding: 0 15px 20px 
+
+.brand-description
+  flex: 1 10 300px
+
+.brand-links
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.brand-images
+  margin-bottom: 100px
+
+.current-brand
+  margin-top: 100px
+
+.services-caption
+  padding: 52px 60px
+  margin-bottom: 90px
+  margin-top: 53px
+  background: #f8f8f8 url('../images/leaf-left.png') 175% 75px no-repeat
+  background-size: 50%
+  &__logo
+    max-width: 185px
+    float: left
+    margin-right: 50px 
+  &__text  
+    margin-left: 240px
+    max-width: 770px
+
+ 
+
+
+.services-list
+  margin: 65px 0 0
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-around
+
+
+.services-item
+  flex: 0 2 445px 
+  margin-bottom: 45px
+  &__icon
+    float: left
+    width: 45px
+    margin-right: 30
+    text-align: center
+  &__body 
+    margin-left: 75px 
+  &__title
+    font-weight: 700
+    font-size: 18px
+    margin-bottom: 20px
+  &__text
+    color: #9c9c9c
+
+  span[class^="icon"]
+    display: inline-block
+
+  .icon-1 // TODO SPRITE
+    width: 39px
+    height: 25px
+    background: url('../images/offer-icon-5.png') 0 0 no-repeat
+  .icon-2 // TODO SPRITE
+    width: 31px
+    height: 32px
+    background: url('../images/offer-icon-4.png') 0 0 no-repeat
+  .icon-3 // TODO SPRITE
+    width: 39px
+    height: 26px
+    background: url('../images/offer-icon-7.png') 0 0 no-repeat
+  .icon-4 // TODO SPRITE
+    width: 39px
+    height: 41px
+    background: url('../images/offer-icon-6.png') 0 0 no-repeat
+  .icon-5 // TODO SPRITE
+    width: 38px
+    height: 32px
+    background: url('../images/offer-icon-9.png') 0 0 no-repeat
+  .icon-6 // TODO SPRITE
+    width: 30px 
+    height: 36px
+    background: url('../images/offer-icon-8.png') 0 0 no-repeat
+  .icon-7
+    +sprite($offer-icon-3)
+  .icon-8
+    +sprite($offer-icon-1)
+
+
+.sales-list
+  margin-top: 53px
+  .acticle:last-child .acticle__preview
+    border: none
+
+.about-banner
+  min-height: 451px 
+  background: url('../images/about-company-bg.jpg') 50% 0 no-repeat
+  background-size: cover 
+  display: flex
+  justify-content: center
+  align-items: center
+
+  .banner-body
+    width: 100%
+    margin: 0 auto
+    max-width: 460px 
+    padding: 15px 
+    background-color: #ffffff
+    text-align: center
+    line-height: 163px
+    height: 200px  
+
+
+.text-block
+  margin: 45px 0 45px
+  max-width: 990px
+  p 
+
+.video-block
+  position: relative
+
+.video-btn
+  position: absolute
+  top: 50%
+  left: 50%
+  margin-top: -30px 
+  margin-left: -30px
+  cursor: pointer
+  +sprite($play-btn)
+  &:hover, &:active
+    +sprite($play-btn-hover)
+
+
+.image-block
+  margin-bottom: 20px
+
+.quote
+  background-color: #f8f8f8
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -90px 65px, 106% 50px
+  background-size: 18%
+  padding: 30px
+  overflow: hidden
+  &__text 
+    margin-left: 65px
+    font-size: 18px 
+    line-height: 24px
+
+  .kavichki 
+    width: 37px
+    height: 25px
+    float: left
+    background: url('../images/kavichki.png') 0 0 no-repeat
+
+.images-list-block
+  margin-bottom: 40px
+
+.gallery-carousel
+  margin-top: 53px
+  padding-bottom: 15px
+  margin-bottom: 7px
+  .owl-nav 
+    margin-top: -67px
+    > div
+      width: 25px 
+      height: 25px 
+      background-color: #f8f8f8
+      border: none
+    .owl-prev
+      left: 0
+    .owl-next
+      right: 0
+
+  .global-item
+    margin: 0
+
+  .global-item__body
+    padding: 11px 40px 17px 0
+
+.docments-wrap
+  text-align: center
+  margin-top: 52px
+
+  .flex-row, li 
+    width: 100% 
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 35px
+    align-items: center
+    &:last-child
+      margin-bottom: 0
+
+  ul.flex-row li 
+    padding-left: 25px 
+    position: relative
+    margin-bottom: 20px
+    &:before
+      position: absolute
+      content: ' '
+      width: 4px
+      height: 4px
+      border-radius: 50%
+      background-color: #222222
+      left: 0
+      top: 50%
+      margin-top: -2px
+
+
+  .col-1
+    text-align: left
+    flex: 11 8 300px 
+  .col-2
+    flex: 1 4 90px 
+  .col-3
+    flex: 1 4 90px 
+  .col-4
+    flex: 0 4 105px 
+    margin-left: 35px
+
+  .btn 
+    min-width: 100px
+
+.docments-head
+  padding: 12px 20px 
+  background-color: #ffffff
+  display: flex
+  flex-wrap: wrap
+  color: #9c9c9c
+  margin-bottom: 10px
+
+.docment
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  padding: 20px 20px 
+  background-color: #ffffff
+  font-size: 16px
+  margin-bottom: 10px
+  &--multiply
+    display: block
+
+  &__body 
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+
+.docment-title
+  max-width: 630px
+

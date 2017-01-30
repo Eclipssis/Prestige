@@ -1,0 +1,56 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Горячие акции
+
+            .sales-list
+              
+              article.article
+                .article__preview
+                  .article__image
+                    img(src="images/article-banner-1.jpg", alt="article-banenr")
+                  .article__body
+                    .article__title
+                      a(href="#!") Скидки до 50% на всю мебель от фабрики Mugari (коллекция Matador)
+                    p.article__text Компания Престиж Мебель объявляет о тотальной распродажи мебели от фабрики MUGARI. В колекции Матадор Вы найдете любую мебель для гостиной комнаты. Она органично подойдет для множества стилей дизайна интерьеров.
+                    a(href="#!").article__link.js-open-full-article Подробности акции
+
+                .article__full
+                  .article__image
+                    img(src="images/article-image-1.jpg", alt="article-image")
+                    img(src="images/article-image-2.jpg", alt="article-image")
+                    img(src="images/article-image-3.jpg", alt="article-image")
+                    img(src="images/article-image-4.jpg", alt="article-image")
+                  .article__body
+                    .delete-item.js-close-full-article
+                    p Распродажа диванов, которые подойдут всем. Диваны этой коллекции действительно отлично впишутся практически в любой интерьер квартиры, дома, офиса или дачи. Дополнительно мы предлагаем услуги по бесплатному замеру вашего помещения с целью определения точного размера. Наш опытный специалист-замерщик приедет к вам абсолютно бесплатно и произведет точный замер, а также даст консультацию по правильному подбору места для дивана.
+                    p Материал диванов этой серии - натуральная кожа, которая имеет долгий срок службы. Заявленный срок службы более 20 лет. Производитель дает 5 летнюю арантию на качество материалов любого дивана. Не упустите возможность завладеть диваном этой коллекции, который будет служить верой и правдой каждый день.
+                    p Но и это еще не все! Некоторые модели имеют встроенные системы массажа, которые доставят не только удовольствие, но и принесут здоровье вашей спине. Причем будут делать это бесплатно и каждый день, по вашему желанию. Все подробности акции можно узнать по телефонам, указанным на сайте. Диваны находятся на ул. Суздальской, д.10. Торопитесь, предложение ограничено!!!
+                  .article__footer
+                    a(href="#!").article__link.js-close-full-article Скрыть подробности
+
+              //= template/article.jade
+              //= template/article.jade
+              //= template/article.jade
+              //= template/article.jade
+
+              
+        
+            .text-center
+              a(href="#!").btn Показать еще
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

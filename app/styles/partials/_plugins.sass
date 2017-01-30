@@ -1,5 +1,126 @@
 @import sprite
 
+/*----------- Bootstrap changes
+ ------------------------------------------------------------*/
+
+.carousel-inner 
+  > .item
+    text-align: center
+    > img 
+      margin: 0 auto
+
+  .btn-white
+    border: none
+
+.carousel-indicators 
+  li
+    vertical-align: middle
+    width: 8px
+    height: 8px
+    border-radius: 0px
+    margin: 0 3px
+    border: none
+    background-color: #ffffff
+    &:hover, &:focus
+      background-color: #222222
+
+  li.active
+    background-color: #222222
+    border: none
+    margin: 0
+    width: 8px
+    height: 8px
+
+.carousel-caption
+  font: 40px/1.1em 'Bodoni-Bold', Arial, sans-serif
+  position: absolute
+  z-index: 5999
+
+.carousel-title
+  margin-bottom: 30px
+  &__line
+    display: inline-block
+    padding: 5px 18px 9px 18px
+    background-color: #000000
+    font: 40px/1.1em 'Bodoni-Bold', Arial, sans-serif
+    color: #ffffff
+  &__item + &__item &__line
+    margin-top: -5px
+
+.carousel-caption
+  top: 150px
+  text-shadow: none
+
+.carousel-fade 
+  .carousel-inner 
+    .item 
+      transition: all 1s ease
+    
+    .item,
+    .active.left,
+    .active.right 
+      opacity: 0
+
+    .active,
+    .next.left,
+    .prev.right 
+      opacity: 1
+    
+    .next,
+    .prev,
+    .active.left,
+    .active.right 
+      left: 0
+      transform: translate3d(0, 0, 0)
+      
+  .carousel-control 
+    z-index: 2
+    
+
+
+
+// popover
+
+
+.popover-wrapper
+  display: none
+
+.color-popover
+  width: 160px
+  &__title 
+    max-width: 120px
+    margin-bottom: 15px
+    color: #222222
+    display: block
+  &__code 
+    display: block
+    color: #9c9c9c
+    margin-bottom: 15px
+
+.features-popover
+  &__title
+    margin-bottom: 15px
+  &__text
+    color: #9c9c9c
+    line-height: 20px
+
+.popover
+  box-shadow: none
+  border: 1px solid #e2e2e2
+  border-radius: 0px
+  z-index: 200
+
+.popover.bottom
+  margin-top: 15px
+
+.popover-content
+  padding: 20px 30px
+
+.pagination 
+  > li 
+    > a, > span
+      padding: 1px 7.5px
+
 /*----------- flexslider *
  ------------------------------------------------------------*/
 /* Browser Resets */
@@ -45,7 +166,7 @@ html[xmlns] .slides
   max-height: 300px
 .flexslider .slides
   zoom: 1
-.flex-direction-nav,
+
 .flex-control-thumbs,
 .flex-control-nav
   display: none
@@ -69,7 +190,6 @@ html[xmlns] .slides
     overflow: hidden
     cursor: pointer
     text-indent: -9999px
-    background-image: url(../img/sprite.png)
   .flex-prev
     left: 0px
     &:hover
@@ -144,10 +264,916 @@ html[xmlns] .slides
   position: relative
   zoom: 1
 
+// Form Styler
 
+.jq-selectbox
+  vertical-align: middle
+  cursor: pointer
+  width: 100%
+  &__select
+    height: 40px
+    line-height: 40px
+    padding: 0 30px 0 0
+    border-bottom: 1px solid #484848
+    text-shadow: 1px 1px #FFF
+    color: #555555
 
-
-
-
-
+  &.focused .jq-selectbox__select
     
+  &.disabled .jq-selectbox__select
+
+  &:hover .jq-selectbox__trigger-arrow
+
+  &.opened .jq-selectbox__trigger-arrow
+    transform: rotateX(0deg)
+    transition: all 0.6s ease
+
+  &.disabled .jq-selectbox__trigger-arrow
+
+
+  &__select-text
+    display: block
+    width: 100%
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+  &__trigger
+    position: absolute
+    top: 0
+    right: 0
+    width: 34px
+    height: 100%
+
+  &__trigger-arrow
+    position: absolute
+    top: 50%
+    right: 50%
+    margin-top: -1px
+    margin-left: -6.5px
+    overflow: hidden
+    +sprite($dropdown-arrow)
+    transform: rotateX(180deg)
+    transition: all 0.6s ease
+  
+  &__dropdown
+    top: 100%
+    width: 100%
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+    background-color: #ffffff
+    box-shadow: 0.8px 1.8px 4px rgba(0, 0, 0, 0.44)
+    animation: 
+      name: fadeInUpCustom
+      duration: 250ms
+      timing-function: ease-in
+      fill-mode: forwards 
+
+  &__search
+    margin: 5px
+    input
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      width: 100%
+      margin: 0
+      padding: 5px 27px 6px 8px
+      outline: none
+      border: 1px solid #CCC
+      border-radius: 3px
+      box-shadow: inset 1px 1px #F1F1F1
+      color: #333
+      -webkit-appearance: textfield
+      &::-webkit-search-cancel-button, &::-webkit-search-decoration
+        -webkit-appearance: none
+
+.jq-selectbox__not-found
+  margin: 5px
+  padding: 5px 8px 6px
+  background: #F0F0F0
+  font-size: 13px
+
+.jq-selectbox
+  ul
+    margin: 0
+    padding: 15px 0
+  li
+    min-height: 18px
+    padding: 5px 20px
+    height: 28px
+    line-height: 17px
+    color: #555555
+    font-weight: 300
+    &.selected
+      color: #222222
+      font-weight: 700
+    &:hover
+      color: #222222
+      font-weight: 700
+    &.disabled
+      color: #AAA
+      &:hover
+        background: none
+    &.optgroup
+      font-weight: bold
+      &:hover
+        background: none
+        color: #231F20
+        cursor: default
+    &.option
+      padding-left: 25px
+
+
+// owl carousel
+
+.owl-carousel
+  .animated
+    -webkit-animation-duration: 1000ms
+    animation-duration: 1000ms
+    -webkit-animation-fill-mode: both
+    animation-fill-mode: both
+  .owl-animated-in
+    z-index: 0
+  .owl-animated-out
+    z-index: 1
+  .fadeOut
+    -webkit-animation-name: fadeOut
+    animation-name: fadeOut
+
+@-webkit-keyframes fadeOut
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+
+@keyframes fadeOut
+  0%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+
+.owl-height
+  -webkit-transition: height 500ms ease-in-out
+  -moz-transition: height 500ms ease-in-out
+  -ms-transition: height 500ms ease-in-out
+  -o-transition: height 500ms ease-in-out
+  transition: height 500ms ease-in-out
+
+.owl-carousel
+  display: none
+  width: 100%
+  -webkit-tap-highlight-color: transparent
+  position: relative
+  z-index: 1
+  .owl-stage
+    position: relative
+    -ms-touch-action: pan-Y
+    &:after
+      content: "."
+      display: block
+      clear: both
+      visibility: hidden
+      line-height: 0
+      height: 0
+  .owl-stage-outer
+    position: relative
+    overflow: hidden
+    -webkit-transform: translate3d(0px, 0px, 0px)
+  .owl-controls
+    .owl-nav
+      .owl-prev, .owl-next
+        cursor: pointer
+        cursor: hand
+        -webkit-user-select: none
+        -khtml-user-select: none
+        -moz-user-select: none
+        -ms-user-select: none
+        user-select: none
+    .owl-dot
+      cursor: pointer
+      cursor: hand
+      -webkit-user-select: none
+      -khtml-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      user-select: none
+  &.owl-loaded
+    display: block
+  &.owl-loading
+    opacity: 0
+    display: block
+  &.owl-hidden
+    opacity: 0
+  .owl-refresh .owl-item
+    display: none
+  .owl-item
+    position: relative
+    min-height: 1px
+    float: left
+    -webkit-backface-visibility: hidden
+    -webkit-tap-highlight-color: transparent
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    img
+      display: block
+      width: 100%
+      -webkit-transform-style: preserve-3d
+  &.owl-text-select-on .owl-item
+    -webkit-user-select: auto
+    -moz-user-select: auto
+    -ms-user-select: auto
+    user-select: auto
+  .owl-grab
+    cursor: move
+    cursor: -webkit-grab
+    cursor: -o-grab
+    cursor: -ms-grab
+    cursor: grab
+  &.owl-rtl
+    direction: rtl
+    .owl-item
+      float: right
+
+.no-js .owl-carousel
+  display: block
+
+.owl-carousel
+  .owl-item
+    .owl-lazy
+      opacity: 0
+      -webkit-transition: opacity 400ms ease
+      -moz-transition: opacity 400ms ease
+      -ms-transition: opacity 400ms ease
+      -o-transition: opacity 400ms ease
+      transition: opacity 400ms ease
+    img
+      transform-style: preserve-3d
+  .owl-video-wrapper
+    position: relative
+    height: 100%
+    background: #000
+  .owl-video-play-icon
+    position: absolute
+    height: 80px
+    width: 80px
+    left: 50%
+    top: 50%
+    margin-left: -40px
+    margin-top: -40px
+    background: url("owl.video.play.png") no-repeat
+    cursor: pointer
+    z-index: 1
+    -webkit-backface-visibility: hidden
+    -webkit-transition: scale 100ms ease
+    -moz-transition: scale 100ms ease
+    -ms-transition: scale 100ms ease
+    -o-transition: scale 100ms ease
+    transition: scale 100ms ease
+    &:hover
+      -webkit-transition: scale(1.3, 1.3)
+      -moz-transition: scale(1.3, 1.3)
+      -ms-transition: scale(1.3, 1.3)
+      -o-transition: scale(1.3, 1.3)
+      transition: scale(1.3, 1.3)
+  .owl-video-playing
+    .owl-video-tn, .owl-video-play-icon
+      display: none
+  .owl-video-tn
+    opacity: 0
+    height: 100%
+    background-position: center center
+    background-repeat: no-repeat
+    -webkit-background-size: contain
+    -moz-background-size: contain
+    -o-background-size: contain
+    background-size: contain
+    -webkit-transition: opacity 400ms ease
+    -moz-transition: opacity 400ms ease
+    -ms-transition: opacity 400ms ease
+    -o-transition: opacity 400ms ease
+    transition: opacity 400ms ease
+  .owl-video-frame
+    position: relative
+    z-index: 1
+
+// Slider PRO
+
+.slider-pro
+  position: relative
+  margin: 0 auto
+  -moz-box-sizing: content-box
+  box-sizing: content-box
+
+.sp-slides-container
+  position: relative
+
+.sp-mask
+  position: relative
+  overflow: hidden
+
+.sp-slides
+  position: relative
+  -webkit-backface-visibility: hidden
+  -webkit-perspective: 1000
+
+.sp-slide
+  position: absolute
+
+.sp-image-container
+  overflow: hidden
+
+.sp-image
+  position: relative
+  display: block
+  border: none
+
+.sp-no-js
+  overflow: hidden
+  max-width: 100%
+
+.sp-thumbnails-container
+  position: relative
+  overflow: hidden
+  direction: ltr
+  padding-bottom: 60px
+  border-bottom: 1px solid #e2e2e2
+
+.sp-top-thumbnails, .sp-bottom-thumbnails
+  left: 0
+  margin: 0 auto
+
+.sp-top-thumbnails
+  position: absolute
+  top: 0
+  margin-bottom: 4px
+
+.sp-bottom-thumbnails
+  margin-top: 4px
+
+.sp-left-thumbnails
+  position: absolute
+  top: 0
+
+.sp-right-thumbnails
+  position: absolute
+  top: 0
+  right: 0
+  margin-left: 4px
+
+.sp-left-thumbnails
+  left: 0
+  margin-right: 4px
+
+.sp-thumbnails
+  position: relative
+  margin-top: 18px
+
+
+.sp-thumbnail
+  border: none
+
+.sp-thumbnail-container
+  position: relative
+  display: block
+  // overflow: hidden
+  float: left
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+.sp-rtl .sp-thumbnail-container
+  float: right
+
+.sp-top-thumbnails .sp-thumbnail-container, .sp-bottom-thumbnails .sp-thumbnail-container
+  margin-left: 3px
+  margin-right: 3px
+
+.sp-top-thumbnails .sp-thumbnail-container:first-child, .sp-bottom-thumbnails .sp-thumbnail-container:first-child
+  margin-left: 0
+
+.sp-top-thumbnails .sp-thumbnail-container:last-child, .sp-bottom-thumbnails .sp-thumbnail-container:last-child
+  margin-right: 0
+
+.sp-left-thumbnails .sp-thumbnail-container, .sp-right-thumbnails .sp-thumbnail-container
+  margin-top: 2px
+  margin-bottom: 2px
+
+.sp-left-thumbnails .sp-thumbnail-container:first-child, .sp-right-thumbnails .sp-thumbnail-container:first-child
+  margin-top: 0
+
+.sp-left-thumbnails .sp-thumbnail-container:last-child
+  margin-bottom: 0
+
+.sp-right-thumbnails
+  .sp-thumbnail-container:last-child
+    margin-bottom: 0
+  &.sp-has-pointer
+    margin-left: -13px
+    .sp-thumbnail
+      position: absolute
+      left: 18px
+      margin-left: 0 !important
+    .sp-selected-thumbnail
+      &:before
+        content: ''
+        position: absolute
+        height: 100%
+        border-bottom: 2px solid #222222
+        left: 0
+        bottom: -60px
+
+
+.sp-left-thumbnails.sp-has-pointer
+  margin-right: -13px
+  .sp-thumbnail
+    position: absolute
+    right: 18px
+  .sp-selected-thumbnail
+    &:before
+      content: ''
+      position: absolute
+      height: 100%
+      border-left: 5px solid #F00
+      right: 0
+      top: 0
+      margin-right: 13px
+
+
+.sp-bottom-thumbnails.sp-has-pointer
+  margin-top: 19px
+  .sp-thumbnail
+    position: absolute
+    top: 0
+    margin-top: 0 !important
+  .sp-selected-thumbnail
+    &:before
+      content: ''
+      position: absolute
+      width: 100%
+      border-bottom: 2px solid #222222
+      bottom: -60px
+
+.sp-top-thumbnails.sp-has-pointer
+  margin-bottom: -13px
+  .sp-thumbnail
+    position: absolute
+    bottom: 18px
+  .sp-selected-thumbnail
+    &:before
+      content: ''
+      position: absolute
+      width: 100%
+      border-bottom: 5px solid #F00
+      bottom: 0
+      margin-bottom: 13px
+
+.sp-layer
+  position: absolute
+  margin: 0
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  -webkit-font-smoothing: subpixel-antialiased
+  -webkit-backface-visibility: hidden
+
+.sp-black
+  color: #FFF
+  background: rgb(0, 0, 0)
+  background: rgba(0, 0, 0, 0.7)
+
+.sp-white
+  color: #000
+  background: rgb(255, 255, 255)
+  background: rgba(255, 255, 255, 0.7)
+
+.sp-rounded
+  border-radius: 10px
+
+.sp-padding
+  padding: 10px
+
+.sp-grab
+  cursor: url(../images/openhand.cur), move
+
+.sp-grabbing
+  cursor: url(../images/closedhand.cur), move
+
+.sp-selectable
+  cursor: default
+
+.sp-caption-container
+  text-align: center
+  margin-top: 10px
+
+.sp-full-screen
+  margin: 0 !important
+  background-color: #000
+
+.sp-full-screen-button
+  position: absolute
+  top: 5px
+  right: 10px
+  font-size: 30px
+  line-height: 1
+  cursor: pointer
+  -webkit-transform: rotate(45deg)
+  -ms-transform: rotate(45deg)
+  transform: rotate(45deg)
+  &:before
+    content: '\2195'
+
+.sp-fade-full-screen
+  opacity: 0
+  -webkit-transition: opacity 0.5s
+  transition: opacity 0.5s
+
+.slider-pro:hover .sp-fade-full-screen
+  opacity: 1
+
+.sp-buttons
+  position: relative
+  width: 100%
+  text-align: center
+  padding-top: 10px
+
+.sp-rtl .sp-buttons
+  direction: rtl
+
+.sp-full-screen .sp-buttons
+  display: none
+
+.sp-button
+  width: 10px
+  height: 10px
+  border: 2px solid #000
+  border-radius: 50%
+  margin: 4px
+  display: inline-block
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+  cursor: pointer
+
+.sp-selected-button
+  background-color: #000
+
+@media only screen and (min-width: 768px) and (max-width: 1024px)
+  .sp-button
+    width: 14px
+    height: 14px
+
+@media only screen and (min-width: 568px) and (max-width: 768px)
+  .sp-button
+    width: 16px
+    height: 16px
+
+@media only screen and (min-width: 320px) and (max-width: 568px)
+  .sp-button
+    width: 18px
+    height: 18px
+
+.sp-arrows
+  position: absolute
+
+.sp-fade-arrows
+  opacity: 0
+  -webkit-transition: opacity 0.5s
+  transition: opacity 0.5s
+
+.sp-slides-container:hover .sp-fade-arrows
+  opacity: 1
+
+.sp-horizontal .sp-arrows
+  width: 100%
+  left: 0
+  top: 50%
+  margin-top: -15px
+
+.sp-vertical .sp-arrows
+  height: 100%
+  left: 50%
+  top: 0
+  margin-left: -10px
+
+.sp-arrow
+  position: absolute
+  display: block
+  width: 20px
+  height: 30px
+  cursor: pointer
+
+.sp-vertical .sp-arrow
+  -webkit-transform: rotate(90deg)
+  -ms-transform: rotate(90deg)
+  transform: rotate(90deg)
+
+.sp-horizontal
+  .sp-previous-arrow
+    left: 20px
+    right: auto
+  &.sp-rtl .sp-previous-arrow, .sp-next-arrow
+    right: 20px
+    left: auto
+  &.sp-rtl .sp-next-arrow
+    left: 20px
+    right: auto
+
+.sp-vertical
+  .sp-previous-arrow
+    top: 20px
+  .sp-next-arrow
+    bottom: 20px
+    -webkit-transform: rotate(270deg)
+    -ms-transform: rotate(270deg)
+    transform: rotate(270deg)
+
+.sp-previous-arrow
+  &:before, &:after
+    content: ''
+    position: absolute
+    width: 50%
+    height: 50%
+    background-color: #FFF
+
+.sp-next-arrow
+  &:before, &:after
+    content: ''
+    position: absolute
+    width: 50%
+    height: 50%
+    background-color: #FFF
+
+.sp-arrow
+  &:before
+    left: 30%
+    top: 0
+    -webkit-transform: skew(145deg, 0deg)
+    -ms-transform: skew(145deg, 0deg)
+    transform: skew(145deg, 0deg)
+  &:after
+    left: 30%
+    top: 50%
+    -webkit-transform: skew(-145deg, 0deg)
+    -ms-transform: skew(-145deg, 0deg)
+    transform: skew(-145deg, 0deg)
+
+.sp-next-arrow
+  -webkit-transform: rotate(180deg)
+  -ms-transform: rotate(180deg)
+  transform: rotate(180deg)
+
+.sp-horizontal.sp-rtl
+  .sp-previous-arrow
+    -webkit-transform: rotate(180deg)
+    -ms-transform: rotate(180deg)
+    transform: rotate(180deg)
+  .sp-next-arrow
+    -webkit-transform: rotate(0deg)
+    -ms-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+.ie8 .sp-arrow, .ie7 .sp-arrow
+  width: 0
+  height: 0
+
+.ie8 .sp-arrow
+  &:before, &:after
+    content: none
+
+.ie7 .sp-arrow
+  &:before, &:after
+    content: none
+
+.ie8.sp-horizontal .sp-previous-arrow, .ie7.sp-horizontal .sp-previous-arrow
+  border-right: 20px solid #FFF
+  border-top: 20px solid transparent
+  border-bottom: 20px solid transparent
+
+.ie8.sp-horizontal .sp-next-arrow, .ie7.sp-horizontal .sp-next-arrow
+  border-left: 20px solid #FFF
+  border-top: 20px solid transparent
+  border-bottom: 20px solid transparent
+
+.ie8.sp-vertical .sp-previous-arrow, .ie7.sp-vertical .sp-previous-arrow
+  border-bottom: 20px solid #FFF
+  border-left: 20px solid transparent
+  border-right: 20px solid transparent
+
+.ie8.sp-vertical .sp-next-arrow, .ie7.sp-vertical .sp-next-arrow
+  border-top: 20px solid #FFF
+  border-left: 20px solid transparent
+  border-right: 20px solid transparent
+
+.sp-thumbnail-arrows
+  position: absolute
+
+.sp-fade-thumbnail-arrows
+  opacity: 0
+  -webkit-transition: opacity 0.5s
+  transition: opacity 0.5s
+
+.sp-thumbnails-container:hover .sp-fade-thumbnail-arrows
+  opacity: 1
+
+.sp-top-thumbnails .sp-thumbnail-arrows, .sp-bottom-thumbnails .sp-thumbnail-arrows
+  width: 100%
+  top: 50%
+  left: 0
+  margin-top: -32px
+
+.sp-left-thumbnails .sp-thumbnail-arrows, .sp-right-thumbnails .sp-thumbnail-arrows
+  height: 100%
+  top: 0
+  left: 50%
+  margin-left: -7px
+
+.sp-thumbnail-arrow
+  position: absolute
+  display: block
+  width: 25px
+  height: 25px
+  cursor: pointer
+  background-color: #f8f8f8
+
+.sp-left-thumbnails .sp-thumbnail-arrows .sp-thumbnail-arrow, .sp-right-thumbnails .sp-thumbnail-arrows .sp-thumbnail-arrow
+  -webkit-transform: rotate(90deg)
+  -ms-transform: rotate(90deg)
+  transform: rotate(90deg)
+
+.sp-top-thumbnails .sp-previous-thumbnail-arrow, .sp-bottom-thumbnails .sp-previous-thumbnail-arrow
+  left: 0px
+
+.sp-top-thumbnails .sp-next-thumbnail-arrow, .sp-bottom-thumbnails .sp-next-thumbnail-arrow
+  right: 0px
+
+.sp-left-thumbnails .sp-previous-thumbnail-arrow, .sp-right-thumbnails .sp-previous-thumbnail-arrow
+  top: 0px
+
+.sp-left-thumbnails .sp-next-thumbnail-arrow, .sp-right-thumbnails .sp-next-thumbnail-arrow
+  bottom: 0px
+
+.sp-previous-thumbnail-arrow
+  &:before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -7px
+    margin-left: -3px
+    +sprite($carousel-arrow-prev)
+
+.sp-next-thumbnail-arrow
+  &:before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -7px
+    margin-left: -3px
+    +sprite($carousel-arrow-next)
+
+.ie8 .sp-thumbnail-arrow, .ie7 .sp-thumbnail-arrow
+  width: 0
+  height: 0
+
+.ie8 .sp-thumbnail-arrow
+  &:before, &:after
+    content: none
+
+.ie7 .sp-thumbnail-arrow
+  &:before, &:after
+    content: none
+
+.ie8
+  .sp-top-thumbnails .sp-previous-thumbnail-arrow, .sp-bottom-thumbnails .sp-previous-thumbnail-arrow
+    border-right: 12px solid #FFF
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+
+.ie7
+  .sp-top-thumbnails .sp-previous-thumbnail-arrow, .sp-bottom-thumbnails .sp-previous-thumbnail-arrow
+    border-right: 12px solid #FFF
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+
+.ie8
+  .sp-top-thumbnails .sp-next-thumbnail-arrow, .sp-bottom-thumbnails .sp-next-thumbnail-arrow
+    border-left: 12px solid #FFF
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+
+.ie7
+  .sp-top-thumbnails .sp-next-thumbnail-arrow, .sp-bottom-thumbnails .sp-next-thumbnail-arrow
+    border-left: 12px solid #FFF
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+
+.ie8
+  .sp-left-thumbnails .sp-previous-thumbnail-arrow, .sp-right-thumbnails .sp-previous-thumbnail-arrow
+    border-bottom: 12px solid #FFF
+    border-left: 12px solid transparent
+    border-right: 12px solid transparent
+
+.ie7
+  .sp-left-thumbnails .sp-previous-thumbnail-arrow, .sp-right-thumbnails .sp-previous-thumbnail-arrow
+    border-bottom: 12px solid #FFF
+    border-left: 12px solid transparent
+    border-right: 12px solid transparent
+
+.ie8
+  .sp-left-thumbnails .sp-next-thumbnail-arrow, .sp-right-thumbnails .sp-next-thumbnail-arrow
+    border-top: 12px solid #FFF
+    border-left: 12px solid transparent
+    border-right: 12px solid transparent
+
+.ie7
+  .sp-left-thumbnails .sp-next-thumbnail-arrow, .sp-right-thumbnails .sp-next-thumbnail-arrow
+    border-top: 12px solid #FFF
+    border-left: 12px solid transparent
+    border-right: 12px solid transparent
+
+a.sp-video
+  text-decoration: none
+  img
+    -webkit-backface-visibility: hidden
+    border: none
+  &:after
+    content: '\25B6'
+    position: absolute
+    width: 45px
+    padding-left: 5px
+    height: 50px
+    border: 2px solid #FFF
+    text-align: center
+    font-size: 30px
+    border-radius: 30px
+    top: 0
+    color: #FFF
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: rgba(0, 0, 0, 0.2)
+    margin: auto
+    line-height: 52px
+
+.slider-pro
+  img
+    &.sp-image, &.sp-thumbnail
+      max-width: none
+      max-height: none
+      border: none !important
+      border-radius: 0 !important
+      padding: 0 !important
+      -webkit-box-shadow: none !important
+      -mox-box-shadow: none !important
+      box-shadow: none !important
+      transition: none
+      -moz-transition: none
+      -webkit-transition: none
+      -o-transition: none
+  a
+    position: static
+    transition: none !important
+    -moz-transition: none !important
+    -webkit-transition: none !important
+    -o-transition: none !important
+  iframe, object, video, embed, canvas
+    max-width: none
+    max-height: none
+  p.sp-layer
+    font-size: 14px
+    line-height: 1.4
+    margin: 0
+  h1.sp-layer
+    font-size: 32px
+    line-height: 1.4
+    margin: 0
+  h2.sp-layer
+    font-size: 24px
+    line-height: 1.4
+    margin: 0
+  h3.sp-layer
+    font-size: 19px
+    line-height: 1.4
+    margin: 0
+  h4.sp-layer
+    font-size: 16px
+    line-height: 1.4
+    margin: 0
+  h5.sp-layer
+    font-size: 13px
+    line-height: 1.4
+    margin: 0
+  h6.sp-layer
+    font-size: 11px
+    line-height: 1.4
+    margin: 0
+  img.sp-layer
+    border: none

@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     jade = require('gulp-jade'),
+    sourcemaps = require('gulp-sourcemaps'),
     browserSync = require("browser-sync"),
     spritesmith = require('gulp.spritesmith'),
     merge = require('merge-stream'),
@@ -78,12 +79,14 @@ gulp.task('js:build', function () {
 
 gulp.task('style:build', function () {
     gulp.src(path.src.style) 
+        .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['app/styles/'],
             errLogToConsole: true
         }))
         .pipe(prefixer())
         // .pipe(cssmin())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });

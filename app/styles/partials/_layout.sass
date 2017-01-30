@@ -24,15 +24,40 @@ html, body
 .container
   padding: 0 15px
 
+.middle.sticky 
+  padding-top: 158px
+
+.content
+  padding-top: 40px
+  padding-bottom: 100px
+
+.divider
+  height: 1px
+  background-color: #e2e2e2
+
+.some-interesting-padding
+  padding: 45px 0
+
+.close-btn
+  
+
+
+/*----------- Global helpers *
+ ------------------------------------------------------------*/
+
+
+
 
 /*----------- Navigation *
  ------------------------------------------------------------*/
 
 .breadcrumb
+  margin-bottom: 5px
   > li
     list-style-type: none
     display: inline-block
     vertical-align: middle
+    
     &:before
       content: '/ '
     &:first-child
@@ -44,18 +69,563 @@ html, body
  ------------------------------------------------------------*/
 .header
   position: relative
-  padding: 15px 0
+  z-index: 200
+  padding-top: 15px
+  background-color: #ffffff 
+
+  .popover
+    max-width: 360px
+    width: 100%
+  .popover-content 
+    padding: 10px 30px 20px
+  .popover.bottom
+    margin-top: 20px
+
+
+.header.sticky
+  position: fixed
+  width: 100%
+  top: 0
+  left: 0
+  padding-top: 0
+  animation: 
+    name: slideInDown
+    duration: 500ms
+    fill-mode: both 
+  .header-panel
+    display: none
+  .navbar-default
+    margin-top: 0
+  .controls
+    margin-top: 17px
+  .controls--sticky, .logo-hidden
+    display: block
+
+  .navbar-default
+    .navbar-header
+      position: absolute
+      width: 100%
+      +tablet
+        padding: 0 15px
+        position: static
+        width: auto
+
+    .navbar-nav > li
+      +desktop-large
+        margin: 0 9px
+
+    .navbar-toggle
+      margin: 11px 0 11px 15px
+
+.header-panel
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-wrap: wrap
 
 .logo
-  float: left
-  margin: 0 20px 0 0
+  width: 150px
 
+.logo-hidden
+  float: left
+  display: none
+  margin-top: 15px
+
+.header-contacts
+  +mobile
+    display: none
+
+  &__adress
+    color: #222222
+    font-size: 18px
+    line-height: 24px
+  &__phone
+    color: #9c9c9c
+    font-size: 14px
+    line-height: 24px
+
+.controls
+  margin-bottom: 5px
+  order: 1
+  &--sticky
+    display: none
+    float: right
+
+  &__item
+    position: relative
+    background-image: url('../images/sprite.png')
+    display: inline-block
+    vertical-align: middle
+    margin: 0 8px
+    opacity: 0.6
+    transition: all 0.2s ease
+    &:hover
+      opacity: 1
+      transition: all 0.2s ease
+
+  &__counter
+    position: absolute
+    right: -12px
+    bottom: -10px
+    border-radius: 50%
+    width: 14px
+    height: 14px
+    background-color: #e2e2e2
+    font-size: 10px
+    line-height: 14px
+    color: #222222
+    text-align: center
+
+  .phone-icon
+    +sprite($header-phone)
+  .mail-icon
+    +sprite($header-mail)
+  .cart-icon
+    +sprite($header-cart)
+
+  
+
+
+.navbar-default
+  text-align: center
+  border-top: 1px solid #e2e2e2
+  border-bottom: 1px solid #e2e2e2
+  margin-bottom: 0
+  margin-top: 20px
+  min-height: 100%
+  .container
+    position: relative
+
+  .navbar-toggle
+    background: none
+    border: none
+    &:hover, &:focus
+      border: none
+      background: none
+    .icon-bar
+      width: 30px
+      height: 4px
+      background-color: #222222
+
+  .navbar-nav
+    float: none
+    text-align: center
+    > li 
+      display: inline-block
+      float: none
+      margin: 0 20px
+      transform: perspective(1px) translateZ(0)
+      +desktop
+        margin: 0 10px
+
+      &:before
+        content: " "
+        position: absolute
+        z-index: -1
+        left: 50%
+        right: 50%
+        top: 0
+        background: #222222
+        height: 2px
+        transition-property: left, right
+        transition-duration: 0.2s
+        transition-timing-function: ease-out
+      &:hover:before
+        right: 0
+        left: 0
+
+      > a
+        font-size: 16px
+        padding: 20px 0
+        font-weight: 300
+  
+  .dropdown-menu.animate-hover
+    > li 
+      > a
+        transform: perspective(1px) translateZ(0)
+        &:before
+          content: ""
+          position: absolute
+          z-index: -1
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          background: #e2e2e2
+          transform: scaleX(0)
+          transform-origin: 0 50%
+          transition-property: transform
+          transition-duration: 0.2s
+          transition-timing-function: ease-out
+        &:hover:before
+          transform: scaleX(1)
+        &:hover
+          background: none
+
+  .dropdown-menu
+    left: -30px
+    z-index: 10
+    border: 1px solid #e2e2e2
+    box-shadow: none
+    padding: 15px 0
+    border-radius: 0
+    &:before
+      position: absolute
+      bottom: 100%
+      left: 56px
+      content: ' '
+      width: 21px
+      height: 12px
+      background: url('../images/dropdown-corner-arrow.png') 0 0 no-repeat 
+    > li 
+      > a 
+        color: #222222
+        padding: 8px 30px
+        font-weight: 300
+
+        &:focus
+          background-color: #e2e2e2
+
+.dropdown
+  z-index: 100
+
+.dropdown-big
+  top: 100%
+  display: none
+  position: absolute
+  z-index: 10
+  width: 100%
+  padding: 35px 40px 15px 40px
+  border: 1px solid #e2e2e2
+  text-align: left
+
+  background-color: #ffffff
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -570px 0, 810px 215px
+  &:before
+    position: absolute
+    bottom: 100%
+    left: 182px
+    content: ' '
+    width: 21px
+    height: 12px
+    background: url('../images/dropdown-corner-arrow.png') 0 0 no-repeat 
+
+
+  ul, ol 
+    list-style: none
+
+  .caterogy-title
+    color: #9c9c9c
+    font-size: 16px
+    border-bottom: 1px solid #e2e2e2
+    padding-bottom: 15px
+    margin-bottom: 25px
+
+  .dropdown-category
+    margin-right: 20px
+    vertical-align: top
+
+  .dropdown-submenu + .dropdown-submenu
+    margin-left: 55px  
+
+  .dropdown-submenu:last-child 
+    margin-left: 0
+
+  .dropdown-submenu
+    display: inline-block
+    vertical-align: top
+    > li 
+      margin-bottom: 5px
+      > a 
+        color: #222222
+        font-weight: 300
+
+      a.color-grey
+        color: #9c9c9c
+
+  .dobule-submenu
+    max-width: 384px
+    > li 
+      display: inline-block
+      min-width: 185px
 
 /*----------- Footer *
  ------------------------------------------------------------*/
 .footer
   width: 100%
   position: relative
+  background-color: #f8f8f8
+
+  .btn 
+    +desktop
+      font-size: 16px
+
+.footer-bg
+  background-image: url("../images/leaf-right.png"), url("../images/leaf-left.png")
+  background-repeat: no-repeat
+  background-position: -515px -60px, 125% -117%
+
+.footer-title
+  color: #222222
+  font-weight: 700
+  font-size: 18px
+  margin-bottom: 25px
+  +tablet
+    margin-bottom: 15px
+
+.footer-head
+  padding: 25px 0
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  font-size: 18px
+  border-bottom: 1px solid #e2e2e2
+  +desktop
+    font-size: 16px
+  +tablet
+    flex-direction: column
+    text-align: center
+
+  span
+    margin-right: 10px
+    display: inline-block
+    +tablet
+      margin-bottom: 15px
+      margin-right: 0
+
+  span:first-child
+    flex-basis: 507px
+    +desktop-large
+      flex-basis: 265px
+    +desktop
+      flex-basis: 240px
+    +tablet
+      flex-basis: auto        
+
+  .phone-number
+    color: #222222
+    font-weight: 700
+
+  .btn 
+    margin-right: 35px
+
+.footer-body
+  padding: 45px 0
+  display: flex
+  flex-wrap: wrap
+  font-size: 16px
+  color: #222222
+  +tablet
+    flex-direction: column
+    padding: 25px 0 35px
+
+  a 
+    color: #222222
+
+  .item-1
+    flex: 2 6 300px
+    +desktop-large
+      flex-basis: 170px
+    +desktop
+      flex-basis: 300px
+    +tablet
+      flex-basis: auto
+      
+  .item-2
+    flex: 1 3 180px
+    padding-right: 50px
+    +desktop-large
+      flex-basis: 180px
+    +desktop
+      flex-basis: 300px
+    +tablet
+      flex-basis: auto
+      margin-bottom: 20px
+      
+  .item-3
+    flex: 1 3 150px
+    +desktop
+      flex-basis: 300px
+    +tablet
+      flex-basis: auto
+      
+
+  .partners, .location
+    min-height: 125px
+    position: relative
+    +desktop
+      min-height: auto
+
+  .partners-text  
+    color: #222222
+    +tablet
+      padding-left: 25px
+
+  .partners
+    +desktop
+      margin-bottom: 15px
+    +tablet
+      padding-left: 25px
+
+    &:before
+      position: absolute
+      +sprite($footer-bag)
+      left: -25px
+      top: 3px
+      content: ' '
+      +tablet
+        left: 0
+
+  .location
+    +desktop
+      padding-left: 25px
+      margin-bottom: 15px
+
+    &:before
+      position: absolute
+      +sprite($footer-location)
+      left: -25px
+      top: 3px
+      content: ' '
+      +desktop
+        left: 0
+
+  .phone
+    position: relative
+    color: #222222
+    margin-top: 15px
+    +desktop
+      padding-left: 25px
+
+    &:before
+      position: absolute
+      content: ' '
+      +sprite($header-phone)
+      left: -28px
+      top: 5px
+      +desktop
+        left: 0
+        
+
+.footer-nav
+  overflow: hidden
+  list-style: none
+  max-width: 450px
+  margin-bottom: 25px
+  +tablet
+    max-width: 100%
+    padding-left: 25px
+  > li
+    min-width: 150px
+    float: left
+    margin-bottom: 3px
+    +desktop-large
+      min-width: 170px
+    +tablet
+      min-width: 150px
+    +mobile
+      min-width: 170px
+      margin-bottom: 5px
+
+    > a 
+      font-size: 16px
+      color: #222222
+      font-weight: 400
+      +mobile
+        font-size: 18px
+
+
+.footer-panel
+  padding: 25px 0  
+  background-color: #ffffff
+  color: #9c9c9c
+
+  &__items
+    display: flex
+    flex-wrap: wrap
+    +desktop
+      flex-direction: column
+
+  &__item
+    flex: 1 2 300px
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    +desktop
+      justify-content: center
+      flex-basis: auto
+
+  &__item.item-1
+    flex-basis: 270px
+    +desktop
+      flex-basis: auto
+      padding-bottom: 20px
+
+  &__item.item-2
+    @media only screen and (max-width: 580px)
+      justify-content: center
+      flex-direction: column
+      text-align: center
+      
+  .slogan
+    max-width: 202px
+    line-height: 18px
+    margin-left: 30px
+    +desktop
+      margin: 10px 0 10px 30px
+  
+  .logo 
+    width: 115px
+    +mobile
+      width: 140px
+
+  .copyright
+    max-width: 190px
+    margin-right: 132px
+    line-height: 18px
+
+  .develop
+    max-width: 125px
+    line-height: 18px
+    @media only screen and (max-width: 580px)
+      max-width: 100%
+
+  
+
+.footer-social
+  margin-bottom: 0
+  margin-left: 30px
+  flex: 0 2 130px
+  +desktop
+    margin: 0 20px
+  @media only screen and (max-width: 580px)
+    order: -1
+    margin-bottom: 20px
+
+  > li
+    display: inline-block
+    margin-right: 10px
+    > a 
+      display: block
+      opacity: 1
+  .fa
+    opacity: 0.6
+    transition: all 0.2s ease
+    &:hover 
+      opacity: 1
+      color: #222222
+  
+  .fa-vk
+    font-size: 24px
+  .fa-odnoklassniki-square
+    font-size: 20px
+  .fa-facebook-official
+    font-size: 20px
+  .fa-instagram
+    font-size: 21px
 
 
 

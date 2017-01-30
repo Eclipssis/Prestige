@@ -1,0 +1,113 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle.grey-bg
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Документы
+            
+            .docments-wrap
+              .docments-head
+                .col-1 Наименование документа
+                .col-2 Формат
+                .col-3 Размер
+                .col-4 Скачать
+
+              .docments-list
+
+                .docment
+                  .col-1
+                    .docment-title
+                      a(href="#!") Каталог производителя корпусной и мягкой мебели MUGALI
+                  .col-2
+                    span.file-format-pdf pdf
+                  .col-3 2,13 Мб.
+                  .col-4
+                    a(href="#!").btn Скачать
+
+                .docment
+                  .col-1
+                    .docment-title
+                      a(href="#!") Руководство пользователя по эксплуатации чистащих средств для мебели коллекции FIGARO от компании PIZZARO VICI
+                  .col-2
+                    span.file-format-zip zip
+                  .col-3 2,13 Мб.
+                  .col-4
+                    a(href="#!").btn Скачать
+
+                .docment.docment--multiply
+                  .docment__body
+                    .flex-row
+                      .col-1
+                        .docment-title
+                          a(href="#!") Сертификат соответствия качества РСТ выданный 19 ноября 2010 года компании ООО “Престиж мебель” г. Калининград
+                      .col-2
+                        span.file-format-doc doc
+                      .col-3 2,13 Мб.
+                      .col-4
+                        a(href="#!").btn Скачать
+                  
+                    ul.flex-row
+                      li 
+                        .col-1
+                          .docment-title
+                            a(href="#!") Фотоальбом коллекции угловых диванов от фабрики Viola Putti
+                        .col-2
+                          span.file-format-pdf pdf
+                        .col-3 2,13 Мб.
+                        .col-4
+                          a(href="#!").btn Скачать
+                      li 
+                        .col-1
+                          .docment-title
+                            a(href="#!") Каталог производителя корпусной и мягкой мебели MUGALI
+                        .col-2
+                          span.file-format-pdf pdf
+                        .col-3 2,13 Мб.
+                        .col-4
+                          a(href="#!").btn Скачать
+                
+                .docment
+                  .col-1
+                    .docment-title
+                      a(href="#!") Каталог производителя корпусной и мягкой мебели MUGALI
+                  .col-2
+                    span.file-format-pdf pdf
+                  .col-3 2,13 Мб.
+                  .col-4
+                    a(href="#!").btn Скачать
+
+                .docment
+                  .col-1
+                    .docment-title
+                      a(href="#!") Руководство пользователя по эксплуатации чистащих средств для мебели коллекции FIGARO от компании PIZZARO VICI
+                  .col-2
+                    span.file-format-zip zip
+                  .col-3 2,13 Мб.
+                  .col-4
+                    a(href="#!").btn Скачать
+
+                .docment
+                  .col-1
+                    .docment-title
+                      a(href="#!") Каталог производителя корпусной и мягкой мебели MUGALI
+                  .col-2
+                    span.file-format-pdf pdf
+                  .col-3 2,13 Мб.
+                  .col-4
+                    a(href="#!").btn Скачать
+
+            //= template/pagination.jade
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

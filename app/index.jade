@@ -8,26 +8,408 @@ html(xmlns='http://www.w3.org/1999/xhtml')
 
       //= template/header.jade
 
-      section#middle
+      section.middle
+
+        #index-carousel.carousel.slide.carousel-fade(data-ride='carousel')
+
+          ol.carousel-indicators
+            li.active(data-target='#index-carousel', data-slide-to='0')
+            li(data-target='#index-carousel', data-slide-to='1')
+            li(data-target='#index-carousel', data-slide-to='2')
+            li(data-target='#index-carousel', data-slide-to='3')
+
+          .carousel-inner
+            .item.active
+              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Скидки до 35%
+                  .carousel-title__item 
+                    span.carousel-title__line на всю мебель из ротанга
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Скидки до 45%
+                  .carousel-title__item 
+                    span.carousel-title__line на всю мебель из ротанга
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Скидки до 55%
+                  .carousel-title__item 
+                    span.carousel-title__line на всю мебель из ротанга
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+
+            .item
+              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Скидки до 65%
+                  .carousel-title__item 
+                    span.carousel-title__line на всю мебель из ротанга
+                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+        
+        .facts
+          .container
+            .facts__item
+              span.icon-1
+              p Более 300 производителей мебели
+
+            .facts__item
+              span.icon-2
+              p Уникальная мебель, которая есть только у нас!
+
+            .facts__item
+              span.icon-3
+              p Высокое качество представленной мебели
+
+            .facts__item
+              span.icon-4
+              p Бесплатный подбор мебели для вашего объекта
+
+            .facts__item
+              span.icon-5
+              p Бесплатный выезд замерщика
+        
+        .complex-solution
+          .container
+            .page-title Комплексные решения
+
+            .global-items-list
+              .global-item.global-item--white
+                a(href="#!").global-item__image
+                  img(src="images/complex-image-1.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Комплексеное предложение для владельцев домов
+
+              .global-item.global-item--white
+                a(href="#!").global-item__image
+                  img(src="images/complex-image-2.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Предложение для новоселов
+
+              .global-item.global-item--white
+                a(href="#!").global-item__image
+                  img(src="images/complex-image-3.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Столы и стулья для любого помещения
+
+              .global-item.global-item--white
+                a(href="#!").global-item__image
+                  img(src="images/complex-image-4.jpg", alt="complex-image" title="complex-image")
+                .global-item__body
+                  a(href="#!").global-item__text Мебель для гостиниц и гостевых домов
+            
+            .text-center
+              a(href="#!") Смотреть все решения
+
+        .popular-producs
+          .container
+            .page-title Популярные товары
+      
+            .product-list
+              
+              .product-list__item
+                
+                //= template/product.jade
+
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                      .label__item New
+                    a(href="#!")
+                      img(src="images/product-image-1.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Угловой кожанный диван серии Венеция
+                  .product__footer
+                    .product__old-price 56 590 руб.
+                    .product__price 45 900 руб.
+                  
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+           
+              .product-list__item 
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-2.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Белый комод для спальни Magic Pegas 
+                  .product__footer 
+                    .product__price Цена по запросу
+
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-3.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Стол + 4 стула, комплект, модель Milan
+                  .product__footer 
+                    .product__price Цена по запросу
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-4.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Модульная стенка, фабрика MUGALI, колл...
+                  .product__footer
+                    .product__old-price 24 500 руб.
+                    .product__price 21 700 руб.
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-5.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Угловой кожанный диван серии Венеция
+                  .product__footer
+                    .product__old-price 56 590 руб.
+                    .product__price 45 900 руб.
+
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-6.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Белый комод для спальни Magic Pegas 
+                  .product__footer 
+                    .product__price Цена по запросу
+
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-7.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Стол + 4 стула, комплект, модель Milan
+                  .product__footer 
+                    .product__price Цена по запросу
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+              
+              .product-list__item
+                .product
+                  .product__image
+                    .label
+                      .label__item Sale
+                    a(href="#!")
+                      img(src="images/product-image-8.jpg", alt="product-image")
+
+                  .product__title
+                    a(href="#!") Модульная стенка, фабрика MUGALI, колл...
+                  .product__footer
+                    .product__old-price 24 500 руб.
+                    .product__price 21 700 руб.
+                  .product__hidden
+                    .description
+                      .description__item
+                        .description__title Фабрика:
+                        .description__value
+                          img(src="images/italy-flag.jpg", alt="") 
+                          | Fratelli Barr
+
+                      .description__item
+                        .description__title Коллекция:
+                        .description__value Gigaro
+
+                      .description__item
+                        .description__title Размеры:
+                        .description__value 150 х 66 х 20
+
+                    a(href="#!").btn <span class="btn-icon-cart"></span> Заказать
+            
+            .buttons-block.text-center
+              a(href="#!").btn Показать еще товары
+              a(href="#!").btn.btn-black Перейти в каталог
+
+        .gallery
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-5.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-6.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-7.jpg", alt="gallery-image" title="gallery-image")
+        
+          a(href="#!").gallery__item
+            img(src="images/gallery-images-8.jpg", alt="gallery-image" title="gallery-image")
+
         .container
-          ul.breadcrumb
-            li
-              a(href='#') Main
-            li.active Inner page
-
-          a.btn(href='#') Кнопка
-
-          ul.rating
-            li.active(style="width: 20%")
-              span.star1
-            li
-              span.star2
-            li
-              span.star3
-            li
-              span.star4
-            li
-              span.star5
+          .about-block
+            div.about-block__text
+              .page-title О магазине
+              p Компания "Престиж Мебель" представлена в России с 2005 года. За годы плодотворной работы компания успела зарекомендовать себя на рынке, благодаря высокому качеству продукции, изысканному дизайну, отменному сервису, доступному уровню цен в своем сегменте.
+              p Было открыто шесть салонов в Москве, это и флагманский салон на Фрунзенской набережной и подиумы в крупнейших мебельных торговых центрах: МТК «Гранд», ТК «Три Кита», ТК «Западный», МТК "Армада", ТК «Твой дом» в Крокус сити. Компания ведет активное сотрудничество с регионами России.
+              .about-block__link
+                a(href="#!") Узнать больше о магазине ...
+            div
+              img(src="images/about-shop-image.jpg", alt="about-shop-image")
 
       .page-buffer
 

@@ -1,0 +1,117 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        .container
+          .some-interesting-padding
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Выберите свой стиль
+
+        .catalog-items
+          .catalog-item
+            .catalog-item__label АР ДЕКО
+            .catalog-item__layer
+              span АР ДЕКО
+            img(src="images/catalog-image-1.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label КЛАССИКА
+            .catalog-item__layer
+              span КЛАССИКА
+            img(src="images/catalog-image-2.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label ПРОВАНС
+            .catalog-item__layer
+              span ПРОВАНС
+            img(src="images/catalog-image-3.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label СОВРЕМЕННЫЙ
+            .catalog-item__layer
+              span СОВРЕМЕННЫЙ
+            img(src="images/catalog-image-4.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label МОДЕРН
+            .catalog-item__layer
+              span МОДЕРН
+            img(src="images/catalog-image-5.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label НЕОКЛАССИКА
+            .catalog-item__layer
+              span НЕОКЛАССИКА
+            img(src="images/catalog-image-6.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label ЛОФТ
+            .catalog-item__layer
+              span ЛОФТ
+            img(src="images/catalog-image-7.jpg", alt="catalog-image")
+          .catalog-item
+            .catalog-item__label ХАЙТЕК
+            .catalog-item__layer
+              span ХАЙТЕК
+            img(src="images/catalog-image-8.jpg", alt="catalog-image")
+
+        .container
+          .page-title Мебель по помещениям
+
+          .global-items-list.margin-bottom-140
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-1.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Гостиная
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-2.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Столовая / Кухня
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-3.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Спальня
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-4.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Детская / Подростковая
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-5.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Прихожая
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-6.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body 
+                a(href="#!").global-item__text Кабинет
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-7.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Мебель для Ванной
+
+            .global-item.global-item--grey
+              .global-item__zoom-image
+                img(src="images/catalog-menu-8.jpg", alt="catalog-menu" title="catalog-menu")
+              .global-item__body
+                a(href="#!").global-item__text Гардеробная
+
+          
+
+    //= template/footer.jade
+
+    //= template/scripts.jade

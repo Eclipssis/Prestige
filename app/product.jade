@@ -1,0 +1,270 @@
+doctype html
+html(xmlns='http://www.w3.org/1999/xhtml')
+
+  //= template/head.jade
+
+  body
+    #wrapper
+
+      //= template/header.jade
+
+      section.middle
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            
+            h1.title-h1 Кожаный диван фабрики Home Town
+              span.add-title-info Артикул: 
+                span.color-grey АF4252F1
+            
+            .product-wrap
+              .product-images
+
+                //- #slider.flexslider.product-slider
+                //-   ul.slides
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-       .label
+                //-         .label__item Sale
+                //-         .label__item New
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+                //-     li
+                //-       img(src='images/product-slide.jpg')
+
+
+                //-     // items mirrored twice, total of 12
+                //- #carousel.flexslider.product-carousel
+                //-   ul.slides
+                //-     li
+                //-       img(src='images/product-carousel-1.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-2.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-3.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-4.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-5.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-6.jpg')
+                //-     li
+                //-       img(src='images/product-carousel-6.jpg')
+
+                #example1.slider-pro
+                  .sp-slides
+
+                    .sp-slide
+                      img.sp-image(src='images/product-slide-2.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
+                    .sp-slide
+                      img.sp-image(src='images/product-slide-2.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
+                    .sp-slide
+                      img.sp-image(src='images/product-slide-2.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide-2.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                    .sp-slide
+                      img.sp-image(src='images/product-slide.jpg')
+                  
+                  .sp-thumbnails
+                    .sp-thumbnail
+                      img(src="images/product-carousel-1.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-2.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-3.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-4.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-5.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-6.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-1.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-2.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-3.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-4.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-5.jpg", alt="product-carousel")
+                    .sp-thumbnail
+                      img(src="images/product-carousel-6.jpg", alt="product-carousel")
+                    
+              .product-description
+
+                .brand
+                  .brand__image
+                    img(src="images/brand.jpg", alt="brand")
+                  .brand__body
+                    .brand__title 
+                      img(src="images/italy-flag.jpg", alt="flag")
+                      | Фабрика HomeTown
+                    a(href="#!").brand__link О фабрике
+                    a(href="#!").brand__link Товары фабрики
+                
+                .product-price
+                  a(href="#!").btn.btn-white <span class="btn-icon-cart"></span> Купить
+                  .product-price__old 56 590 руб.
+                  .product-price__current 18 500 руб.
+                
+                .product-features
+                  span.icon-1(data-toggle="popover")
+                  span.icon-2(data-toggle="popover")
+                  span.icon-3(data-toggle="popover")
+                  span.icon-4(data-toggle="popover")
+                  span.icon-5(data-toggle="popover")
+                  span.icon-6(data-toggle="popover")
+
+                  .features-popover.popover-wrapper
+                    .features-popover__title Бесплатная доставка*
+                    .features-popover__text * - Мы осуществляем бесплатную доставку по Калининграду и области при заказе товаров на общую сумму от 100 000 руб. Разгрузка мебели бесплатно.
+
+                p Консоль с 4 ящиками полного выдвижения выполнена в современном стиле Дно ящика декорировано кожей серебряного цвета с фактурой, напоминающей кожу ящерицы. 
+                p Консоль в шпоне тигрового африканского сикаморе в высоком глянце. Детали и основание из нержавеющей стали темно-серого цвета. Переливающийся шпон столешницы консоли декорирован черными перламутровыми вставками. Декор столешницы дополнен изящной тонкой линией белого клена. 
+
+                .product-properties
+
+                  .popover-wrapper.color-popover
+                    span.color-popover__title Натуральная змеиная кожа
+                    span.color-popover__code Цвет А684с
+                    img(src="images/color-snake.jpg", alt="snake")
+
+                  .product-property
+                    .product-property__title Выберите цвет:
+                    .product-property__value
+                      a(href="#!" data-toggle="popover").color-link
+                        img(src="images/color-white.jpg", alt="color")
+                      a(href="#!" data-toggle="popover").color-link
+                        img(src="images/color-brown.jpg", alt="color")
+                      a(href="#!" data-toggle="popover").color-link
+                        img(src="images/color-brown-dark.jpg", alt="color")
+
+                  .product-property
+                    .product-property__title Цвета на заказ:
+                    .product-property__value 
+                      a(href="#!") Показать все цвета
+
+                  .product-property
+                    .product-property__title Размеры (д-ш-в):
+                    .product-property__value.font-size-16 310 х 56 х 30 см.
+
+                  .product-property
+                    .product-property__title Коллекция:
+                    .product-property__value HomeTown
+            
+            .links-filter
+
+              .links-filter__item
+                .links-filter__title Тип комнаты:
+                .links-filter__value 
+                  a(href="#!") Гостиная
+                  a(href="#!") Столовая / кухня
+                  a(href="#!") Спальня
+                  a(href="#!") Детская / подростковая
+
+              .links-filter__item
+                .links-filter__title Стиль:
+                .links-filter__value
+                  a(href="#!") Классический
+                  a(href="#!") Ар деко
+                  a(href="#!") Неоклассика
+                  a(href="#!") Модерн
+                  a(href="#!") Прованс
+
+              .links-filter__item 
+                .links-filter__title Стиль:
+                .links-filter__value
+                  a(href="#!") Корпусная мебель
+                  a(href="#!") Витрины
+                  a(href="#!") ТВ тумбы
+                  a(href="#!") Консоли
+                  a(href="#!") Стеллажи
+
+      .divider
+
+      .container
+        .collection-wrap
+          .page-title Товары коллекции Flamenco
+            span.add-title-info Товаров в коллекции: 152
+
+          .owl-carousel.collection-carousel
+            .item
+              //= template/product.jade
+            .item
+              //= template/product.jade
+            .item
+              //= template/product.jade
+            .item
+              //= template/product.jade
+            .item
+              //= template/product.jade
+            .item
+              //= template/product.jade
+
+      .container
+        .same-products
+          .page-title Похожие товары
+
+          .product-list
+            
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+            .product-list__item
+              //= template/product.jade
+
+          .text-center
+            a(href="#!").btn Показать еще товары
+
+    //= template/footer.jade
+
+    //= template/scripts.jade
