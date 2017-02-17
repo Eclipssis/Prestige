@@ -16,6 +16,33 @@ jQuery(function($){
   // Cтилизация селектов
   $('select').styler();
 
+
+  // Mеню бутерброд :)
+  $("#menu").mmenu({
+     "extensions": [
+        "pagedim-black"
+     ],
+     "navbars": [
+         {
+            "position": "bottom",
+            "content": [
+               "<a class='fa fa-envelope-o' href='#/'></a>",
+               "<a class='fa fa-phone' href='#/'></a>"
+            ]
+         }
+      ],
+
+     slidingSubmenus: true
+  });
+
+  $('.menu-toggle').click(function () {
+    
+    // return false
+  })
+
+  $($('.mm-panels .mm-title')[0]).html("Меню");
+
+
   // Открытие popover
   $('.header [data-toggle="popover"]').popover({
     placement: "bottom",
@@ -105,6 +132,15 @@ jQuery(function($){
   // Макса на телефон
   $(".js-mask-phone").mask("+7 (999) 999-99-99");
 
+  // Силизованый скролл
+  $(".js-custom-scroll").mCustomScrollbar({
+    theme:"dark"
+  });
+
+  $('.jq-selectbox ul').mCustomScrollbar({
+    theme:"dark"
+  });
+  
 
   // Удаление товара из корзины (header)
   $("body").on("click", ".popover-content .js-delete-cart-item", function () {
@@ -141,7 +177,10 @@ jQuery(function($){
     }
   });
 
+  // Слайдер товара
   $( '#example1' ).sliderPro({
+    // width: 728,
+    // height: 520,
     width: 728,
     height: 520,
     arrows: false,
@@ -151,20 +190,52 @@ jQuery(function($){
     thumbnailHeight: 115,
     thumbnailPointer: true,
     autoplay: false,
-    imageScaleMode: "none",
+    imageScaleMode: "contain",
     autoScaleLayers: false,
     thumbnailArrows: true,
     fadeThumbnailArrows: false,
     breakpoints: {
-      500: {
+      
+      768: {
+        width: '100%',
+        autoHeight: true
+      },
+      480: {
+        width: '100%',
+        autoHeight: true,
+        height: 380,
         thumbnailWidth: 100,
-        thumbnailHeight: 115
+        thumbnailHeight: 115,
+        arrows: true,
+        fadeArrows: false
       }
     }
   });
 
-  // Выбор цвера в карточке товара
+  // Галерея
+  $(".fancybox").fancybox({
+    helpers : {
+      title: {
+          type: 'inside',
+          position: 'top'
+      }
+    },
+    nextEffect: 'fade',
+    prevEffect: 'fade',
+    padding: 0,
+    width: 800,
+    height: 800
+  });
 
+  // Уведомление формы
+  $('.feedback-form .btn').click(function () {
+    $('.feedback-form-body').addClass('hidden')
+    $('.alert-form').addClass('open');
+    return false
+  });
+
+
+  // Выбор цвера в карточке товара
   var color = $(".color-link");
 
   color.click(function () {
@@ -179,7 +250,7 @@ jQuery(function($){
   // Карусель на карточке товара
   $('.collection-carousel').owlCarousel({
       loop:true,
-      margin:10,
+      margin:15,
       nav:true,
       navText:false,
       responsive:{
@@ -197,10 +268,10 @@ jQuery(function($){
 
   // Карусель в галерее
   $('.gallery-carousel').owlCarousel({
-      loop:true,
-      margin:40,
-      nav:true,
-      navText:false,
+      loop     :true,
+      margin   :40,
+      nav      :true,
+      navText  :false,
       responsive:{
           0:{
               items:1
@@ -218,6 +289,7 @@ jQuery(function($){
   $('.js-open-full-article').click(function () {
     var article = $(this).closest(".article");
     article.find('.article__full').slideDown();
+    article.find('.article__preview').toggleClass('open');
     $(this).fadeOut();
   });
 
@@ -227,6 +299,56 @@ jQuery(function($){
     article.find('.article__full').slideUp()
     article.find('.js-open-full-article').fadeIn();
   });
+
+  // Cкрыть показать текст
+  $('.js-toggle-text').click(function () {
+    $('.description-text').toggleClass('open')
+    $(this).toggleClass('open');
+  })
+
+  // Видео в модалке
+  $(".various").fancybox({
+      maxWidth  : 1000,
+      maxHeight : 500,
+      fitToView : false,
+      margin: 0,
+      padding: 0,
+      width   : '70%',
+      height    : '70%',
+      autoSize  : false,
+      closeClick  : false,
+      openEffect  : 'none',
+      closeEffect : 'none'
+    });
+
+  // Яндекс карта 
+  var myMap;
+
+  ymaps.ready(init);
+
+  function init () {
+      myMap = new ymaps.Map('map', {
+          center: [56.90, 59.94], // Москва
+          zoom: 14,
+          controls: ["zoomControl"],
+          behaviors: ["drag", "dblClickZoom", "rightMouseButtonMagnifier", "multiTouch"]
+      }, {
+          searchControlProvider: 'yandex#search'
+      });
+
+      var myPlacemark = new ymaps.Placemark([56.90, 59.94], {}, {
+              iconLayout: 'default#image',
+              iconImageHref: 'images/map-marker.jpg',
+              iconImageSize: [21, 22],
+              iconImageOffset: [-3, -42],
+              balloonContentHeader: "Балун метки",
+              balloonContentBody: "Содержимое <em>балуна</em> метки",
+              hintContent: 'Нижний Новгород'
+          });
+
+      myMap.geoObjects.add(myPlacemark);
+      myMap.behaviors.disable('scrollZoom');
+  }
 
 
 

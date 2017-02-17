@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle 
         .producer-catalog
@@ -45,12 +46,12 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     option option two  
                     option option three  
                     option option four
-                .producer-item
+                .producer-item.producer-item-submit
                   button(type="submit").submit-btn Очистить фильтр
               
               .producers-list
                 .producer-item
-                  .brands-list
+                  ul.brands-list
                     li
                       a(href="#!") Altamoda
                     li
@@ -152,7 +153,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     li
                       a(href="#!").color-light-grey Bali Bali by HP
                     li
-                      a(href="#!") .color-light-greyBastex
+                      a(href="#!").color-light-grey Bastex
                     li
                       a(href="#!") Bellutti
                     li
@@ -166,9 +167,9 @@ html(xmlns='http://www.w3.org/1999/xhtml')
               .brand-logo
                 img(src="images/mugali-brand.jpg", alt="mugali-brand")
               .brand-description
-                p Mugali S.L. (Мугали) – это известная торговая марка на испанском рынке. Фабрика производит коллекции мебели (спальни, столовые, гостиные) в различных стилях. Используются как классические формы, так и изысканные изгибы стиля ар деко. Кроме того, стоит особо отметить детские комнаты, созданные испанскими умельцами. Это яркие и функциональные конструкции, которые смогут в полной мере отразить индивидуальность ребенка и сделать его отдых и учебу приятными и результативными. Фабрика была образована в ...
+                p.description-text Mugali S.L. (Мугали) – это известная торговая марка на испанском рынке. Фабрика производит коллекции мебели (спальни, столовые, гостиные) в различных стилях. Используются как классические формы, так и изысканные изгибы стиля ар деко. Кроме того, стоит особо отметить детские комнаты, созданные испанскими умельцами. Это яркие и функциональные конструкции, которые смогут в полной мере отразить индивидуальность ребенка и сделать его отдых и учебу приятными и результативными. Фабрика была образована в Mugali S.L. (Мугали) – это известная торговая марка на испанском рынке. Фабрика производит коллекции мебели (спальни, столовые, гостиные) в различных стилях. Используются как классические формы, так и изысканные изгибы стиля ар деко. Кроме того, стоит особо отметить детские комнаты, созданные испанскими умельцами. Это яркие и функциональные конструкции, которые смогут в полной мере отразить индивидуальность ребенка и сделать его отдых и учебу приятными и результативными. Фабрика была образована в 
                 .brand-links
-                  a(href="#!") Смотреть все описание
+                  a(href="#!").js-toggle-text
                   a(href="#!") Перейти на сайт производителся
             
             .brand-images
@@ -182,32 +183,33 @@ html(xmlns='http://www.w3.org/1999/xhtml')
               img(src="images/prducer-image-8.jpg", alt="prducer")
               img(src="images/prducer-image-9.jpg", alt="prducer")
             
-            .divider
+        .divider
 
-            .current-brand
-              .page-title Товары этого производителя
-              .product-list
+        .current-brand
+          .container
+            .page-title Товары этого производителя
+            .product-list
+              
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
+              .product-list__item
+                //= template/product.jade
                 
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                .product-list__item
-                  //= template/product.jade
-                  
-            .buttons-block.text-center
-              a(href="#!").btn Показать еще товары
-              a(href="#!").btn.btn-black Перейти в каталог
+          .buttons-block.text-center
+            a(href="#!").btn Показать еще товары
+            a(href="#!").btn.btn-black Перейти в каталог
 
     //= template/footer.jade
 

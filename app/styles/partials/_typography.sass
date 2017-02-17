@@ -53,6 +53,9 @@ a
   &:hover
     text-decoration: underline
     color: darken($color-link, 10%)
+  &:focus
+    color: darken($color-link, 10%)
+    outline: none
 
 img
   vertical-align: middle
@@ -62,6 +65,9 @@ img
   text-align: center
   font-size: $page-title-size
   letter-spacing: 0.6px
+  padding: 0 15px
+  +mobile
+    font-size: 24px
 
 .page-subtitle 
   font-size: 18px 
@@ -101,6 +107,10 @@ span[class^="file-format"]
 
 div.margin-bottom-140, .margin-bottom-140
   margin-bottom: 140px
+  +tablet
+    margin-bottom: 80px
+  +mobile
+    margin-bottom: 40px
 
 .margin-bottom-100
   margin-bottom: 100px
@@ -116,9 +126,16 @@ div.margin-bottom-0, .margin-bottom-0
 
 .buttons-block
   a 
-    margin: 0 4px
+    margin: 0 4px 10px
 
+.hidden-mobile
+  +mobile
+    display: none
 
+.visible-mobile
+  display: none
+  +mobile
+    display: block
 
 
 

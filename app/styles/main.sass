@@ -28,8 +28,11 @@
     margin: 0 35px  
     +desktop-large
       margin: 0 25px
+      min-height: 150px
+    +desktop
+      margin: 20px 30px 
     +mobile
-      margin: 0 5px 
+      margin: 15px 5px 
       max-width: 45%
     // &:hover span[class^="icon"]
     //   animation: 
@@ -82,6 +85,7 @@
   margin-right: -10px    
   +tablet
     margin-bottom: 30px
+
  
 
 .global-item
@@ -94,6 +98,7 @@
     flex-basis: 300px
   +tablet
     flex-basis: 235px
+    max-width: 100%
 
   &--white 
     background-color: #ffffff
@@ -107,7 +112,7 @@
 
   &__image
     display: block
-    max-height: 285px
+    // max-height: 285px
     overflow: hidden
     img
       transition: all 0.4s ease
@@ -157,7 +162,13 @@
   margin-top: 50px
   margin-left: -10px
   margin-right: -10px
+  justify-content: flex-start
+  +tablet
+    margin-left: -5px
+    margin-right: -5px
+    margin-bottom: 50px
 
+  
   &__item
     position: relative
     flex: 1 4 230px
@@ -167,9 +178,12 @@
     min-height: 430px
     max-width: 285px
     overflow: hidden
-    +tablet
+    +desktop
+      margin: 0 5px
+      max-width: 235px
+    @media only screen and (max-width: 767px)
+      max-width: 100%
       margin-bottom: 0
-      flex-basis: 250px
 
 
     &:hover
@@ -189,12 +203,15 @@
   left: 50%
   transform: translate3d(-50%, 0, 0)
   background-color: #ffffff
-  width: 340px
+  width: 330px
   padding: 30px 
   transition: transform 0.45s ease, box-shadow 0.45s ease
-  +tablet
-    max-width: 300px
+  +desktop
+    padding: 10px
+    max-width: 285px
     width: 100%
+    padding: 15px
+  +mobile
     padding: 20px
 
   &--cart
@@ -204,23 +221,69 @@
     width: 100%
     padding: 15px 0 0 0
     margin-bottom: 10px
+    +desktop
+      max-width: 100%
+      padding: 15px 10px 10px 10px
+    +mobile
+      padding-top: 0
+      margin-bottom: 60px
+
     .product__price
       font-size: 18px
       float: none
+      +desktop
+        float: right
+
+    .product__image
+      +mobile
+        margin-bottom: 15px
+
     .product__old-price
       line-height: 16px
       width: 100%
+      +desktop
+        text-align: right
+
     .product__title
       padding: 0
       margin: 10px 20px 0
       min-height: 48px
       margin-bottom: 13px
       border-bottom: 1px solid #e2e2e2
+      +desktop-large
+        margin: 10px 10px 0
+      +mobile
+        margin: 0
+        text-align: left
+        border: none
+        padding-bottom: 20px
+
       span.delete-item 
         margin-top: 5px
+        margin-left: 10px
+    
+    .description
+      +desktop-large      
+        display: inline-block
+      +tablet
+        display: block
+      +mobile
+        margin-bottom: 0
+
+    .description__value
+      +desktop-large
+        width: auto
+      +desktop
+        width: auto
+      @media only screen and (max-width: 767px)
+        float: right
+        width: auto
+
 
     .description__title
       width: 170px
+      +desktop-large
+        width: 130px
 
   &__cart-body
     overflow: hidden
@@ -314,6 +377,8 @@
     font-size: 16px
     margin-bottom: 5px
     overflow: hidden
+    +desktop
+      font-size: 14px
 
   &__title
     float: left
@@ -337,6 +402,12 @@
     position: static
     display: block
     margin-top: 36px
+    +mobile
+      margin-top: 10px
+      border-bottom: 1px solid #e2e2e2
+      text-align: left
+      padding-bottom: 10px
+      margin-top: 0
     .label__item 
       float: none
       display: inline-block
@@ -352,31 +423,74 @@
     margin-right: 10px
 
 .article  
+  &:last-child .article__preview
+    border: none
+
   &__preview
     padding-bottom: 80px 
     border-bottom: 1px solid #e2e2e2
     margin-bottom: 40px
     display: flex
     flex-wrap: wrap
+    +desktop
+      padding-bottom: 50px
+      flex-direction: column
+    +mobile
+      padding-bottom: 25px
+
+    &.open
+      border: none
+      margin-bottom: 0
 
   &__full
+    position: relative
     display: none
     padding: 40px 40px 35px
     background-color: #f8f8f8
     background-image: url('../images/leaf-right.png')
     background-repeat: no-repeat
-    background-position: -90px -15px
+    background-position: left bottom
     margin-bottom: 80px
+    +desktop
+      padding: 30px 
+    +tablet
+      padding: 20px 20px 30px
+
+    &:before
+      position: absolute
+      content: ' '
+      width: 0
+      bottom: 100%
+      left: 50%
+      margin-left: -10px
+      height: 0
+      border-style: solid
+      border-width: 0 20px 20px 20px
+      border-color: transparent transparent #f8f8f8 transparent 
+
     .article__image
       float: left
       margin-right: 40px
       max-width: 520px
       padding-right: 0
+
+      +desktop
+        float: none
+        text-align: center
+        margin-bottom: 30px
+        margin-right: 0
+
     .article__body
       padding-right: 0
       display: block
     p 
       margin-bottom: 15px
+
+    .delete-item
+      +desktop
+        position: absolute
+        top: 15px 
+        right: 15px
 
   &__footer 
     width: 100%
@@ -388,18 +502,26 @@
   &__image
     flex: 1 2 300px
     padding-right: 40px
+    +desktop
+      flex-basis: auto
+      margin-bottom: 30px
+      padding-right: 0
+
   &__body 
     flex: 1 2 300px
     padding-right: 50px
     display: flex
     flex-direction: column
+    +desktop
+      flex-basis: auto
+      padding-right: 0
+
   &__title  
     margin-bottom: 25px
     max-width: 360px
     font: 700 18px/1.2em 'DinPro', Arial, sans-serif
     a 
       color: #222222
-      
 
   &__text 
     color: #555555
@@ -407,9 +529,54 @@
   &__link 
     margin-top: auto
 
-  .delete-item
+.contacts-list
+  margin-top: 46px
 
+.contact
+  display: flex
+  padding-bottom: 40px 
+  margin-bottom: 40px
+  border-bottom: 1px solid #e2e2e2
+  &:last-child
+    border: none
+    margin-bottom: 0
+    padding-bottom: 0
+  +tablet
+    flex-wrap: wrap
+  +mobile
+    flex-wrap: wrap
 
+  
+  &__title
+    font-size: 18px 
+    font-weight: 700
+    margin-bottom: 30px
+  &__text
+    margin-bottom: 20px 
+    &:last-child
+      margin-bottom: 0
+    span 
+      display: block
+
+  &__description
+    padding-right: 20px
+    flex: 1 4 125px
+    +desktop-large
+      flex-basis: 250px
+    +tablet
+      margin-bottom: 30px
+
+  &__image 
+    flex: 3 2 300px
+    img 
+      margin-bottom: 20px
+      
+
+    img + img 
+      margin-left: 20px
+      +desktop-large
+        margin-left: 0
+      
 
 .gallery
   max-width: 1600px
@@ -427,9 +594,10 @@
     position: relative
     +desktop
       width: 33.333333%
-    +mobile
+    +tablet
       width: 50%
-      
+    +mobile
+      width: 100%
 
     &:before, &:after
       position: absolute
@@ -458,21 +626,29 @@
     &:hover:after
       opacity: 1
       transition: all 0.7s ease
-      
+  
+  img
+    +mobile
+      width: 100%    
 
 
 .complex-solution
   padding: 100px 0
   background-color: #f8f8f8
   +desktop
-    padding: 70px 0
+    padding: 70px 0 50px 
   +mobile
-    padding: 50px 0
+    padding: 50px 0 30px 
 
 .popular-producs
   padding: 130px 0
   +desktop
     padding: 50px 0
+
+.about-block-docunents
+  margin: 100px 0 
+  +tablet
+    margin: 50px 0
 
 .about-block
   display: flex
@@ -483,7 +659,7 @@
   +desktop
     flex-direction: column
     margin-bottom: 20px
-
+  
   .page-title
     text-align: left
     margin-bottom: 25px
@@ -494,6 +670,7 @@
     margin-bottom: 20px
     +desktop
       flex-basis: auto
+      margin-bottom: 40px
     
   &__text
     display: flex
@@ -519,8 +696,10 @@
   position: relative
   +desktop
     width: 33.333333%
-  +mobile
+  +tablet
     width: 50%
+  +mobile
+    width: 100%
 
   &:hover .catalog-item__label
     display: none
@@ -529,6 +708,10 @@
     opacity: 1
     transform: scale(1)
     transition: all 0.3s ease
+
+  img 
+    +mobile
+      width: 100%
   
   &__layer
     position: absolute
@@ -562,6 +745,8 @@
 .pages-wrap
   color: #9c9c9c
   float: right
+  +mobile
+    display: none
   span 
     display: inline-block
     margin-right: 15px 
@@ -591,24 +776,52 @@
   background-repeat: no-repeat
   background-position: -90px -15px, 910px 85px
   background-size: 18%
+  +desktop
+    padding: 30px 0
 
 .filters-form
   .select-wrap
     display: flex
     flex-wrap: wrap
     justify-content: space-between
+    +desktop-large
+      justify-content: flex-start
+      
+
   .select
     margin-right: 18px
     width: 100%
     max-width: 225px
+    +desktop-large
+      max-width: 215px
+      margin-bottom: 15px
+    +desktop
+      max-width: 222px
+    +mobile
+      margin-right: 0
+      margin: 0 auto 10px
+      max-width: 100%
+
     &:last-child 
       margin-right: 0
+      +desktop-large
+        margin-right: 18px
+      +mobile
+        margin-right: 0
+
+    
 
   .filters-panel
     margin-top: 20px
     display: flex
     flex-wrap: wrap
     justify-content: space-between
+    +mobile
+      flex-direction: column
+
+  .checkbox-wrap
+    +mobile 
+      margin-bottom: 15px
 
   a 
     color: #222222
@@ -616,24 +829,83 @@
   .checkbox-input
     display: inline-block
     margin-left: 15px
+    +mobile
+      margin-left: 10px
 
 .product-wrap
   display: flex
-  flex-wrap: wrap
   margin-top: 50px
+  +tablet    
+    flex-direction: column
+  +mobile
+    margin-bottom: 10px
+
   .product-images
     flex: 1 8 600px 
     padding-right: 60px
+    +desktop-large
+      max-width: 550px
+      padding-right: 30px
+    +desktop      
+      max-width: 365px
+      padding-right: 15px
+      margin-bottom: 40px
+      flex: 1 1 300px
+    +tablet
+      max-width: 100%
+    +mobile
+      flex-basis: auto
+      padding-right: 0
 
   .product-description
     flex: 1 4 200px
+
+.product-counter
+  font-size: 14px
+  color: #9c9c9c
+  font-family: 'DinPro', Arial, sans-serif
+  font-weight: 400
+  float: right
+  +tablet
+    float: none
+    text-align: center
+    display: block
+    margin-top: 20px
+  +mobile
+    display: none
+
+.add-title-info
+  +tablet
+    display: none
+
+.hidden-articule
+  display: none
+  font-size: 14px
+  color: #9c9c9c
+  font-family: 'DinPro', Arial, sans-serif
+  font-weight: 400
+  margin-top: 10px
+  +tablet
+    float: right
+    display: block
 
 .brand
   overflow: hidden
   &__image
     float: left
+    +tablet
+      overflow: hidden
+      float: none
+      margin-bottom: 35px
+
+    img 
+      +tablet
+        float: left
   &__body
     margin-left: 125px
+    +tablet
+      margin-left: 0
+
   &__title
     color: #222222
     font-weight: 700
@@ -655,6 +927,12 @@
   border-top: 1px solid #e2e2e2
   border-bottom: 1px solid #e2e2e2
   overflow: hidden
+  +mobile
+    display: flex
+    flex-direction: column-reverse
+    text-align: center
+
+
   &__old
     font-size: 18px
     color: #9c9c9c
@@ -664,7 +942,21 @@
     font: 32px/1.2em 'Bodoni-Bold', Arial, sans-serif
   .btn
     float: right
-    margin-top: 10px
+    max-width: 150px
+    width: 100%
+    min-width: auto
+    margin: 10px auto
+    +desktop
+      max-width: 85px
+    +mobile
+      max-width: 150px
+      
+
+  .btn-text
+    +desktop
+      display: none
+    +mobile
+      display: inline
 
 .product-features
   padding: 15px 0
@@ -677,6 +969,8 @@
     float: left
     position: relative
     margin-right: 20px
+    text-align: center
+    line-height: 40px
     &.active, &:hover
       background-color: #f8f8f8
     &:before
@@ -720,6 +1014,8 @@
   padding: 20px 0
   border-top: 1px solid #e2e2e2
   border-bottom: 1px solid #e2e2e2
+  input[type="radio"]
+    display: none
 
 .product-property
   margin-bottom: 13px
@@ -729,17 +1025,33 @@
     display: inline-block
     min-width: 170px
     float: left
+    +desktop
+      min-width: 150px
+    +tablet
+      width: 50%
+    +mobile
+      min-width: 140px
+
   &__value
     float: left
     color: #222222
+    +tablet
+      text-align: right
+      float: right
+      max-width: 150px
+    +mobile
+      width: auto
   
   .color-link
     display: inline-block
     margin-right: 10px
+    line-height: 17px
     opacity: 0.7
+    border: 1px solid #e2e2e2
     transition: all 0.2s ease
     &.selected
       opacity: 1
+      border: 1px solid #000
 
 .links-filter
   margin-top: 30px
@@ -747,10 +1059,14 @@
     display: inline-block
     margin-bottom: 15px
     min-width: 550px
+    +tablet
+      min-width: auto
   &__title 
     display: inline-block
     margin-right: 15px 
     color: #9c9c9c
+    +tablet
+      display: block
   
   a 
     color: #222222
@@ -762,6 +1078,8 @@
 
 .same-products
   padding: 100px 0
+  +tablet
+    padding: 60px 0
 
 .product-slider
   .slides 
@@ -812,12 +1130,24 @@
 
 .collection-wrap
   padding: 100px 0 0
+  +tablet
+    padding: 70px 0 0
+  +mobile
+    padding: 50px 0 0
+
+.collection-carousel
+  .product
+    max-width: 300px 
+    width: 100%
+    padding: 0
 
 .owl-carousel
   margin-bottom: 30px
   margin-top: 75px
   padding-bottom: 60px 
   border-bottom: 1px solid #e2e2e2
+  +tablet
+    padding-bottom: 30px
   .item
     max-height: 440px
   .product
@@ -827,7 +1157,7 @@
     position: absolute
     width: 100%
     top: 50%
-    margin-top: -72px 
+    margin-top: -100px 
     > div 
       width: 48px
       height: 48px
@@ -842,7 +1172,7 @@
         margin-top: -7px
         margin-left: -3px
         content: ' ' 
-        z-index: 2222
+        z-index: 1000
       &:hover
         background-color: #222222
       &:active
@@ -850,7 +1180,7 @@
 
 
     .owl-prev
-      left: 6px
+      left: 0
       &:before
         position: absolute
         content: ' '
@@ -859,7 +1189,7 @@
         +sprite($carousel-arrow-prev-hover)
 
     .owl-next
-      right: 6px
+      right: 0
       &:before
         position: absolute
         content: ' '
@@ -872,28 +1202,93 @@
 
 .cart-products
   overflow: hidden
-  
+
+
   div[class^="col-"]
     float: left
     padding: 11px 20px
+    +desktop-large
+      padding: 11px 10px 
+    @media only screen and (max-width: 767px)
+      padding: 15px 18px 
+    +mobile
+      padding: 10px 20px 10px
 
-  .col-1
+  div.col-1
     width: 51px
-  .col-2
+    +desktop-large
+      width: 30px
+    +mobile
+      display: none
+
+
+  div.col-2
     width: 155px
     text-align: center
-  .col-3
+    +mobile
+      width: 100%
+      float: none
+      padding: 20px 20px 10px
+
+
+  div.col-3
     width: 448px
-  .col-4
+    +desktop-large
+      width: 260px
+    @media only screen and (max-width: 767px)
+      width: 100%
+      // max-width: 265px
+      // margin: 0 auto
+      // float: none
+    +mobile
+      padding-bottom: 0
+
+  div.col-4
     width: 90px
-  .col-5
+    +desktop-large
+      width: 60px
+    +desktop
+      display: none
+
+  div.col-5
     width: 141px
-  .col-6
+    +desktop
+      width: 255px
+    @media only screen and (max-width: 767px)
+      width: 100%
+
+  div.col-6
     width: 145px
-  .col-7
+    +desktop-large
+      width: 133px 
+    +desktop
+      width: 255px
+    @media only screen and (max-width: 767px)
+      width: 100%
+
+  div.col-7
     min-width: 140px
+    +desktop
+      width: 255px
+    @media only screen and (max-width: 767px)
+      width: 100%
+    +mobile
+      padding-bottom: 20px
+
+
+
   div.col-8
     padding: 17px 20px 15px 0
+    +desktop-large
+      padding-right: 10px
+      
+  .hidden-title
+    display: none
+    color: #9c9c9c
+    +desktop
+      display: inline-block
+    @media only screen and (max-width: 767px)
+      min-width: auto
 
   .delete-item
     margin: 0
@@ -903,14 +1298,56 @@
     background-color: #ffffff
     margin-bottom: 10px
     overflow: hidden
+    +desktop
+      display: none
 
   &__footer 
     background-color: #ffffff
     overflow: hidden
     padding: 14px 0
     font-size: 18px
+    +desktop
+      padding: 14px 10px
+    @media only screen and (max-width: 767px)
+      padding: 14px 0
+      margin-bottom: 40px
+      
     a 
       font-size: 14px 
+    
+    div.col-1
+      @media only screen and (max-width: 767px)
+        display: none
+
+    div.col-2
+      @media only screen and (max-width: 767px)
+        display: none
+
+    div.col-3
+      +desktop
+        width: 235px
+      @media only screen and (max-width: 767px)
+        width: auto
+      +mobile
+        width: 100%
+
+
+    div.col-6
+      +desktop
+        width: 120px
+      @media only screen and (max-width: 767px)
+        width: auto
+
+    div.col-7
+      +desktop
+        float: right
+        width: auto
+        min-width: 120px
+
+    div.col-5
+      +desktop
+        display: none
+
     
 .calculation-order
   padding: 85px 0 100px 
@@ -918,23 +1355,52 @@
 
 .calculation-form
   margin-bottom: 65px
+  +desktop
+    text-align: center
+  input 
+    +desktop
+      margin-bottom: 30px
+
+  .btn 
+    font-size: 14px
 
 .calculation-caption
   display: flex
   flex-wrap: wrap
   color: #9c9c9c
   font-size: 16px
+  justify-content: space-between
+  @media only screen and (max-width: 767px)
+    justify-content: center
+    text-align: center
+
   .text-1
-    max-width: 400px
-    margin-right: 218px
+    max-width: 300px
+    +desktop
+      max-width: 300px
+    +tablet
+      margin: 0 10px 30px
+
   .text-2
     max-width: 515px
+    +desktop
+      max-width: 340px
+    +tablet
+      margin: 0 10px
 
 .landing-banner
   position: relative
   background: url('../images/landing-banner.jpg') 50% 0 no-repeat
   background-size: cover
   min-height: 600px
+  +tablet
+    height: calc(100vh - 92px)
+    min-height: initial
+  +mobile
+    height: calc(100vh - 83px)
+    
+  .btn 
+    border: none
 
 .problem-block
   padding: 93px 0 120px
@@ -942,18 +1408,25 @@
   background-repeat: no-repeat
   background-position: -515px -15px, 130% 185px
   background-color: #f8f8f8
+  +tablet
+    padding: 70px 0
   .landing-list 
     margin: 74px auto 20px 
+    
 
 .landing-list 
   list-style: none
   max-width: 345px
+  +tablet
+    margin: 0 6px
   li 
     font-weight: 300
     font-size: 16px
     padding-left: 25px
     position: relative
     margin-bottom: 17px
+    +mobile
+      padding-left: 15px
     &:before
        position: absolute
        content: ' '
@@ -961,76 +1434,90 @@
        height: 4px
        background-color: #222222 
        left: 0
-       top: 50%
-       margin-top: -1px 
+       top: 10px
 
 
 .landing-offer
   padding: 93px 0 0
+  +tablet
+    padding: 50px 0 0
 
 .offer-banners
   list-style: none
   margin-top: 105px
   display: flex
   flex-wrap: wrap
-  margin-right: -20px 
-  margin-left: -20px 
-  padding-bottom: 80px
+  margin-right: -15px 
+  margin-left: -15px 
+  padding-bottom: 50px
   border-bottom: 1px solid #e2e2e2
   > li 
-    margin: 0 20px 
+    margin: 0 15px 
     flex: 1 2 250px
+    overflow: hidden
 
 
   .banner
-    height: 270px
-    padding: 20px
+    position: relative
     display: flex
     flex-wrap: wrap
     justify-content: center
     align-items: center
+    overflow: hidden
+    margin-bottom: 30px 
+    img 
+      transition: all 0.4s ease
+      +tablet
+        width: 100%
+        margin: 0 auto 30px 
+        max-width: 400px
 
-  .btn 
+
+    &:hover img, 
+      transition: all 0.4s ease
+      transform: scale(1.15)
+
+  .text 
+    transition: all 0.4s ease
+    position: absolute
+    top: 50%
+    margin-top: -35px
     color: #222222
     font-weight: 400
-    padding: 26px 30px
-
+    padding: 24px 20px 28px 20px
+    display: inline-block
     height: 70px
+    font-weight: 500
+    font-size: 16px
     width: 100%
     max-width: 200px
     text-align: center
     background-color: #ffffff
     border: none
-    &:hover 
-      color: #ffffff
-    &:active
-      color: #222222
-
-  .banner-bg-1
-    background: url('../images/solution-image-1.jpg') 0 0 no-repeat
-  .banner-bg-2
-    background: url('../images/solution-image-2.jpg') 0 0 no-repeat
-  .banner-bg-3
-    background: url('../images/solution-image-3.jpg') 0 0 no-repeat
-  .banner-bg-4
-    background: url('../images/solution-image-4.jpg') 0 0 no-repeat
 
 .package-offer
-  padding: 38px 0 75px
+  padding: 38px 0 130px
 
 .offer-list
   display: flex
   flex-wrap: wrap
   justify-content: space-between
   margin-top: 74px
-  margin-bottom: 78px
+  margin-bottom: 48px
+  margin-right: -15px 
+  margin-left: -15px
+  justify-content: space-around
+
 
 .offer-card
   max-width: 375px
   width: 100%
   background-color: #f8f8f8
+  flex: 1 2 220px
+  margin: 0 15px 
   display: flex
   flex-direction: column
+  margin-bottom: 30px 
 
   &__title 
     padding: 25px 15px
@@ -1042,6 +1529,8 @@
 
   &__body 
     padding: 47px 40px 20px 
+    +desktop
+      padding: 47px 20px 20px 
 
   &__footer
     border-top: 1px solid #e2e2e2
@@ -1053,25 +1542,42 @@
     font-size: 16px 
     font-weight: 700
     margin-bottom: 25px
+    .pro-verstka
+      @media only screen and (max-width: 769px)
+        display: block
 
   .landing-list  
     li
       font-weight: 300 
       margin-bottom: 15px 
       font-size: 14px
+      +desktop
+        padding-left: 15px
+        
 
 .landing-caption
-  width: 545px
+  max-width: 545px
   margin: 10px auto 10px
   color: #9c9c9c
+  text-align: center
 
 .profit-terms
-  margin-bottom: 38px
+  margin-bottom: 140px
+  +tablet
+    margin-bottom: 80px
+  +mobile
+    margin-bottom: 30px
 
 .payment-wrap
-  padding: 107px 0
+  padding: 107px 20px
   background: url('../images/landing-banner-bg.jpg') 50% 0 no-repeat
   margin-top: 75px
+  background-size: cover
+  +tablet
+    padding: 70px 20px
+  +mobile
+    padding: 40px 20px
+    border: none
 
 .payment
   max-width: 960px
@@ -1083,17 +1589,25 @@
   justify-content: space-around
   &__item
     text-align: center
-
+    margin: 0 15px 15px
 
   &__item:nth-child(1)
     max-width: 215px
+    +tablet
+      max-width: 170px
+
   &__item:nth-child(2)
     max-width: 200px
+    +tablet
+      max-width: 170px
+
   &__item:nth-child(3)
     max-width: 180px
+    +tablet
+      max-width: 170px
+
 
   &__title
-
     font-weight: 500
     font-size: 16px
     min-height: 55px
@@ -1114,6 +1628,8 @@
   margin-bottom: 100px
   .product-list__item
     margin-bottom: 50px
+    +mobile
+      margin-bottom: 30px
 
 .landing-about
   background-color: #f8f8f8
@@ -1121,33 +1637,57 @@
   background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
   background-repeat: no-repeat
   background-position: -515px -15px, 130% 185px
+  +desktop
+    background-position: -615px -60px, 500px 150%
+  +mobile
+    background-position: -615px -60px, 100px 100%
+    
   .about-block
     margin-bottom: 80px
 
 .brands
   padding: 120px 0 100px 
   text-align: center
+  +tablet
+    padding: 100px 0
 
 .brand-list
   display: flex
   flex-wrap: wrap
   margin-bottom: 50px
   margin-top: 114px
+  justify-content: center
+  align-items: center
+  +tablet
+    margin-bottom: 20px
+    margin-top: 70px
+
 
 .brand-item
   margin: 0 25px 20px 25px 
+  +desktop-large
+    margin: 0 25px 90px 25px
+  +mobile
+    margin: 0 15px 90px 15px
+    
+    
+
 
 .questions
   padding-top: 110px 
   background-color: #f8f8f8
   background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
   background-repeat: no-repeat
-  background-position: -515px -15px, 140% 155px
+  background-position: -515px -15px, 130% 385px
+  +desktop
+    background-position: -615px -60px, 500px 385px
+  +mobile
+    background-position: -615px -60px, 100px 385px
 
 #accordion
   max-width: 800px
   width: 100%
-  margin: 55px auto
+  margin: 55px auto 100px
 
 .panel-default
   border: none
@@ -1206,9 +1746,11 @@
   background-color: #f8f8f8
   background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
   background-repeat: no-repeat
-  background-position: -515px -15px, 140% 155px
+  background-position: -515px -15px, 1200px 155px
   padding: 40px 0 60px
   margin-bottom: 55px
+  +mobile
+    
 
 .producers
   margin-top: 35px
@@ -1229,6 +1771,12 @@
   flex-wrap: wrap
   align-items: center
   margin-bottom: 50px
+  justify-content: space-between
+  margin-right: -25px 
+  margin-left: -25px
+  @media only screen and (max-width: 767px)
+    margin-right: -15px 
+    margin-left: -15px
   .submit-btn
     background: none
     border: none
@@ -1236,55 +1784,114 @@
     &:hover, &:focus
       outline: none
       text-decoration: underline
+  
+  .producer-item
+    max-width: 250px
+    @media only screen and (max-width: 767px)
+      flex-basis: auto
+      max-width: 255px
+      min-width: 150px
+    +mobile
+      width: 100%
+      max-width: 100%
 
 .producers-list
   display: flex
   flex-wrap: wrap
+  +tablet
+    margin-right: -25px 
+    margin-left: -25px
+    margin-bottom: 15px
+  li 
+    +tablet
+      min-width: 120px 
+      display: inline-block
+      margin: 0 10px 
+  .producer-item 
+    flex-basis: 230px
+
 
 .producer-item
-  flex: 1 2 155px 
-  padding-right: 55px 
+  flex: 1 2 280px 
+  padding: 0 25px 
+  margin-bottom: 20px
+  @media only screen and (max-width: 767px)
+    padding: 0 15px
 
+.producer-item-submit
+  flex: 0 2 200px
+
+.brand-images
+  +desktop
+    text-align: center
 
 .brand-details
   margin-top: 65px 
   display: flex
   flex-wrap: wrap
   margin-bottom: 100px
+  +tablet
+    flex-direction: column
 
 .brand-logo
   flex: 0 2 280px 
   text-align: center
   padding: 0 15px 20px 
+  +tablet
+    flex-basis: auto
+    margin-bottom: 30px
 
 .brand-description
   flex: 1 10 300px
+  +tablet
+    flex-basis: auto
+
+.description-text
+  overflow: hidden
+  height: 90px
+  transition: all 0.6s ease
+  +mobile
+    height: 175px
+  &.open
+    height: 84%
 
 .brand-links
   display: flex
   flex-wrap: wrap
   justify-content: space-between
+  a 
+    margin: 5px
+    display: inline-block
 
-.brand-images
-  margin-bottom: 100px
 
 .current-brand
-  margin-top: 100px
+  margin-top: 105px
+  margin-bottom: 120px
 
 .services-caption
   padding: 52px 60px
   margin-bottom: 90px
   margin-top: 53px
   background: #f8f8f8 url('../images/leaf-left.png') 175% 75px no-repeat
-  background-size: 50%
+  background-size: 80%
+  +tablet
+    padding: 40px 30px
+  +mobile
+    padding: 30px 20px
+
   &__logo
     max-width: 185px
     float: left
     margin-right: 50px 
+    +tablet
+      float: none
+      margin: 0 auto 30px 
+
   &__text  
     margin-left: 240px
     max-width: 770px
-
+    +tablet
+      margin-left: 0
  
 
 
@@ -1298,17 +1905,31 @@
 .services-item
   flex: 0 2 445px 
   margin-bottom: 45px
+  +desktop
+    flex-basis: 300px
+  +mobile
+    text-align: center
+
   &__icon
     float: left
     width: 45px
     margin-right: 30
     text-align: center
+    +mobile
+      float: none
+      margin: 0 auto 30px
+
   &__body 
     margin-left: 75px 
+    +mobile
+      margin-left: 0
+
   &__title
     font-weight: 700
     font-size: 18px
     margin-bottom: 20px
+    +tablet
+      font-size: 16px
   &__text
     color: #9c9c9c
 
@@ -1347,8 +1968,6 @@
 
 .sales-list
   margin-top: 53px
-  .acticle:last-child .acticle__preview
-    border: none
 
 .about-banner
   min-height: 451px 
@@ -1357,6 +1976,12 @@
   display: flex
   justify-content: center
   align-items: center
+  padding: 0 20px
+  +tablet
+    height: calc(100vh - 92px)
+    min-height: initial
+  +mobile
+    height: calc(100vh - 83px)
 
   .banner-body
     width: 100%
@@ -1376,6 +2001,12 @@
 
 .video-block
   position: relative
+  overflow: hidden
+  height: 300px 
+  img
+    max-width: initial
+    +mobile
+      max-width: initial
 
 .video-btn
   position: absolute
@@ -1396,10 +2027,16 @@
   background-color: #f8f8f8
   background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
   background-repeat: no-repeat
-  background-position: -90px 65px, 106% 50px
-  background-size: 18%
+  background-position: -260px 55px, 106% 50px
+  background-size: 30%
   padding: 30px
   overflow: hidden
+    
+  +mobile
+    padding: 20px 
+    background-position: right bottom, top left 
+    background-size: 60%
+
   &__text 
     margin-left: 65px
     font-size: 18px 
@@ -1413,11 +2050,14 @@
 
 .images-list-block
   margin-bottom: 40px
+  +tablet
+    text-align: center
 
 .gallery-carousel
   margin-top: 53px
   padding-bottom: 15px
   margin-bottom: 7px
+
   .owl-nav 
     margin-top: -67px
     > div
@@ -1425,13 +2065,11 @@
       height: 25px 
       background-color: #f8f8f8
       border: none
-    .owl-prev
-      left: 0
-    .owl-next
-      right: 0
 
   .global-item
     margin: 0
+    +tablet
+      margin: 0 auto
 
   .global-item__body
     padding: 11px 40px 17px 0
@@ -1448,6 +2086,9 @@
     align-items: center
     &:last-child
       margin-bottom: 0
+    @media only screen and (max-width: 767px)
+      display: inline-block
+      width: auto
 
   ul.flex-row li 
     padding-left: 25px 
@@ -1463,18 +2104,49 @@
       left: 0
       top: 50%
       margin-top: -2px
+      +tablet
+        top: 12px
 
+  .file-title
+    color: #9c9c9c
+    display: none
+    @media only screen and (max-width: 767px)
+      display: block
+    +mobile
+      font-size: 14px
+
+  div[class^="col"]
+    @media only screen and (max-width: 767px)
+      flex-basis: auto
+      justify-content: space-around
+      width: 100%
+      display: flex
+      margin-bottom: 25px
+      &:last-child
+        margin-bottom: 0
+    
+    +mobile
+      justify-content: space-between
 
   .col-1
     text-align: left
     flex: 11 8 300px 
+    @media only screen and (max-width: 767px)
+      justify-content: flex-start
+
   .col-2
     flex: 1 4 90px 
   .col-3
     flex: 1 4 90px 
-  .col-4
+  div.col-4
     flex: 0 4 105px 
     margin-left: 35px
+    @media only screen and (max-width: 767px)
+      margin-left: 0
+      flex: none
+    +mobile
+      justify-content: flex-end
+
 
   .btn 
     min-width: 100px
@@ -1486,6 +2158,9 @@
   flex-wrap: wrap
   color: #9c9c9c
   margin-bottom: 10px
+  @media only screen and (max-width: 767px)
+    display: none
+
 
 .docment
   display: flex
@@ -1495,6 +2170,9 @@
   background-color: #ffffff
   font-size: 16px
   margin-bottom: 10px
+  @media only screen and (max-width: 767px)
+    flex-direction: column
+
   &--multiply
     display: block
 
@@ -1505,4 +2183,379 @@
 
 .docment-title
   max-width: 630px
+  +mobile
+    padding-bottom: 25px 
+    border-bottom: 1px solid #e2e2e2
 
+.blog-article-wrapper
+  margin-bottom: 65px
+
+.blog-article-list
+  .flex-row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-right: -10px 
+    margin-left: -10px
+    @media only screen and (max-width: 767px)
+      
+      justify-content: center
+      flex-direction: column
+
+    &:nth-child(2n) .global-item:first-child
+      margin-top: -200px
+      +desktop-large
+        margin-top: -166px
+      +desktop
+        margin-top: -125px
+      @media only screen and (max-width: 767px)
+        margin-top: 0
+
+    &:nth-child(2n) .global-item:last-child
+      margin-top: -200px
+      +desktop-large
+        margin-top: -166px
+      +desktop
+        margin-top: -125px
+      @media only screen and (max-width: 767px)
+        margin-top: 0
+
+  .global-item
+    position: relative
+    max-width: 360px
+    margin: 0 10px 
+    +desktop
+      max-width: 225px
+    @media only screen and (max-width: 767px)
+      max-width: 360px 
+      flex-basis: auto
+      margin: 0 auto
+    +mobile
+      padding: 0 15px
+
+  .global-item__body
+    padding: 25px 20px 25px 0
+    min-height: 150px
+
+.blog-article-banner
+  min-height: 450px 
+  background: url('../images/blog-article-banner.jpg') 50% 0 no-repeat
+  background-size: cover
+  // +tablet
+  //   height: calc(100vh - 92px)
+  //   min-height: initial
+  // +mobile
+  //   height: calc(100vh - 83px)
+
+.contacts-banner
+  padding: 70px 0
+  background-color: #f8f8f8
+  background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: -530px -30px, 145% 227px
+  color: #555555
+  +tablet
+    background-position: -700px -30px, 500px 300px
+  +mobile
+    background-position: -750px -30px, 180px 450px
+    
+  
+  a 
+    color: #555555
+  
+  .page-title
+    text-align: left
+    +tablet
+      
+      text-align: center
+
+  &__body 
+    display: flex
+    flex-wrap: wrap
+    margin-top: 45px
+    justify-content: space-between
+    +tablet
+      max-width: 565px
+      margin: 45px auto 0
+    +mobile
+      text-align: center
+      justify-content: center
+
+  &__section 
+    flex: 0 3
+    display: flex
+    flex-direction: column
+
+  .section-1
+    flex-basis: 300px
+    +desktop
+      flex-basis: 200px
+      
+  .section-2
+    flex-basis: 470px
+    +desktop
+      flex-basis: 250px
+      
+  .section-3
+    flex-basis: 300px
+    align-self: flex-start
+
+  &__text
+    margin-bottom: 25px
+    &:last-child
+      margin-bottom: 0
+      margin-top: auto
+    span 
+      display: block
+
+
+.feedback
+  min-height: 315px
+  margin: 110px 0
+  text-align: center
+  +tablet
+    margin: 60px 0
+
+  .page-title
+    text-align: left
+    margin-bottom: 49px
+    +tablet
+      text-align: center
+
+  .feedback-form
+    margin-top: 60px
+
+  .flex-row
+    display: flex
+    flex-wrap: wrap
+    margin-right: -20px 
+    margin-left: -20px
+    margin-bottom: 26px
+    +tablet
+      margin-bottom: 0
+
+  .input-wrap
+    flex: 2 2 200px
+    margin: 0 20px 
+    margin-bottom: 10px
+
+  input
+    padding: 0 10px 0 20px
+
+  .btn 
+    margin-top: 80px
+    background-color: #ffffff
+    font-size: 16px
+    +tablet
+      margin-top: 40px
+
+.colors
+  margin-right: -10px
+  margin-left: -10px
+  max-width: 420px
+  height: 280px 
+  &__item
+    padding: 0 10px 
+    float: left
+    margin-bottom: 20px
+    width: 100px
+
+.mCSB_inside > .mCSB_container
+  margin-right: 20px
+
+#map 
+  height: 600px
+
+[class*="ymaps-2"][class*="-ground-pane"] 
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale")
+    -webkit-filter: grayscale(100%)
+    /* Chrome 19+ & Safari 6+ */
+
+.some-image
+  .flex-row
+    display: flex
+    margin-right: -15px
+    margin-left: -15px 
+    +tablet
+      margin-right: -5px
+      margin-left: -5px 
+    +mobile
+      flex-wrap: wrap
+      
+
+  &__item 
+    margin: 0 15px
+    flex: 1 1 250px
+    +tablet
+      margin: 0 5px
+
+
+.js-toggle-text
+  &:hover:before
+    text-decoration: underline
+  &:before
+    display: inline-block
+    content: 'Смотреть все описание'
+.js-toggle-text.open
+  &:before
+    display: inline-block
+    content: 'Cвернуть описание'
+
+.sp-thumbnails-container
+  +mobile
+    display: none
+
+// Hidden menu 
+
+#my-menu
+  display: none 
+
+#my-menu.mm-menu.mm-offcanvas.mm-current 
+  display: block
+
+// .mm-menu.mm-offcanvas // TODO 
+//   z-index: 1000
+
+.mm-menu
+  background-color: #ffffff
+
+.mm-listview>li, .mm-listview>li .mm-next, .mm-listview>li
+  border-color: transparent
+
+.mm-vertical .mm-panel
+  padding-top: 20px
+  +mobile
+    padding-top: 10px
+
+.mm-navbar
+  border: none
+  padding: 0 20px 0 30px
+  +mobile
+    padding: 0 20px 0 20px
+
+
+.mm-listview>li>a
+  // padding: 10px 10px 10px 20px
+  padding: 10px 20px 10px 30px
+  font-size: 16px
+  color: #555555
+  +mobile
+    padding: 10px 10px 10px 20px
+
+.mm-title
+  font-size: 16px 
+  text-align: center
+  color: #222222
+  border-bottom: 1px solid #e2e2e2
+  padding: 30px 10px 30px 15px
+  +mobile
+    padding: 30px 10px 30px 20px
+
+.mm-menu>.mm-navbar
+  border-top: 1px solid rgba(144, 144, 144, 0.64)
+
+.mm-menu .mm-btn:after, .mm-menu .mm-btn:before, .mm-menu .mm-listview>li .mm-next:after
+  border-color: #999
+
+.mm-menu .mm-navbar a, .mm-menu .mm-navbar > *
+  opacity: 0.6
+
+.mm-btn
+  top: 20px
+
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview
+  margin-top: 30px
+
+.mm-menu .mm-navbar a, .mm-menu .mm-navbar>*
+  color: #222222
+  opacity: 1
+
+.mm-navbar-bottom
+  padding: 13px 0 7px
+  opacity: 0.6
+  .fa
+
+    &:before
+      margin-right: 15px
+
+// Галерея 
+
+.fancybox-skin
+  border-radius: 0
+  background-color: #ffffff
+
+.fancybox-title
+  font-size: 18px
+  color: #222222
+  padding: 24px 20px 24px 50px 
+  background: url('../images/landing-title-pattern.jpg') 0 0 repeat-x
+  background-size: contain
+
+.fancybox-close
+  z-index: 8080
+  +sprite($modal-close)
+  top: 30px
+  right: 20px
+  opacity: 0.5
+  &:hover
+    opacity: 0.8  
+
+.fancybox-nav span
+  background-image: none
+  visibility: visible
+  width: 10px 
+  height: 15px
+  &:before
+    top: 5px
+  &:before, &:after
+    position: absolute
+    content: ' '
+    width: 8px 
+    height: 1px 
+    background-color: #5a5a5a
+
+.fancybox-prev span 
+  left: 40px
+  &:before
+    transform: rotate(-45deg) 
+  &:after
+    top: 10px
+    transform: rotate(45deg) 
+
+.fancybox-next  span  
+  right: 40px
+  &:before
+    transform: rotate(45deg) 
+  &:after
+    top: 10px
+    transform: rotate(-45deg) 
+
+// Contact alert
+
+
+.alert-form
+  padding: 35px 15px
+  display: none
+  &.open
+    display: block
+    animation: 
+      name: fadeIn
+      duration: 700ms
+      timing-function: ease-in-out
+      fill-mode: forwards  
+      
+  &__title
+    font-family: 'Bodoni-Bold', sans-serif
+    font-size: 28px 
+    line-height: 1.2
+    font-weight: 700
+    margin-bottom: 75px 
+  &__message
+    font-size: 24px
+    margin-bottom: 40px
+  &__caption
+    margin-top: 
+    max-width: 180px 
+    color: #9c9c9c
+    font-weight: 300
+    margin: 30px auto 0

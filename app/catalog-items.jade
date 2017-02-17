@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
         
@@ -54,7 +55,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
               
               .filters-panel
                 .checkbox-wrap
-                  span Статус товара:
+                  span.font-size-16 Статус товара:
 
                   .checkbox-input
                     input(type="checkbox" class="checkbox" id="checkbox-1")
@@ -73,17 +74,18 @@ html(xmlns='http://www.w3.org/1999/xhtml')
 
         .container
           .content.clearfix
+            
+            .clearfix
+              .pages-wrap
+                span Товаров на странице:
+                ul.pages-view
+                  li.active 24
+                  li
+                    a(href="#!") 36
+                  li
+                    a(href="#!") 48
 
-            .pages-wrap
-              span Товаров на странице:
-              ul.pages-view
-                li.active 24
-                li
-                  a(href="#!") 36
-                li
-                  a(href="#!") 48
-
-            //= template/breadcrumb.jade
+              //= template/breadcrumb.jade
 
             h1.title-h1 Наши предложения
             

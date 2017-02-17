@@ -37,6 +37,7 @@ input, textarea
   font: 14px/22px $site-font-family
   color: #555555
   border: none
+  background: none
   border-bottom: 1px solid #484848
   -webkit-box-sizing: border-box
   -moz-box-sizing: border-box
@@ -60,6 +61,8 @@ input[type="checkbox"]
     cursor: pointer
     position: relative
     margin-right: 10px
+    +mobile
+      margin-right: 5px
 
   &:checked + label span:before
     content: ' '
@@ -72,6 +75,9 @@ input[type="checkbox"]
 .counter-panel
   display: inline-block
   user-select: none
+  +desktop
+    float: right
+
   input
     border: none
     background: none

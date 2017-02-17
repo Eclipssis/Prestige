@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
         #index-carousel.carousel.slide.carousel-fade(data-ride='carousel')
@@ -24,7 +25,15 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 .carousel-title
                   .carousel-title__item 
                     span.carousel-title__line Предложение для гостиниц и гостевых домов
-                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+                a(href="#!").btn.btn-white.btn-large Узнать больше о предложениях
+
+            .item
+              img(src='images/banner1600x450.jpg', alt='slide' title="slide")
+              .carousel-caption
+                .carousel-title
+                  .carousel-title__item 
+                    span.carousel-title__line Предложение для гостиниц и гостевых домов
+                a(href="#!").btn.btn-white.btn-large Узнать больше о предложениях
 
             .item
               img(src='images/offers-slide.jpg', alt='slide' title="slide")
@@ -32,25 +41,17 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 .carousel-title
                   .carousel-title__item 
                     span.carousel-title__line Предложение для гостиниц и гостевых домов
-                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+                a(href="#!").btn.btn-white.btn-large Узнать больше о предложениях
 
             .item
-              img(src='images/offers-slide.jpg', alt='slide' title="slide")
-              .carousel-caption
-                .carousel-title
-                  .carousel-title__item 
-                    span.carousel-title__line Предложение для гостиниц и гостевых домов
-                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
-
-            .item
-              img(src='images/offers-slide.jpg', alt='slide' title="slide")
+              img(src='images/banner1600x450.jpg', alt='slide' title="slide")
               .carousel-caption
                 .carousel-title
                   .carousel-title__item 
                     span.carousel-title__line Скидки до 65%
                   .carousel-title__item 
                     span.carousel-title__line на всю мебель из ротанга
-                a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+                a(href="#!").btn.btn-white.btn-large Узнать больше о предложениях
         .container
           .content
             //= template/breadcrumb.jade

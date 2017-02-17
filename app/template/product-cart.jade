@@ -1,7 +1,10 @@
 .product.product--cart
   .col-1 1
   .col-2 
-    .product__image        
+    .product__image   
+      .product__title.visible-mobile
+        span.delete-item.js-delete-cart-item
+        a(href="#!") Деревянная прикроватная тумба Milan с двумя полками     
       a(href="#!")
         img(src="images/product-image-1.jpg", alt="product-image")
     .label.label--cart
@@ -9,9 +12,9 @@
       .label__item New
 
   .product__cart-body
-    .product__title 
-      a(href="#!") Деревянная прикроватная тумба Milan с двумя полками
+    .product__title.hidden-mobile
       span.delete-item.js-delete-cart-item
+      a(href="#!") Деревянная прикроватная тумба Milan с двумя полками
     .col-3
       .description
         
@@ -33,6 +36,11 @@
           .description__title Коллекция:
           .description__value Flamenco
 
+        .description__item.visible-sm.visible-xs
+          .description__title Цвет
+          .description__value
+            img(src="images/color-white.jpg", alt="color")
+
     .col-4
       a(href="#!" data-toggle="popover").color-link
         img(src="images/color-white.jpg", alt="color")
@@ -42,12 +50,15 @@
         span.color-popover__code Цвет А684с
         img(src="images/color-snake.jpg", alt="snake")
     .col-5
+      .hidden-title Цена, руб.
       .product__price.js-current-price 45 000 руб.
       .product__old-price 56 590 руб.
     .col-6
+      .hidden-title Количество, шт.
       .counter-panel
-        span.plus +
-        input(type='text', value='1' readonly="readonly")
         span.minus -
+        input(type='text', value='1' readonly="readonly")
+        span.plus +
     .col-7
+      .hidden-title Сумма, руб.
       .product__price.js-product-total 45 000 руб.

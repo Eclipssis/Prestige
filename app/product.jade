@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
         .container
@@ -21,84 +22,58 @@ html(xmlns='http://www.w3.org/1999/xhtml')
             .product-wrap
               .product-images
 
-                //- #slider.flexslider.product-slider
-                //-   ul.slides
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-       .label
-                //-         .label__item Sale
-                //-         .label__item New
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-                //-     li
-                //-       img(src='images/product-slide.jpg')
-
-
-                //-     // items mirrored twice, total of 12
-                //- #carousel.flexslider.product-carousel
-                //-   ul.slides
-                //-     li
-                //-       img(src='images/product-carousel-1.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-2.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-3.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-4.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-5.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-6.jpg')
-                //-     li
-                //-       img(src='images/product-carousel-6.jpg')
-
                 #example1.slider-pro
                   .sp-slides
 
                     .sp-slide
-                      img.sp-image(src='images/product-slide-2.jpg')
+                      a(href="images/product-slide-2.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide-2.jpg')
                       .label
                         .label__item Sale
                         .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
+                      a(href="images/product-slide.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide.jpg')
                       .label
                         .label__item Sale
                         .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
+                      a(href="images/product-slide-2.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide-2.jpg')
                       .label
                         .label__item Sale
                         .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide-2.jpg')
+                      a(href="images/product-slide.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide.jpg')
                       .label
                         .label__item Sale
                         .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide-2.jpg')
+                      a(href="images/product-slide-2.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide-2.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
+                      a(href="images/product-slide.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide-2.jpg')
+                      a(href="images/product-slide-2.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide-2.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
                     .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
-                    .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
-                    .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
-                    .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
-                    .sp-slide
-                      img.sp-image(src='images/product-slide.jpg')
+                      a(href="images/product-slide.jpg" title='Название продукта' rel="gallery").fancybox
+                        img.sp-image(src='images/product-slide.jpg')
+                      .label
+                        .label__item Sale
+                        .label__item New
+
                   
                   .sp-thumbnails
                     .sp-thumbnail
@@ -106,31 +81,25 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     .sp-thumbnail
                       img(src="images/product-carousel-2.jpg", alt="product-carousel")
                     .sp-thumbnail
-                      img(src="images/product-carousel-3.jpg", alt="product-carousel")
+                      img(src="images/product-carousel-1.jpg", alt="product-carousel")
                     .sp-thumbnail
-                      img(src="images/product-carousel-4.jpg", alt="product-carousel")
-                    .sp-thumbnail
-                      img(src="images/product-carousel-5.jpg", alt="product-carousel")
-                    .sp-thumbnail
-                      img(src="images/product-carousel-6.jpg", alt="product-carousel")
+                      img(src="images/product-carousel-2.jpg", alt="product-carousel")
                     .sp-thumbnail
                       img(src="images/product-carousel-1.jpg", alt="product-carousel")
                     .sp-thumbnail
                       img(src="images/product-carousel-2.jpg", alt="product-carousel")
                     .sp-thumbnail
-                      img(src="images/product-carousel-3.jpg", alt="product-carousel")
+                      img(src="images/product-carousel-1.jpg", alt="product-carousel")
                     .sp-thumbnail
-                      img(src="images/product-carousel-4.jpg", alt="product-carousel")
-                    .sp-thumbnail
-                      img(src="images/product-carousel-5.jpg", alt="product-carousel")
-                    .sp-thumbnail
-                      img(src="images/product-carousel-6.jpg", alt="product-carousel")
+                      img(src="images/product-carousel-2.jpg", alt="product-carousel")
                     
               .product-description
 
                 .brand
                   .brand__image
                     img(src="images/brand.jpg", alt="brand")
+                    span.hidden-articule Артикул: 
+                      span.color-grey АF4252F1
                   .brand__body
                     .brand__title 
                       img(src="images/italy-flag.jpg", alt="flag")
@@ -139,7 +108,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     a(href="#!").brand__link Товары фабрики
                 
                 .product-price
-                  a(href="#!").btn.btn-white <span class="btn-icon-cart"></span> Купить
+                  a(href="#!").btn.btn-white <span class="btn-icon-cart"></span> 
+                    span.btn-text Купить
                   .product-price__old 56 590 руб.
                   .product-price__current 18 500 руб.
                 
@@ -174,6 +144,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                         img(src="images/color-brown.jpg", alt="color")
                       a(href="#!" data-toggle="popover").color-link
                         img(src="images/color-brown-dark.jpg", alt="color")
+
 
                   .product-property
                     .product-property__title Цвета на заказ:
@@ -221,7 +192,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
       .container
         .collection-wrap
           .page-title Товары коллекции Flamenco
-            span.add-title-info Товаров в коллекции: 152
+            span.product-counter Товаров в коллекции: 152
 
           .owl-carousel.collection-carousel
             .item

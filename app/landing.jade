@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
         .landing-banner
@@ -16,7 +17,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 span.carousel-title__line Скидки до 35%
               .carousel-title__item 
                 span.carousel-title__line на всю мебель из ротанга
-            a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
+            a(href="#!").btn.btn-white.btn-large Заказать решение
 
         .problem-block
           .container
@@ -34,17 +35,21 @@ html(xmlns='http://www.w3.org/1999/xhtml')
 
             ul.offer-banners
               li
-                .banner.banner-bg-1
-                  a(href="#!").btn Все в одном месте
+                .banner
+                  img(src="images//solution-image-1.jpg", alt="/solution-image")
+                  span.text Все в одном месте
               li
-                .banner.banner-bg-2
-                  a(href="#!").btn Гибкие цены
+                .banner
+                  img(src="images//solution-image-2.jpg", alt="/solution-image")
+                  span.text Гибкие цены
               li
-                .banner.banner-bg-3
-                  a(href="#!").btn Бесплатная сборка
+                .banner
+                  img(src="images//solution-image-3.jpg", alt="/solution-image")
+                  span.text Бесплатная сборка
               li
-                .banner.banner-bg-4
-                  a(href="#!").btn Решение под ключ
+                .banner
+                  img(src="images//solution-image-4.jpg", alt="/solution-image")
+                  span.text Решение под ключ
         
         .package-offer
           .container
@@ -61,7 +66,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     li Доставка мебели
                     li Сборка мебели
                 .offer-card__footer
-                  .offer-card__price до 200 000 руб. на всю мебель
+                  .offer-card__price до 200 000 руб. 
+                    span.pro-verstka на всю мебель
                   a(href="#!").btn Заказать пакет
 
               .offer-card
@@ -74,7 +80,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     li Сборка мебели
                     li Консультации по подбору
                 .offer-card__footer
-                  .offer-card__price до 500 000 руб. на всю мебель
+                  .offer-card__price до 500 000 руб. 
+                    span.pro-verstka на всю мебель
                   a(href="#!").btn Заказать пакет
 
               .offer-card
@@ -88,7 +95,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                     li Консультации по подбору
                     li Услуги дизайнера интерьеров
                 .offer-card__footer
-                  .offer-card__price до 1 000 000 руб. на всю мебель
+                  .offer-card__price до 1 000 000 руб. 
+                    span.pro-verstka на всю мебель
                   a(href="#!").btn Заказать пакет
             
             .landing-caption Если не один их предложенных вариантов Вам не подходит, не расстраивайтесь. Оставьте заявку и мы подберем индивидуальное предложение специально для Вас.
@@ -189,46 +197,33 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 img(src="images/brand-7.jpg", alt="brand")
               .brand-item
                 img(src="images/brand-8.jpg", alt="brand")
-              .brand-item
 
             a(href="#!") Смотреть всех производителей
         
         .gallery.margin-bottom-0
-          a(href="#!").gallery__item
+          a(href="images/gallery-images-1.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
             img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
+
+          a(href="images/gallery-images-2.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
             img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
+
+          a(href="images/gallery-images-3.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
             img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-5.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-6.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-7.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-8.jpg", alt="gallery-image" title="gallery-image")
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
-          
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
-          
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
-          
-          a(href="#!").gallery__item
+
+          a(href="images/gallery-images-4.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
             img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
 
+          a(href="images/gallery-images-5.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
+            img(src="images/gallery-images-5.jpg", alt="gallery-image" title="gallery-image")
+
+          a(href="images/gallery-images-6.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
+            img(src="images/gallery-images-6.jpg", alt="gallery-image" title="gallery-image")
+
+          a(href="images/gallery-images-7.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
+            img(src="images/gallery-images-7.jpg", alt="gallery-image" title="gallery-image")
+
+          a(href="images/gallery-images-8.jpg" rel="gallery" title='Название продукта').gallery__item.fancybox
+            img(src="images/gallery-images-8.jpg", alt="gallery-image" title="gallery-image")
 
         .questions
           .container
@@ -318,25 +313,25 @@ html(xmlns='http://www.w3.org/1999/xhtml')
             .page-title Другие решения
 
             .global-items-list
-              .global-item.global-item--white
+              .global-item.global-item--grey
                 a(href="#!").global-item__image
                   img(src="images/complex-image-1.jpg", alt="complex-image" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Комплексеное предложение для владельцев домов
 
-              .global-item.global-item--white
+              .global-item.global-item--grey
                 a(href="#!").global-item__image
                   img(src="images/complex-image-2.jpg", alt="complex-image" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Предложение для новоселов
 
-              .global-item.global-item--white
+              .global-item.global-item--grey
                 a(href="#!").global-item__image
                   img(src="images/complex-image-3.jpg", alt="complex-image" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Столы и стулья для любого помещения
 
-              .global-item.global-item--white
+              .global-item.global-item--grey
                 a(href="#!").global-item__image
                   img(src="images/complex-image-4.jpg", alt="complex-image" title="complex-image")
                 .global-item__body

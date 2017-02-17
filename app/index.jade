@@ -7,6 +7,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
 
@@ -30,13 +31,13 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
 
             .item
-              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              img(src='images/banner2.jpg', alt='slide' title="slide")
               .carousel-caption
                 .carousel-title
                   .carousel-title__item 
-                    span.carousel-title__line Скидки до 45%
+                    span.carousel-title__line Мебель от лучших
                   .carousel-title__item 
-                    span.carousel-title__line на всю мебель из ротанга
+                    span.carousel-title__line производителей Италии
                 a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
 
             .item
@@ -50,13 +51,13 @@ html(xmlns='http://www.w3.org/1999/xhtml')
                 a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
 
             .item
-              img(src='images/index-slide.jpg', alt='slide' title="slide")
+              img(src='images/banner2.jpg', alt='slide' title="slide")
               .carousel-caption
                 .carousel-title
                   .carousel-title__item 
-                    span.carousel-title__line Скидки до 65%
+                    span.carousel-title__line Мебель от лучших
                   .carousel-title__item 
-                    span.carousel-title__line на всю мебель из ротанга
+                    span.carousel-title__line производителей Италии
                 a(href="#!").btn.btn-white.btn-large Посмотреть товары со скидкой
         
         .facts
@@ -88,25 +89,25 @@ html(xmlns='http://www.w3.org/1999/xhtml')
             .global-items-list
               .global-item.global-item--white
                 a(href="#!").global-item__image
-                  img(src="images/complex-image-1.jpg", alt="complex-image" title="complex-image")
+                  img(src="https://api.fnkr.net/testimg/520x520/00CED1/FFF/?text=520x520" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Комплексеное предложение для владельцев домов
 
               .global-item.global-item--white
                 a(href="#!").global-item__image
-                  img(src="images/complex-image-2.jpg", alt="complex-image" title="complex-image")
+                  img(src="https://api.fnkr.net/testimg/520x520/00CED1/FFF/?text=520x520" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Предложение для новоселов
 
               .global-item.global-item--white
                 a(href="#!").global-item__image
-                  img(src="images/complex-image-3.jpg", alt="complex-image" title="complex-image")
+                  img(src="https://api.fnkr.net/testimg/520x520/00CED1/FFF/?text=520x520" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Столы и стулья для любого помещения
 
               .global-item.global-item--white
                 a(href="#!").global-item__image
-                  img(src="images/complex-image-4.jpg", alt="complex-image" title="complex-image")
+                  img(src="https://api.fnkr.net/testimg/520x520/00CED1/FFF/?text=520x520" title="complex-image")
                 .global-item__body
                   a(href="#!").global-item__text Мебель для гостиниц и гостевых домов
             
@@ -116,7 +117,7 @@ html(xmlns='http://www.w3.org/1999/xhtml')
         .popular-producs
           .container
             .page-title Популярные товары
-      
+            
             .product-list
               
               .product-list__item
@@ -374,31 +375,8 @@ html(xmlns='http://www.w3.org/1999/xhtml')
             .buttons-block.text-center
               a(href="#!").btn Показать еще товары
               a(href="#!").btn.btn-black Перейти в каталог
-
-        .gallery
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-1.jpg", alt="gallery-image" title="gallery-image")
         
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-2.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-3.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-4.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-5.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-6.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-7.jpg", alt="gallery-image" title="gallery-image")
-        
-          a(href="#!").gallery__item
-            img(src="images/gallery-images-8.jpg", alt="gallery-image" title="gallery-image")
+        //= template/gallery.jade
 
         .container
           .about-block

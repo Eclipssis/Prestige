@@ -29,7 +29,9 @@ html, body
 
 .content
   padding-top: 40px
-  padding-bottom: 100px
+  padding-bottom: 120px
+  +tablet
+    padding-bottom: 50px 
 
 .divider
   height: 1px
@@ -38,7 +40,9 @@ html, body
 .some-interesting-padding
   padding: 45px 0
 
-.close-btn
+.blog-article
+  .text-block
+    max-width: 100%
   
 
 
@@ -64,6 +68,9 @@ html, body
       &:before
         display: none
 
+// .mm-menu.mm-offcanvas
+//   z-index: 2000
+//   background-color: #ffffff
 
 /*----------- header *
  ------------------------------------------------------------*/
@@ -72,6 +79,9 @@ html, body
   z-index: 200
   padding-top: 15px
   background-color: #ffffff 
+  +desktop
+    padding-bottom: 15px
+    border-bottom: 1px solid #e2e2e2
 
   .popover
     max-width: 360px
@@ -88,10 +98,17 @@ html, body
   top: 0
   left: 0
   padding-top: 0
+  padding-bottom: 0
   animation: 
     name: slideInDown
     duration: 500ms
     fill-mode: both 
+
+  +desktop
+    border: none
+
+  .navbar-header
+    padding: 0 15px
   .header-panel
     display: none
   .navbar-default
@@ -101,14 +118,26 @@ html, body
   .controls--sticky, .logo-hidden
     display: block
 
+  .menu-toggle
+    float: right
+    margin-top: 22px
+    margin-left: 50px
+    +tablet
+      margin-left: 30px
+
   .navbar-default
+    +desktop
+      display: block
+      background-color: #ffffff
+      height: 62px
+
     .navbar-header
       position: absolute
       width: 100%
       +tablet
         padding: 0 15px
         position: static
-        width: auto
+        width: 100%
 
     .navbar-nav > li
       +desktop-large
@@ -116,6 +145,8 @@ html, body
 
     .navbar-toggle
       margin: 11px 0 11px 15px
+
+
 
 .header-panel
   display: flex
@@ -125,11 +156,29 @@ html, body
 
 .logo
   width: 150px
+  +mobile
+    width: 130px
 
 .logo-hidden
-  float: left
+  margin: 15px auto 0
   display: none
-  margin-top: 15px
+  float: left
+  +desktop
+    float: none
+  +mobile
+    float: left
+
+.number
+  color: #222222
+  float: left
+  font-size: 15px
+  font-weight: 500
+  margin: 19px 0
+  display: none
+  +desktop
+    display: block
+  +mobile
+    display: none
 
 .header-contacts
   +mobile
@@ -147,6 +196,9 @@ html, body
 .controls
   margin-bottom: 5px
   order: 1
+  +desktop
+    order: 0
+
   &--sticky
     display: none
     float: right
@@ -162,6 +214,8 @@ html, body
     &:hover
       opacity: 1
       transition: all 0.2s ease
+    +mobile
+      margin: 0 10px 0 5px
 
   &__counter
     position: absolute
@@ -178,13 +232,36 @@ html, body
 
   .phone-icon
     +sprite($header-phone)
+    +mobile
+      display: none
+
   .mail-icon
     +sprite($header-mail)
+    +mobile
+      display: none
+
   .cart-icon
     +sprite($header-cart)
 
   
+.menu-toggle
+  display: none
+  margin: 0 5px 0 0
+  +desktop
+    display: block
+  +mobile
+    margin: 0
 
+  &:hover, &:focus
+    border: none
+    background: none
+  .icon-bar
+    display: block
+    width: 20px
+    height: 2px
+    background-color: #555555
+  .icon-bar+.icon-bar
+    margin-top: 5px
 
 .navbar-default
   text-align: center
@@ -193,23 +270,23 @@ html, body
   margin-bottom: 0
   margin-top: 20px
   min-height: 100%
+  +desktop
+    display: none
+  +tablet
+    margin-top: 15px
+
   .container
     position: relative
 
-  .navbar-toggle
-    background: none
-    border: none
-    &:hover, &:focus
-      border: none
-      background: none
-    .icon-bar
-      width: 30px
-      height: 4px
-      background-color: #222222
+  #header-navbar
+    padding: 0
 
   .navbar-nav
     float: none
     text-align: center
+    +desktop
+      display: none
+
     > li 
       display: inline-block
       float: none
@@ -358,14 +435,16 @@ html, body
   position: relative
   background-color: #f8f8f8
 
-  .btn 
-    +desktop
-      font-size: 16px
-
 .footer-bg
   background-image: url("../images/leaf-right.png"), url("../images/leaf-left.png")
   background-repeat: no-repeat
   background-position: -515px -60px, 125% -117%
+  +desktop
+    background-position: -615px -60px, 500px 150%
+  +mobile
+    background-position: -615px -60px, 100px 100%
+
+    
 
 .footer-title
   color: #222222
@@ -386,6 +465,9 @@ html, body
   +desktop
     font-size: 16px
   +tablet
+    max-width: 550px
+    margin: 0 auto
+  +mobile
     flex-direction: column
     text-align: center
 
@@ -402,6 +484,8 @@ html, body
       flex-basis: 265px
     +desktop
       flex-basis: 240px
+      width: 100%
+      text-align: center
     +tablet
       flex-basis: auto        
 
@@ -411,6 +495,12 @@ html, body
 
   .btn 
     margin-right: 35px
+    +desktop-large
+      margin-right: 0
+    +desktop
+      font-size: 14px
+      padding-left: 17px
+      padding-right: 17px
 
 .footer-body
   padding: 45px 0
@@ -418,9 +508,14 @@ html, body
   flex-wrap: wrap
   font-size: 16px
   color: #222222
-  +tablet
+  +desktop
+    max-width: 550px
+    margin: 0 auto
+    justify-content: space-between
+  +mobile
     flex-direction: column
     padding: 25px 0 35px
+    text-align: center
 
   a 
     color: #222222
@@ -430,9 +525,9 @@ html, body
     +desktop-large
       flex-basis: 170px
     +desktop
-      flex-basis: 300px
-    +tablet
       flex-basis: auto
+    +tablet
+
       
   .item-2
     flex: 1 3 180px
@@ -440,18 +535,28 @@ html, body
     +desktop-large
       flex-basis: 180px
     +desktop
-      flex-basis: 300px
-    +tablet
+      flex-basis: 250px
+      max-width: 230px
+    @media only screen and (max-width: 767px)
       flex-basis: auto
       margin-bottom: 20px
+      max-width: 100%
+    +mobile
+      padding-right: 0
+      max-width: 300px
+      margin: 0 auto 20px
       
   .item-3
     flex: 1 3 150px
     +desktop
-      flex-basis: 300px
-    +tablet
+      flex-basis: 250px
+      max-width: 200px
+    @media only screen and (max-width: 767px)
       flex-basis: auto
-      
+      max-width: 100%
+    +mobile
+      max-width: 300px
+      margin: 0 auto
 
   .partners, .location
     min-height: 125px
@@ -461,14 +566,18 @@ html, body
 
   .partners-text  
     color: #222222
-    +tablet
+    @media only screen and (max-width: 767px)
       padding-left: 25px
+    +mobile
+      padding-left: 0
 
   .partners
     +desktop
       margin-bottom: 15px
-    +tablet
+    @media only screen and (max-width: 767px)
       padding-left: 25px
+    +mobile
+      padding-left: 0
 
     &:before
       position: absolute
@@ -476,13 +585,18 @@ html, body
       left: -25px
       top: 3px
       content: ' '
-      +tablet
+      @media only screen and (max-width: 767px)
         left: 0
+      +mobile
+        display: none
 
   .location
     +desktop
-      padding-left: 25px
       margin-bottom: 15px
+    @media only screen and (max-width: 767px)
+      padding-left: 25px
+    +mobile
+      padding-left: 0
 
     &:before
       position: absolute
@@ -490,24 +604,29 @@ html, body
       left: -25px
       top: 3px
       content: ' '
-      +desktop
+      @media only screen and (max-width: 767px)
         left: 0
+      +mobile
+        display: none
 
   .phone
     position: relative
     color: #222222
     margin-top: 15px
-    +desktop
-      padding-left: 25px
-
     &:before
       position: absolute
       content: ' '
       +sprite($header-phone)
       left: -28px
       top: 5px
-      +desktop
-        left: 0
+      +mobile
+        display: none
+
+  .show-all
+    @media only screen and (max-width: 767px)
+      padding-left: 25px
+    +mobile
+      padding-left: 0
         
 
 .footer-nav
@@ -515,20 +634,24 @@ html, body
   list-style: none
   max-width: 450px
   margin-bottom: 25px
-  +tablet
+  +desktop
     max-width: 100%
+  @media only screen and (max-width: 767px)
     padding-left: 25px
+  +mobile
+    padding-left: 0
+
   > li
     min-width: 150px
     float: left
     margin-bottom: 3px
     +desktop-large
       min-width: 170px
-    +tablet
-      min-width: 150px
+    +desktop
+      min-width: 174px
     +mobile
-      min-width: 170px
-      margin-bottom: 5px
+      float: none
+      margin-bottom: 10px
 
     > a 
       font-size: 16px
@@ -555,14 +678,15 @@ html, body
     flex-wrap: wrap
     align-items: center
     +desktop
-      justify-content: center
+      justify-content: space-around
       flex-basis: auto
+    +tablet
+      // justify-content: center
 
   &__item.item-1
     flex-basis: 270px
-    +desktop
+    +desktop-large
       flex-basis: auto
-      padding-bottom: 20px
 
   &__item.item-2
     @media only screen and (max-width: 580px)
@@ -571,14 +695,38 @@ html, body
       text-align: center
       
   .slogan
-    max-width: 202px
+    max-width: 205px
     line-height: 18px
     margin-left: 30px
     +desktop
       margin: 10px 0 10px 30px
-  
+
+  .slogan-1
+    +desktop
+      display: none
+    +mobile
+      display: block
+      order: -1
+      margin-left: 15px
+      margin-right: 15px
+      margin-top: 20px
+      width: 100%
+      text-align: center
+
+  .slogan-2
+    display: none
+    +desktop
+      display: block
+      margin-right: 20px
+    +mobile
+      display: none
+
   .logo 
     width: 115px
+    +desktop
+      margin-right: 20px
+    +tablet
+      order: -1
     +mobile
       width: 140px
 
@@ -586,24 +734,35 @@ html, body
     max-width: 190px
     margin-right: 132px
     line-height: 18px
+    +desktop-large
+      margin-right: 20px
+    +desktop
+      display: none
 
   .develop
     max-width: 125px
     line-height: 18px
+    +desktop
+      margin-right: 87px
     @media only screen and (max-width: 580px)
       max-width: 100%
+      margin-right: 0
 
-  
+
 
 .footer-social
   margin-bottom: 0
   margin-left: 30px
   flex: 0 2 130px
   +desktop
-    margin: 0 20px
+    margin-right: 50px
   @media only screen and (max-width: 580px)
     order: -1
+  +mobile
+    margin-top: 15px
     margin-bottom: 20px
+    margin-left: 0
+    margin-right: 0
 
   > li
     display: inline-block
@@ -634,14 +793,6 @@ html, body
 // @media only screen and (max-width: 1200px)
 
 
-@media only screen and (max-width: 992px)
-
-  h1, .title-h1
-    font-size: $title-h1-size / 1.1
-
-  h2, .title-h2
-    font-size: $title-h2-size / 1.1
-
 
 @media only screen and (max-width: 768px)
 
@@ -657,12 +808,6 @@ html, body
   .footer
     height: auto
 
-  h1, .title-h1
-    font-size: $title-h1-size / 1.3
-
-  h2, .title-h2
-    font-size: $title-h2-size / 1.2
-
 
 // @media only screen and (max-width: 600px)
 
@@ -670,10 +815,10 @@ html, body
 @media only screen and (max-width: 480px)
 
   h1, .title-h1
-   font-size: $title-h1-size / 1.5
+   font-size: 24px
 
   h2, .title-h2
-   font-size: $title-h2-size / 1.3
+   font-size: $title-h2-size / 1.2
 
 
 /*----------- Main blocks *

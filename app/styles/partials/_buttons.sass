@@ -19,7 +19,7 @@
   outline: none
   border-radius: 0px
   border: 1px solid #222222
-  background-color: $btn-bg-color
+  background: $btn-bg-color
   color: $btn-color
   transition: color 0.3s ease
   transform: perspective(1px) translateZ(0)
@@ -81,14 +81,22 @@
   vertical-align: top
   margin-right: 10px
   +sprite($btn-icon-cart)
+  +desktop
+    margin-right: 0
+  +mobile
+    margin-right: 10px
 
 /*----------- media style -----------*/
 
 
-// @media only screen and (max-width: 768px)
+@media only screen and (max-width: 992px)
+
+  .btn 
+    font-size: 16px
 
 @media only screen and (max-width: 480px)
 
   .btn 
     min-width: 100px
-    padding: 7px 15px
+    padding-left: 15px
+    padding-right: 15px

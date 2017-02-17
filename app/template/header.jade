@@ -6,7 +6,7 @@ header.header
       .header-contacts
         .header-contacts__adress Суздальская, 10
         .header-contacts__phone 8 (4012) 58-25-03
-
+  
       .logo
         a(href="index.html")
           img(src="images/logo.png", alt="logo")
@@ -17,55 +17,68 @@ header.header
         a(href="#!" data-toggle="popover").controls__item.cart-icon
           span.controls__counter 2
 
-        .popover-wrapper#popover-cart
-          .cart-items
-            .cart-item
-              .cart-item__image
-                img(src="images/product-image-4.jpg", alt="product-image")
-              .cart-item__body
-                span.delete-item.js-delete-cart-item
-                .cart-item__title Деревянная прикроватная тумба Milan с двумя полками
-                .cart-item__price Цена по запросу
+      a.menu-toggle(href="#menu")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
 
-            .cart-item
-              .cart-item__image
-                img(src="images/product-image-8.jpg", alt="product-image")
-              .cart-item__body
-                span.delete-item.js-delete-cart-item
-                .cart-item__title Деревянное кресло Maroco с мягкими подушками
-                .cart-item__price 47 000 руб.
 
-            .cart-item
-              .cart-item__image
-                img(src="images/product-image-7.jpg", alt="product-image")
-              .cart-item__body
-                span.delete-item.js-delete-cart-item
-                .cart-item__title Стул со спинкой из дерева Les Simonnet 
-                .cart-item__old-price 102 900 руб.
-                .cart-item__price 80 000 руб.
+      .popover-wrapper#popover-cart
+        .cart-items
+          .cart-item
+            .cart-item__image
+              img(src="images/product-image-4.jpg", alt="product-image")
+            .cart-item__body
+              span.delete-item.js-delete-cart-item
+              .cart-item__title Деревянная прикроватная тумба Milan с двумя полками
+              .cart-item__price Цена по запросу
 
-          .text-center
-            a(href="cart.html").btn Перейти в корзину
+          .cart-item
+            .cart-item__image
+              img(src="images/product-image-8.jpg", alt="product-image")
+            .cart-item__body
+              span.delete-item.js-delete-cart-item
+              .cart-item__title Деревянное кресло Maroco с мягкими подушками
+              .cart-item__price 47 000 руб.
+
+          .cart-item
+            .cart-item__image
+              img(src="images/product-image-7.jpg", alt="product-image")
+            .cart-item__body
+              span.delete-item.js-delete-cart-item
+              .cart-item__title Стул со спинкой из дерева Les Simonnet 
+              .cart-item__old-price 102 900 руб.
+              .cart-item__price 80 000 руб.
+
+        .text-center
+          a(href="cart.html").btn Перейти в корзину
     
   nav.navbar.navbar-default(role='navigation')
     .container
       .navbar-header  
-        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#header-navbar')
+
+        
+
+        .number 8 (4012) 58-25-03    
+
+        a.menu-toggle(href="#menu")
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
-          span.icon-bar
+          span.icon-bar    
 
         .controls.controls--sticky
           a(href="#!").controls__item.phone-icon
           a(href="#!").controls__item.mail-icon
           a(href="#!" data-toggle="popover").controls__item.cart-icon
             span.controls__counter 2
+        
+        
 
         .logo-hidden
           a(href="index.html")
             img(src="images/mini-logo.png", alt="logo")
-
         
 
       #header-navbar.collapse.navbar-collapse
@@ -214,9 +227,8 @@ header.header
             a(href='blog-list.html') Блог
           li
             a(href="contacts.html") Контакты
-            
-          
-      
+
+   
     
   // container end
 // header

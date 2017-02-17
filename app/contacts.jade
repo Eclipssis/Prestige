@@ -7,13 +7,138 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     #wrapper
 
       //= template/header.jade
+      //= template/mobile-menu.jade
 
       section.middle
 
-        //= template/breadcrumb.jade
+        .map
+          #map
 
-        h1.title-h1 
+        .container
+          .content
+            //= template/breadcrumb.jade
+
+            h1.title-h1 Наши магазины
+
+            .contacts-list
+
+              .contact
+                .contact__description
+                  .contact__title Магазин на Суздальской
+
+                  .contact__text
+                    span Адрес: г. Калининград, 
+                    span ул. Суздальская, д.10 (ориентир “КЭШ”)
+                  .contact__text Телефон: 8 (4012) 58-25-03
+                  .contact__text 
+                    span Режим работы: 
+                    span ПН-ПТ с 09:00 до 20:00
+                    span СБ-ВС с 10:00 до 18:00
+
+                .contact__image
+                  img(src="images/contacts-image-1.jpg", alt="contact-image")
+                  img(src="images/location-1.jpg", alt="location")
+
+              .contact
+                .contact__description
+                  .contact__title Магазин на ул. К. Маркса
+                    
+                  .contact__text
+                    span Адрес: г. Калининград, 
+                    span ул. Карла Маркса, д.5
+
+                  .contact__text Телефон: 8 (4012) 58-25-03
+
+                  .contact__text
+                    span Режим работы: 
+                    span ПН-ПТ с 09:00 до 20:00
+                    span СБ-ВС с 10:00 до 18:00
+
+                .contact__image
+                  img(src="images/contacts-image-2.jpg", alt="contact-image")
+                  img(src="images/location-2.jpg", alt="location")
+
+              .contact
+                .contact__description
+                  .contact__title Магазин в ТЦ “Мега-Мебель”
+                    
+                  .contact__text
+                    span Адрес: г. Калининград, 
+                    span ул. Мусорского, 5 (ТЦ “Мега-Мебель”)
+
+                  .contact__text Телефон: 8 (4012) 58-25-03
+
+                  .contact__text
+                    span Режим работы: 
+                    span ПН-ПТ с 09:00 до 20:00
+                    span СБ-ВС с 10:00 до 18:00
+
+                .contact__image
+                  img(src="images/contacts-image-3.jpg", alt="contact-image")
+                  img(src="images/location-3.jpg", alt="location")
         
+        .contacts-banner
+          .container
+            .page-title Контакты
+            
+            .contacts-banner__body
+              .contacts-banner__section.section-1
+                .contacts-banner__text
+                  span Телефон: 
+                  span 8 (4012) 58-25-03
+                  span 8 (4012) 58-25-03
+                  span 8 (4012) 58-25-03 (факс)
+                .contacts-banner__text
+                  span Режим работы: 
+                  span ПН-ПТ с 09:00 до 20:00
+                  span СБ-ВС с 10:00 до 18:00
+
+              .contacts-banner__section.section-2
+                .contacts-banner__text
+                  span Наименование компании: ООО “Престиж Мебель”
+                  span Юридический адрес: 236001, Российская Федерация,
+                  span г. Калининград, ул. Суздальская, д.10 (ориентир “КЭШ”)
+                .contacts-banner__text
+                  span E-mail: 
+                    a(href="mailto:info@prestige-mebel.ru")  info@prestige-mebel.ru
+                  span Веб-сайт: 
+                    a(href="#!") http://prestige-mebel.ru/
+                  span Skype (для заявок): prestige-mebel
+              .contacts-banner__section.section-3
+                .contacts-banner__text
+                  span Мы в соцсетях:
+                  span 
+                    a(href="#!") http://vk.com/prestige
+                  span 
+                    a(href="#!") http://facebook.com/prestige
+                  span 
+                    a(href="#!") http://instagram.com/prestige-mebel
+                  span 
+                    a(href="#!") http://ok.ru/group/prestige
+
+        .container
+          .feedback
+            
+            form.feedback-form
+              .alert-form
+                .alert-form__title Уведомление
+                .alert-form__message Спасибо, Ваша заявка успешно отправлена!
+                .divider-modal
+                .alert-form__caption Наши менеджеры свяжутся с Вами в ближайшее время.
+
+              .feedback-form-body
+                .page-title Обратная связь
+                .flex-row
+                  .input-wrap
+                    input(type="text" placeholder="Пожалуйста представьтесь")
+                  .input-wrap
+                    input(type="text" placeholder="Контактный телефон").js-mask-phone
+                  .input-wrap
+                    input(type="mail" placeholder="Укажите email")
+
+                input(type="text" placeholder="Текст вашего сообщения")
+
+                button(type="submit").btn Отправить сообщение
 
     //= template/footer.jade
 
