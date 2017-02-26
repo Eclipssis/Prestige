@@ -3,9 +3,9 @@ jQuery(function($){
   $('input[placeholder], textarea[placeholder]').placeholder();
 
   // Большой подпункт меню
-  $('.js-dropdown').click(function () {
-    $('.dropdown-big').slideToggle()
-  })
+  // $('.js-dropdown').click(function () {
+  //   $('.dropdown-big').slideToggle()
+  // })
 
   // Слайдер на главной
   $('.carousel').carousel({

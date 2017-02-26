@@ -80,7 +80,6 @@
   margin-bottom: 70px
   display: flex
   flex-wrap: wrap
-  justify-content: space-around
   margin-left: -10px
   margin-right: -10px    
   +tablet
@@ -233,6 +232,9 @@
       float: none
       +desktop
         float: right
+      +mobile
+        width: 40%
+
 
     .product__image
       +mobile
@@ -242,7 +244,7 @@
       line-height: 16px
       width: 100%
       +desktop
-        text-align: right
+        text-align: left
 
     .product__title
       padding: 0
@@ -278,12 +280,29 @@
       @media only screen and (max-width: 767px)
         float: right
         width: auto
+      +mobile
+        width: 40%
 
+    .fu-price
+      +desktop
+        float: right
+        width: 40%
+      +tablet
+        width: auto
+      +mobile
+        width: 40%
+
+      .product__price
+        float: none
+        +mobile
+          width: auto
 
     .description__title
       width: 170px
       +desktop-large
         width: 130px
+      +mobile
+        width: 60%
 
   &__cart-body
     overflow: hidden
@@ -365,6 +384,8 @@
   margin-top: 3px
   transition: all 0.2s ease
   opacity: 0.5
+  border: none
+  background-color: transparent
   &:hover
     transition: all 0.2s ease
     opacity: 1
@@ -427,7 +448,7 @@
     border: none
 
   &__preview
-    padding-bottom: 80px 
+    padding-bottom: 60px 
     border-bottom: 1px solid #e2e2e2
     margin-bottom: 40px
     display: flex
@@ -451,6 +472,7 @@
     background-repeat: no-repeat
     background-position: left bottom
     margin-bottom: 80px
+    overflow: hidden
     +desktop
       padding: 30px 
     +tablet
@@ -473,7 +495,7 @@
       margin-right: 40px
       max-width: 520px
       padding-right: 0
-
+      font-size: 0
       +desktop
         float: none
         text-align: center
@@ -498,10 +520,12 @@
     padding: 30px 0 0
     border-top: 1px solid #e2e2e2
     margin-top: 60px
+    clear: both
 
   &__image
     flex: 1 2 300px
     padding-right: 40px
+    margin-bottom: 30px
     +desktop
       flex-basis: auto
       margin-bottom: 30px
@@ -525,7 +549,7 @@
 
   &__text 
     color: #555555
-    margin-bottom: 10px
+    margin-bottom: 25px
   &__link 
     margin-top: auto
 
@@ -663,6 +687,7 @@
   .page-title
     text-align: left
     margin-bottom: 25px
+    padding-left: 0
 
   > div 
     margin: 0 15px
@@ -764,7 +789,6 @@
   > li.active
     color: #555555
     cursor: default
-    padding: 1px 5px
     background-color: #f8f8f8
     &:hover
       text-decoration: none
@@ -784,19 +808,21 @@
     display: flex
     flex-wrap: wrap
     justify-content: space-between
+    margin-right: -10px
+    margin-left: -10px
     +desktop-large
       justify-content: flex-start
       
 
   .select
-    margin-right: 18px
+    padding: 0 10px
     width: 100%
     max-width: 225px
     +desktop-large
       max-width: 215px
       margin-bottom: 15px
     +desktop
-      max-width: 222px
+      max-width: 246px
     +mobile
       margin-right: 0
       margin: 0 auto 10px
@@ -818,6 +844,13 @@
     justify-content: space-between
     +mobile
       flex-direction: column
+
+    button 
+      background: none
+      border: none
+      padding: 0
+      &:hover, &:focus
+        text-decoration: underline
 
   .checkbox-wrap
     +mobile 
@@ -871,8 +904,6 @@
     text-align: center
     display: block
     margin-top: 20px
-  +mobile
-    display: none
 
 .add-title-info
   +tablet
@@ -950,7 +981,6 @@
       max-width: 85px
     +mobile
       max-width: 150px
-      
 
   .btn-text
     +desktop
@@ -1036,11 +1066,13 @@
     float: left
     color: #222222
     +tablet
-      text-align: right
       float: right
-      max-width: 150px
-    +mobile
-      width: auto
+      width: 50%
+      text-align: left
+
+  input:checked + a 
+    opacity: 1
+    border: 1px solid #000
   
   .color-link
     display: inline-block
@@ -1157,7 +1189,7 @@
     position: absolute
     width: 100%
     top: 50%
-    margin-top: -100px 
+    margin-top: -130px 
     > div 
       width: 48px
       height: 48px
@@ -1312,16 +1344,27 @@
       padding: 14px 0
       margin-bottom: 40px
       
-    a 
-      font-size: 14px 
+    button, a  
+      font-size: 14px
+      border: none
+      background: none
+      padding: 0 
+      color: #9c9c9c
+      &:hover, &:focus
+        text-decoration: underline
+
+
     
     div.col-1
       @media only screen and (max-width: 767px)
         display: none
 
     div.col-2
+      +desktop-large
+        text-align: left
       @media only screen and (max-width: 767px)
         display: none
+
 
     div.col-3
       +desktop
@@ -1352,6 +1395,10 @@
 .calculation-order
   padding: 85px 0 100px 
   background-color: #ffffff
+  .page-title
+    margin-bottom: 60px
+    +tablet
+      margin-bottom: 30px
 
 .calculation-form
   margin-bottom: 65px
@@ -1363,6 +1410,8 @@
 
   .btn 
     font-size: 14px
+    max-width: 310px 
+    width: 100%
 
 .calculation-caption
   display: flex
@@ -1375,7 +1424,7 @@
     text-align: center
 
   .text-1
-    max-width: 300px
+    max-width: 400px
     +desktop
       max-width: 300px
     +tablet
@@ -1501,12 +1550,11 @@
 .offer-list
   display: flex
   flex-wrap: wrap
-  justify-content: space-between
   margin-top: 74px
   margin-bottom: 48px
   margin-right: -15px 
   margin-left: -15px
-  justify-content: space-around
+  justify-content: center
 
 
 .offer-card
@@ -1613,9 +1661,11 @@
     min-height: 55px
     margin-bottom: 5px
 
-  span[class^="icon"]
+  span[class^="icon"], img
     display: block
     margin: 0 auto 50px
+
+
 
   .icon-1
     +sprite($payment-icon-1)
@@ -1757,6 +1807,7 @@
 
   .brands-list
     list-style: none
+    margin-bottom: 0
     li 
       margin-bottom: 8px
     a 
@@ -1765,6 +1816,7 @@
 
     a.color-light-grey
       color: #9c9c9c
+    
 
 .producers-filter
   display: flex
@@ -1775,12 +1827,13 @@
   margin-right: -25px 
   margin-left: -25px
   @media only screen and (max-width: 767px)
-    margin-right: -15px 
-    margin-left: -15px
+    margin-right: -10px 
+    margin-left: -10px
   .submit-btn
     background: none
     border: none
     color: #555555
+    padding: 0
     &:hover, &:focus
       outline: none
       text-decoration: underline
@@ -1799,8 +1852,8 @@
   display: flex
   flex-wrap: wrap
   +tablet
-    margin-right: -25px 
-    margin-left: -25px
+    margin-right: -10px 
+    margin-left: -10px
     margin-bottom: 15px
   li 
     +tablet
@@ -1809,27 +1862,39 @@
       margin: 0 10px 
   .producer-item 
     flex-basis: 230px
+    margin-bottom: 0
+    +desktop
+      max-width: 246px
+    +mobile
+      max-width: 100%
 
 
 .producer-item
   flex: 1 2 280px 
-  padding: 0 25px 
+  padding: 0 10px 
   margin-bottom: 20px
-  @media only screen and (max-width: 767px)
-    padding: 0 15px
+  +tablet
+    padding: 0 10px
 
 .producer-item-submit
-  flex: 0 2 200px
+  text-align: right
+  +desktop-large
+    text-align: center
+  +tablet
+    text-align: left
 
 .brand-images
+  font-size: 0
   +desktop
     text-align: center
 
 .brand-details
+  margin-bottom: 100px
   margin-top: 65px 
   display: flex
   flex-wrap: wrap
-  margin-bottom: 100px
+  +desktop
+    margin: 60px 0
   +tablet
     flex-direction: column
 
@@ -1860,7 +1925,7 @@
   flex-wrap: wrap
   justify-content: space-between
   a 
-    margin: 5px
+    margin: 0 15px 30px 0
     display: inline-block
 
 
@@ -2019,9 +2084,25 @@
   &:hover, &:active
     +sprite($play-btn-hover)
 
+.images-blog
+  margin-right: 20px
+  margin-top: 6px
+  +desktop-large
+    width: 50%
+  +desktop
+    margin-bottom: 30px
+  @media only screen and (max-width: 767px)
+    width: 100%
 
 .image-block
   margin-bottom: 20px
+  height: 300px
+  overflow: hidden
+  img 
+    max-width: initial
+    position: relative
+    left: 50%
+    margin-left: -600px
 
 .quote
   background-color: #f8f8f8
@@ -2430,6 +2511,7 @@
 .mm-navbar
   border: none
   padding: 0 20px 0 30px
+  height: 60px
   +mobile
     padding: 0 20px 0 20px
 
@@ -2453,6 +2535,12 @@
 
 .mm-menu>.mm-navbar
   border-top: 1px solid rgba(144, 144, 144, 0.64)
+  margin: 0 20px 0 30px
+  +mobile
+    margin: 0 20px 0 20px
+
+.mm-navbar .mm-btn:first-child
+  left: 10px
 
 .mm-menu .mm-btn:after, .mm-menu .mm-btn:before, .mm-menu .mm-listview>li .mm-next:after
   border-color: #999
@@ -2469,6 +2557,17 @@
 .mm-menu .mm-navbar a, .mm-menu .mm-navbar>*
   color: #222222
   opacity: 1
+
+.fa-envelope-o
+  text-align: right
+
+.fa-phone
+  text-align: left
+
+.mm-navbar>* 
+  display: block
+  padding: 23px 20px
+  
 
 .mm-navbar-bottom
   padding: 13px 0 7px
@@ -2559,3 +2658,6 @@
     color: #9c9c9c
     font-weight: 300
     margin: 30px auto 0
+
+.btn-more
+  width: auto!important

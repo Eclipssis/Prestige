@@ -7,15 +7,7 @@ header.header
         .header-contacts__adress Суздальская, 10
         .header-contacts__phone 8 (4012) 58-25-03
   
-      .logo
-        a(href="index.html")
-          img(src="images/logo.png", alt="logo")
-
-      .controls
-        a(href="#!").controls__item.phone-icon
-        a(href="mailto:name@email.com").controls__item.mail-icon
-        a(href="#!" data-toggle="popover").controls__item.cart-icon
-          span.controls__counter 2
+      
 
       a.menu-toggle(href="#menu")
         span.sr-only Toggle navigation
@@ -23,7 +15,17 @@ header.header
         span.icon-bar
         span.icon-bar
 
+      .controls
+        a(href="#!").controls__item.phone-icon
+        a(href="mailto:name@email.com").controls__item.mail-icon
+        a(href="#!" data-toggle="popover").controls__item.cart-icon
+          span.controls__counter 2
 
+      .logo
+        a(href="index.html")
+          img(src="images/logo.png", alt="logo")
+
+    
       .popover-wrapper#popover-cart
         .cart-items
           .cart-item
@@ -83,126 +85,127 @@ header.header
 
       #header-navbar.collapse.navbar-collapse
 
-        .dropdown-big
-          .container-fluid
-            .row
-              .col-sm-2
-                .dropdown-category
-                  .caterogy-title Тип помещения
-                  ul.dropdown-submenu
-                    li
-                      a(href='#') Гостиная
-                    li
-                      a(href='#') Столовая / Кухня
-                    li
-                      a(href='#') Спальня
-                    li
-                      a(href='#') Детская / Подростковая
-                    li
-                      a(href='#') Прихожая
-                    li
-                      a(href='#') Кабинет
-                    li
-                      a(href='#') Мебель для Ванной
-                    li
-                      a(href='#') Гардеробная
-              .col-sm-8
-                .dropdown-category
-                  .caterogy-title Тип мебели
-                  ul.dropdown-submenu
-                    li
-                      a(href='#') Диваны
-                    li
-                      a(href='#').color-grey Угловые диваны
-                    li
-                      a(href='#').color-grey Прямые диваны
-                    li
-                      a(href='#').color-grey Модульные диваны
-                    li
-                      a(href='#').color-grey Кресла
-                    li
-                      a(href='#').color-grey Пуфы и банкетки 
-                    
-
-                  ul.dropdown-submenu.dobule-submenu
-                    li
-                      a(href='#') Корпусная мебель
-                    li
-                      a(href='#').color-grey Витрины
-                    li
-                      a(href='#').color-grey ТВ тумбы
-                    li
-                      a(href='#').color-grey Буфеты
-                    li
-                      a(href='#').color-grey Комоды гостиной
-                    li
-                      a(href='#').color-grey Журнальные столики
-                    li
-                      a(href='#').color-grey Кровати
-                    li
-                      a(href='#').color-grey Матрасы
-                    li
-                      a(href='#').color-grey Прикроватные тумбы
-                    li
-                      a(href='#').color-grey Комоды для спальни
-                    li
-                      a(href="#").color-grey Шкафы
-                    li
-                      a(href="#").color-grey Туалетные столики
-                    li
-                      a(href="#").color-grey Стеллажи
-                    li
-                      a(href="#").color-grey Письменные столы
-                    li
-                      a(href="#").color-grey Обувницы
-                    li
-                      a(href="#").color-grey Вешалки
-                    li
-                      a(href="#").color-grey Консоли
-
-                  ul.dropdown-submenu
-                    li
-                      a(href='#') Столы и стулья
-                    li
-                      a(href='#').color-grey Столы
-                    li
-                      a(href='#').color-grey Стулья
-                    li
-                      a(href='#') Предметы интерьера
-                    li
-                      a(href='#').color-grey Зеркала
-                    li
-                      a(href='#').color-grey Лампы
-                    li
-                      a(href='#').color-grey Картины
-                    li
-                      a(href='#').color-grey Ковры
-                    li
-                      a(href='#').color-grey Декор
-                    li
-                      a(href='#') Мебель из ротанга
-              .col-sm-2
-                .dropdown-category
-                  .caterogy-title Стиль мебели
-                  ul.dropdown-submenu
-                    li
-                      a(href='#') Ар деко
-                    li
-                      a(href='#') Классика
-                    li
-                      a(href='#') Прованс
-                    li
-                      a(href='#') Современный
-                    li
-                      a(href='#') Модерн
-                    li
-                      a(href='#') Неоклассика
-                    li
-                      a(href='#') Лофт
 
         ul.nav.navbar-nav
           li.active.dropdown-big-btn
-            a.dropdown-toggle.js-dropdown(href='catalog.html', data-toggle='dropdown') Каталог        
+            a.dropdown-toggle.js-dropdown(href='catalog.html') Каталог
+            .dropdown-big
+              .container-fluid
+                .row
+                  .col-md-3.col-lg-2
+                    .dropdown-category
+                      .caterogy-title Тип помещения
+                      ul.dropdown-submenu
+                        li
+                          a(href='#') Гостиная
+                        li
+                          a(href='#') Столовая / Кухня
+                        li
+                          a(href='#') Спальня
+                        li
+                          a(href='#') Детская / Подростковая
+                        li
+                          a(href='#') Прихожая
+                        li
+                          a(href='#') Кабинет
+                        li
+                          a(href='#') Мебель для Ванной
+                        li
+                          a(href='#') Гардеробная
+                  .col-md-9.col-lg-8
+                    .dropdown-category
+                      .caterogy-title Тип мебели
+                      ul.dropdown-submenu
+                        li
+                          a(href='#') Диваны
+                        li
+                          a(href='#').color-grey Угловые диваны
+                        li
+                          a(href='#').color-grey Прямые диваны
+                        li
+                          a(href='#').color-grey Модульные диваны
+                        li
+                          a(href='#').color-grey Кресла
+                        li
+                          a(href='#').color-grey Пуфы и банкетки 
+                        
+
+                      ul.dropdown-submenu.dobule-submenu
+                        li
+                          a(href='#') Корпусная мебель
+                        li
+                          a(href='#').color-grey Витрины
+                        li
+                          a(href='#').color-grey ТВ тумбы
+                        li
+                          a(href='#').color-grey Буфеты
+                        li
+                          a(href='#').color-grey Комоды гостиной
+                        li
+                          a(href='#').color-grey Журнальные столики
+                        li
+                          a(href='#').color-grey Кровати
+                        li
+                          a(href='#').color-grey Матрасы
+                        li
+                          a(href='#').color-grey Прикроватные тумбы
+                        li
+                          a(href='#').color-grey Комоды для спальни
+                        li
+                          a(href="#").color-grey Шкафы
+                        li
+                          a(href="#").color-grey Туалетные столики
+                        li
+                          a(href="#").color-grey Стеллажи
+                        li
+                          a(href="#").color-grey Письменные столы
+                        li
+                          a(href="#").color-grey Обувницы
+                        li
+                          a(href="#").color-grey Вешалки
+                        li
+                          a(href="#").color-grey Консоли
+
+                      ul.dropdown-submenu
+                        li
+                          a(href='#') Столы и стулья
+                        li
+                          a(href='#').color-grey Столы
+                        li
+                          a(href='#').color-grey Стулья
+                        li
+                          a(href='#') Предметы интерьера
+                        li
+                          a(href='#').color-grey Зеркала
+                        li
+                          a(href='#').color-grey Лампы
+                        li
+                          a(href='#').color-grey Картины
+                        li
+                          a(href='#').color-grey Ковры
+                        li
+                          a(href='#').color-grey Декор
+                        li
+                          a(href='#') Мебель из ротанга
+                  .col-sm-2
+                    .dropdown-category
+                      .caterogy-title Стиль мебели
+                      ul.dropdown-submenu
+                        li
+                          a(href='#') Ар деко
+                        li
+                          a(href='#') Классика
+                        li
+                          a(href='#') Прованс
+                        li
+                          a(href='#') Современный
+                        li
+                          a(href='#') Модерн
+                        li
+                          a(href='#') Неоклассика
+                        li
+                          a(href='#') Лофт
+
           li
             a(href='producer.html') Производители
           li

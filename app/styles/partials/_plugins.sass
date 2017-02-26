@@ -12,7 +12,7 @@
       max-width: initial
       position: relative
       left: 50%
-      margin-left: -800px
+      margin-left: -960px
       +tablet
         height: calc(100vh - 92px)
         min-height: initial
@@ -65,6 +65,8 @@
     background-color: #000000
     font: 40px/1.1em 'Bodoni-Bold', Arial, sans-serif
     color: #ffffff
+    +tablet
+      font-size: 36px
     +mobile
       font-size: 30px
   &__item + &__item &__line
@@ -105,18 +107,36 @@
 
 .modal
   text-align: center
+  +mobile
+    padding: 10px!important
 
 .modal-dialog
   width: auto
   display: inline-block
   min-width: 280px
+  margin: 30px auto
+
+  
+
+  +mobile
+    margin: 0
+
+.modal.fade .modal-dialog
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -60%)
+  +tablet
+    position: static
+    transform: none
 
 
 .modal-product-add
-  max-width: 520px 
+  max-width: 530px 
   width: 100%
   .btn 
     margin: 0 10px 10px
+    font-size: 16px
   .modal-message
     max-width: 215px
 
@@ -137,6 +157,9 @@
 .modal-title
   font-size: 18px
   padding-left: 25px
+  padding-right: 15px 
+  +mobile
+    padding-left: 15px
 
 button.close
   opacity: 0.7
@@ -434,7 +457,7 @@ html[xmlns] .slides
   &__trigger-arrow
     position: absolute
     top: 50%
-    right: 10px
+    right: 0
     margin-top: -1px
     margin-left: -6.5px
     overflow: hidden
@@ -459,6 +482,7 @@ html[xmlns] .slides
 
   &__search
     margin: 5px
+    display: none
     input
       -moz-box-sizing: border-box
       box-sizing: border-box
@@ -1688,7 +1712,7 @@ a.sp-video
   a + .mCSB_draggerContainer
     margin: 20px 0
   .mCSB_draggerRail
-    width: 2px
+    width: 1px
     height: 100%
     margin: 0 auto
     -webkit-border-radius: 16px
@@ -1704,12 +1728,10 @@ a.sp-video
     .mCSB_dragger_bar
       /* the dragger element*/
       position: relative
-      width: 4px
+      width: 3px
       height: 100%
       margin: 0 auto
-      -webkit-border-radius: 16px
-      -moz-border-radius: 16px
-      border-radius: 16px
+      border-radius: 0
       text-align: center
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand

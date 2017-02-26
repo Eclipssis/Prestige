@@ -21,8 +21,16 @@ html, body
   min-height: 100%
   min-width: 320px
 
+
+
 .container
   padding: 0 15px
+
+.middle.leaf
+  background-image: url('../images/leaf-left.png')
+  background-repeat: no-repeat
+  background-position: 200px 80%
+  background-size: 100%
 
 .middle.sticky 
   padding-top: 158px
@@ -115,8 +123,17 @@ html, body
     margin-top: 0
   .controls
     margin-top: 17px
+    .cart-icon
+      margin: 0
+
   .controls--sticky, .logo-hidden
     display: block
+
+  +desktop-large
+    .dropdown-big
+      left: -125px
+      &:before
+        left: 140px
 
   .menu-toggle
     float: right
@@ -135,7 +152,8 @@ html, body
       position: absolute
       width: 100%
       +tablet
-        padding: 0 15px
+        padding: 0 10px
+        margin: 0
         position: static
         width: 100%
 
@@ -153,11 +171,18 @@ html, body
   justify-content: space-between
   align-items: center
   flex-wrap: wrap
+  +desktop
+    display: block
+  +mobile
+    display: block
 
 .logo
   width: 150px
-  +mobile
+  +desktop
+    margin: 0 auto
+  @media only screen and (max-width: 580px)
     width: 130px
+    float: left
 
 .logo-hidden
   margin: 15px auto 0
@@ -181,7 +206,10 @@ html, body
     display: none
 
 .header-contacts
-  +mobile
+  +desktop
+    float: left
+    margin-top: 5px
+  @media only screen and (max-width: 580px)
     display: none
 
   &__adress
@@ -196,8 +224,14 @@ html, body
 .controls
   margin-bottom: 5px
   order: 1
+  +desktop-large
+    order: 1
   +desktop
-    order: 0
+    float: right
+    margin-top: 17px
+  @media only screen and (max-width: 580px)
+    float: right
+    margin-top: 12px
 
   &--sticky
     display: none
@@ -247,10 +281,18 @@ html, body
 .menu-toggle
   display: none
   margin: 0 5px 0 0
+  order: 10
   +desktop
     display: block
-  +mobile
+    float: right
+    margin-top: 22px
+    margin-left: 30px
+  @media only screen and (max-width: 580px)
     margin: 0
+    float: right
+    margin-top: 18px
+    margin-right: 10px
+    margin-left: 20px
 
   &:hover, &:focus
     border: none
@@ -281,11 +323,20 @@ html, body
   #header-navbar
     padding: 0
 
+
+
   .navbar-nav
     float: none
     text-align: center
     +desktop
       display: none
+
+    > li.dropdown-big-btn:hover .dropdown-big
+      display: block
+    
+    > li.dropdown
+      &:hover .dropdown-menu
+        display: block
 
     > li 
       display: inline-block
@@ -315,6 +366,7 @@ html, body
         font-size: 16px
         padding: 20px 0
         font-weight: 300
+
   
   .dropdown-menu.animate-hover
     > li 
@@ -372,9 +424,11 @@ html, body
   position: absolute
   z-index: 10
   width: 100%
-  padding: 35px 40px 15px 40px
+  padding: 35px 20px 15px 20px
   border: 1px solid #e2e2e2
   text-align: left
+  min-width: 1200px 
+  left: -182px
 
   background-color: #ffffff
   background-image: url('../images/leaf-right.png'), url('../images/leaf-left.png')
@@ -383,12 +437,18 @@ html, body
   &:before
     position: absolute
     bottom: 100%
-    left: 182px
+    left: 200px
     content: ' '
     width: 21px
     height: 12px
     background: url('../images/dropdown-corner-arrow.png') 0 0 no-repeat 
+    +desktop-large
+      left: 70px
 
+  +desktop-large
+    padding: 30px 20px
+    min-width: 940px
+    left: -55px
 
   ul, ol 
     list-style: none
@@ -401,11 +461,14 @@ html, body
     margin-bottom: 25px
 
   .dropdown-category
-    margin-right: 20px
     vertical-align: top
+    +desktop-large
+      margin-right: 0
 
   .dropdown-submenu + .dropdown-submenu
     margin-left: 55px  
+    +desktop-large
+      margin-left: 25px
 
   .dropdown-submenu:last-child 
     margin-left: 0
@@ -424,9 +487,14 @@ html, body
 
   .dobule-submenu
     max-width: 384px
+    +desktop-large
+      max-width: 350px
+
     > li 
       display: inline-block
       min-width: 185px
+      +desktop-large
+        min-width: 160px
 
 /*----------- Footer *
  ------------------------------------------------------------*/
@@ -495,6 +563,7 @@ html, body
 
   .btn 
     margin-right: 35px
+    font-size: 16px
     +desktop-large
       margin-right: 0
     +desktop
@@ -636,10 +705,12 @@ html, body
   margin-bottom: 25px
   +desktop
     max-width: 100%
+    margin-bottom: 60px
   @media only screen and (max-width: 767px)
     padding-left: 25px
   +mobile
     padding-left: 0
+    margin-bottom: 25px
 
   > li
     min-width: 150px
@@ -724,7 +795,8 @@ html, body
   .logo 
     width: 115px
     +desktop
-      margin-right: 20px
+      margin-right: 10px
+      margin-left: 10px
     +tablet
       order: -1
     +mobile
